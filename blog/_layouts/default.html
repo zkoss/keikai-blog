@@ -68,9 +68,11 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="https://quire.io/s/css/lato-2.010.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://quire.io/s/css/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://quire.io/s/css/blog.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2|Lato">
+
+    <link rel="stylesheet" type="text/css" href="{{'/css/bootstrap/bootstrap.min.css' | prepend: site.baseurl | prepend: site.url}}" />
+    <link rel="stylesheet" type="text/css" href="{{'/css/blog.min.css' | prepend: site.baseurl | prepend: site.url}}" />
   </head>
 
   <body data-init="blog">
@@ -105,8 +107,21 @@
     </div>
     
     <script src="https://quire.io/s/js/jquery-1.10.2.min.js"></script>
+    <script async>
+      $('#side-menu-toggle').click(function() {
+        $('#wrap').toggleClass('menu-open');
+      });
+      $('#header-wrapper').addClass('qr-collapse-navbar');
+      $('#header #menu-toggle').click(function() {
+        $(this).toggleClass('open');
+        $('#header nav').toggleClass('in');
+        
+      });
+    </script>
+<!--
     <script async src="https://quire.io/s/js/pack.min.js"></script>
     <script async src="https://quire.io/s/js/blog.min.js"></script>
+-->
   </body>
 
 </html>
