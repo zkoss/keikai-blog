@@ -1,0 +1,57 @@
+<div id="quire-logo" class="navbar-header">
+  <button id="menu-toggle" class="navbar-toggle x30 cmn-toggle-switch htx" type="button">
+    <span>toggle menu</span>
+  </button>
+  <h1 class="quire-logo-icon">
+    <em>
+      <!-- <a id="home" href="[= currentUser != null ? '/w': '/']" title="Quire"> -->
+      <a id="home" href="/" title="Quire">
+        <!-- <img src="[=connect.server.uriVersionPrefix]/s/img/website/logo_grey.svg" alt="Quire"> -->
+        <img src="/s/img/website/logo_grey.svg" alt="Quire">
+      </a>
+    </em>
+  </h1>
+</div>
+<nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation">
+  <ul id="header-icons" class="nav navbar-nav navbar-right hide">
+    
+      <li class="item blog active">
+        <a href="/blog" onclick="gapg({'page':'/blog','title':'Blog'})">Blog</a>
+      </li>
+
+
+      <li class="item login">
+          <a href="/login?continue={{page.url | prepend: site.baseurl | prepend: site.url}}">Log in</a>
+      </li>
+      <li class="item start-free">
+        <a href="/signup" class="start-free-btn b green" >GET STARTED - It's FREE!</a>
+      </li>
+
+
+      <li class="item invite">
+          <a href="/invite">Invite</a>
+      </li>
+      <li class="item feedback">
+          <a href="/feedback">Feedback</a>
+      </li>
+      <li class="item t-user dropdown" id="u-id">
+        <a href="#" class="i-btn user-icon-wrapper dropdown-toggle" data-toggle="dropdown">
+          <!-- <img class="img-icon x30 circle" src="https://quire.s3.amazonaws.com/BI613BWUDag2wydvYxm5vWlk/image.jpg?1441693943103" alt="A"> -->
+          <!-- <div class="img-icon x30 circle iconc-31">A</div> -->
+        </a>
+        <ul class="arrow-dropdown-menu dropdown-menu pull-right arrow-border">
+          <li class="dropdown-header"></li>
+
+          <li class="u-item"><a href="[:url currentUser]"><i class="icon-user-o"></i>My Profile</a></li>
+          <li class="u-item"><a href="/r/setting?tab=options"><i class="icon-cog-o"></i>Account Settings</a></li>
+
+          <li class="divider"></li>
+
+          <li class="u-item"><a href="/invite"><i class="icon-heart-o"></i>Recommend Quire</a></li>
+
+          <li class="divider"></li>
+          <li class="u-item"><a href="/r/logout"><i class="icon-sign-out"></i>Log out</a></li>
+        </ul>
+      </li>
+  </ul>
+</nav>

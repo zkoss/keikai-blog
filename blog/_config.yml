@@ -1,0 +1,27 @@
+# Site settings
+name: "Keikai & You"
+title: "Keikai & You"
+email: feedback@keikai.io
+description: "A Keikai tool for Keikai."
+baseurl: "/blog" # the subpath of your site, e.g. /blog/
+# url: "http://localhost:4000" # the base hostname & protocol for your site
+url: "https://keikai.io" # the base hostname & protocol for your site
+#twitter_username: jekyllrb
+#github_username:  jekyll
+
+permalink: '/p/:title.html'
+paginate: 7
+paginate_path: "/pages/page:num/"
+
+# Build settings
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "strikethrough", "superscript", "with_toc_data"]
+
+category_archive: {
+	path: category
+}
+
+twitter_account: 'keikai_io'
+locale:         en_us
+icon: "/s/img/favicon.ico"

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- meta tag for social website: facebook -->
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}">
+    <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="og:image" content="{% if page.image %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% else %}{{ site.icon }}{% endif %}">
+    <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:locale" content="{{ site.locale }}">
+    {% if page.date %}
+      <meta property="article:modified_time" content="{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}">
+      <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+      <meta property="article:author" content="https://www.facebook.com/{{ site.author.facebook }}">
+      {% for post in site.related_posts limit:3 %}
+        <meta property="og:see_also" content="{{ post.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+      {% endfor %}
+    {% endif %}
+
+    {% if page.categories %}
+      {% for category in page.categories limit:1 %}
+      <meta property="article:section" content="{{ category }}">
+      {% endfor %}
+    {% endif %}
+
+    {% if page.tags %}
+      {% for tag in page.tags %}
+      <meta property="article:tag" content="{{ tag }}">
+      {% endfor %}
+    {% endif %}
+
+    <!-- meta tag for social website: twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:image" content="{% if page.image %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% else %}{{ site.icon }}{% endif %}">
+    <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+    <!-- meta tag for social website: search engine -->
+    {% if page.robots %}
+      <meta name="robots" content="{{ page.robots }}">
+    {% endif %}
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    {% if page.next.url %}
+      <link rel="next" href="{{ page.next.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" title="{{ page.next.title }}">
+    {% endif %}
+
+    {% if page.previous.url %}
+      <link rel="prev" href="{{ page.previous.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" title="{{ page.previous.title }}">
+    {% endif %}
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta charset="utf-8" />
+
+    <!-- <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}"> -->
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="https://quire.io/s/css/lato-2.010.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://quire.io/s/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://quire.io/s/css/blog.css" />
+  </head>
+
+  <body data-init="blog">
+    <div id="wrap">
+      <header id="header-wrapper" role="banner" 
+        class="header-wrap navbar navbar-default navbar-fixed-top">
+        <div id="header" class="container">
+          {% include header.html %}
+        </div>
+        <div id="side-menu-toggle"></div>
+        <div id="side-menu">
+          <a class="{% if page.category == null and page.categories == null %}active{% endif %}" href="{{ site.baseurl | append: '/'}}">ALL</a>
+          {% for c in site.categories %}
+            {% assign cName = c | first | downcase %} 
+            {% assign c1 = page.category | downcase %} {%comment%} for category page {%endcomment%}
+            {% assign c2 = page.categories | first | downcase %} {%comment%} for post page {%endcomment%}
+            <a class="{% if cName == c1 or cName == c2 %}active{% endif %}" 
+              href="{{ cName | prepend: "/category/" | prepend: site.baseurl }}">{{ c | first | upcase }}</a>
+          {% endfor %}
+        </div>
+      </header>
+
+      <div id="body" class="container">
+        {{ content }}
+      </div>
+
+      <footer class="footer-wrap navbar navbar-default">
+        <div id="footer" class="container">
+          {% include footer.html %}
+        </div>
+      </footer>
+    </div>
+    
+    <script src="https://quire.io/s/js/jquery-1.10.2.min.js"></script>
+    <script async src="https://quire.io/s/js/pack.min.js"></script>
+    <script async src="https://quire.io/s/js/blog.min.js"></script>
+  </body>
+
+</html>

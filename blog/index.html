@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div id="post-list">
+
+  <div class="banner">
+    <h1>Quire & You</h1>
+    <h4>Unfold Your Ideas</h4>
+  </div>
+
+  <ul class="posts">
+    {% for post in paginator.posts %}
+      {% assign postUrl = post.url | prepend: site.baseurl %}
+      <li class="post">
+        <a href="{{ postUrl }}" class="featured-img" style="background-image: url({{ post.image | prepend: "/images/" | prepend: site.baseurl }})"></a>
+
+        <div class="post-meta">
+          <div class="left-meta">
+            <h5 class="category">{{ post.categories[0] }}</h5>
+            <a href="{{ postUrl }}" class="title">{{ post.title }}</a>
+            <h5 class="author">
+              POSTED BY {{ post.author }} · {{ post.date | date: "%b %-d, %Y" }}
+            </h5>
+          </div>
+          <div class="right-meta">
+            {{post.index-intro}}
+            <a class="more" href="{{ postUrl }}">continue reading</a>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+    {% endfor %}
+      <li class="pagination">
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl}}" class="newer">OLDER POSTS</a>
+        {% endif %}
+
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl}}" class="older">NEWER POSTS</a>
+        {% endif %}
+      </li>
+  </ul> 
+</div>

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div id="category">
+	<div class="post">
+		<h2>CATEGORY</h2>
+		<h1>{{ page.category }}</h1>
+		<span class="clearfix"></span>
+	</div>
+	{% for p in site.categories[page.category] %}
+    <a href="{{ p.url | prepend: site.baseurl }}" class="post">
+    	<div class="img" style="background-image: url('{{ p.image | prepend: "/images/" | prepend: site.baseurl }}');"></div>
+      <h5>
+        POSTED BY {{ p.author }} · {{ p.date | date: "%b %-d, %Y" }}
+      </h5>
+      <h3>{{ p.title }}</h3>
+      <h5>{{ p.category-intro }}</h5>
+    </a>
+  {% endfor %}
+  <span class="clearfix"></span>
+</div>
