@@ -1,0 +1,485 @@
+//Copyright (C) 2013 Potix Corporation. All Rights Reserved.
+// @import "bootstrap/bootstrap.css";
+@import (less) "../bootstrap/grid.css";
+@import "_icons.less";
+/* general */
+body, input, button, select, textarea,
+h1, h2, h3, h4, h5, h6, .fa * {
+  font-family: @body-font;
+}
+
+body {
+	font-size: @body-font-size;
+	color: @text-color;
+	font-weight: 300;
+	background-color: @body-bg-color;
+}
+
+.header-wrap, .footer-wrap {
+	.box-sizing(border-box);
+	width: 100%;
+
+	.container {
+		height: 100%;
+		width: 100%;// new design, no fixed width
+		padding: 0 95px;
+	}
+
+	margin: 0;
+	border: none;
+	border-radius: 0px;
+}
+
+@media (max-width: @screen-md-max) {//less then 1160
+	.header-wrap, .footer-wrap {
+		.container {
+			padding: 0 30px;
+		}
+	}
+}
+
+@media (max-width: @screen-xxs-max) {//320
+	.header-wrap, .footer-wrap {
+		.container {
+			padding: 0 10px;
+		}
+	}
+}
+
+.header-wrap {
+	min-height: @header-height;
+	height: @header-height;
+	background-color: @header-bg-color;
+	//box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.footer-wrap {
+	//min-height: @footer-height;
+	height: auto;
+	//background-color: @footer-bg-color;
+	background-color: transparent;
+	padding: 24px 0 8px;
+}
+
+#wrap {
+  .box-sizing(border-box);
+  height: 100%;
+}
+
+#header {
+
+	#quire-logo {
+		#home {
+			//display: inline-block;
+		}
+
+		.quire-logo-icon {
+			position: relative;
+			display: inline-block;
+		}
+	}
+
+	> .navbar-collapse {
+		padding: 0;
+
+		> .navbar-nav,
+		> .navbar-form {
+			margin: 0;
+		}
+	}
+}
+
+#footer {
+
+	.item {
+		//font-size: 12px;
+		> a {
+			font-weight: 400;
+			margin: 7px 13px;
+		}
+
+		&:first-child {
+			> a {
+				margin-left: 0 !important;
+			}
+		}
+	}
+
+	#footer-txt {
+		padding: 0;
+
+		.copy-right {
+			margin-top: 16px;
+			margin-bottom: 16px;
+			font-weight: 400;
+			font-size: 12px;
+			&, * {
+				color: @lighter-text-color;
+			}
+			a:hover {
+				color: @link-text-color;
+			}
+		}
+	}
+
+	.sns-btn {
+		> a {
+			background-size: 28px;
+			margin: 0px 18px;
+		}
+	}
+
+	.twitter-icon {
+		.icon-svg('website/icon_twitter');
+	}
+
+	.facebook-icon {
+		.icon-svg('website/icon_facebook');
+	}
+
+	.google-plus-icon {
+		.icon-svg('website/icon_googleplus');
+	}
+
+	.linkedin-icon {
+		.icon-svg('website/icon_linkedin');
+	}
+}
+
+.btn, a, button {
+	&,
+	&:focus {
+		outline: none;
+	}
+}
+
+a {
+	color: @link-text-color;
+	cursor: pointer;
+
+	.no-touch({
+		&:hover,
+		&:focus {
+			color: @link-text-hover-color;
+			text-decoration: none;
+		}
+	});
+
+	&.disabled {
+	color: @text-color;
+	text-decoration: none;
+	cursor: default;
+	}
+
+	&.i-btn {
+	color: @icon-color;
+	.no-touch({
+		&:hover,
+		&:focus {
+			color: @icon-hover-color;
+		}
+	});
+	}
+
+	&.b {
+		&.green {
+			.no-touch({
+				&:hover,
+				&:focus {
+					color: @button-green-text-color;
+					text-decoration: none;
+				}
+			});
+		}
+	}
+}
+
+a.me { /* #1809: mention me */
+	color: @link-hitext-color;
+
+	.no-touch({
+		&:hover {
+			color: @link-hitext-hover-color;
+		}
+	});
+
+  &.disabled {
+	color: @text-color;
+  }
+}
+
+/* general */
+input,
+textarea,
+.form-control {
+	outline: none;
+	color: @input-text-color;
+	font-weight: 400;
+	border: 1px solid @border-color;
+	.placeholder(@placeholder-text-color);
+
+	&:focus {
+		.editor-focus-style;
+	}
+
+	&.disabled,
+	&[disabled] {
+		pointer-events: none;
+		color: @disabled-text-color;
+		background-color: @light-grey-bg-color;
+		border-color: @border-color;
+	}
+}
+.has-error .form-control {
+	&, &:focus {
+		border-color: @input-error-border-color !important;
+	}
+}
+input[type='checkbox'] {
+	&:focus {
+		outline-color: @border-focus-color;
+	}
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+strong {
+	//font-weight: 500;
+	font-weight: bold;//#6226
+}
+
+code, pre {
+	background-color: @code-bg-color;
+	border-color: @border-color;
+}
+
+code {
+	font-size: 13px;
+	border: 1px solid @border-color;
+	color: @text-color;
+	padding: 0;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+
+	&:before, &:after {
+		letter-spacing: -0.2em;
+		content: "\00a0";
+	}
+}
+
+.hljs {
+	//override white background
+	background-color: transparent !important;
+	border: none;
+}
+
+pre {
+	code {
+		&:before, &:after {
+			content: none;
+		}
+	}
+}
+
+p + blockquote {
+	margin-top: -10px;
+}
+
+blockquote {
+	padding: 8px 13px;
+	margin: 0px 0px 10px 0px;
+	font-size: @body-font-size;
+	color: #838383;
+}
+
+.text-overflow {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.text-overflow-nowrap {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.title-msg {
+	height: 26px;
+	line-height: 26px;
+	padding: 2px 12px;
+
+	color: @light-text-color;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	.transition-delay(1s);
+	cursor: default;
+	&.in {
+		.transition-delay(0s);
+	}
+}
+
+
+// no connect message
+.no-connect-cnt {
+	display: none;
+	margin: 13px 5px;
+	color: @lighter-text-color;
+
+	> * {
+		display: inline-block;
+		font-style: normal;
+		font-size: 12px !important;
+	}
+
+	.msg-icon {
+		color: @yellow-f8 !important;
+	}
+
+	&.v-middle {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		left: 0;
+		margin: -40px 0 0 0; 
+	}
+}
+
+.message-panel {
+	color: @light-text-color;
+	font-style: italic;
+	text-align: center;
+	font-weight: 400;
+
+	.msg-icon {
+		&,
+		&:hover {
+			color: @light-text-color; 
+		}
+		font-size: @message-view-icon-size;
+	}
+
+	.msg-title {
+		font-size: @message-view-title-size;
+	}
+
+	.msg-desc {
+		font-size: @message-view-desc-size
+	}
+
+	&.msg-lg {
+		.msg-icon {
+			font-size: @message-view-icon-lg-size;
+		}
+
+		.msg-title {
+			font-size: @message-view-title-lg-size;
+		}
+
+		.msg-desc {
+			font-size: @message-view-desc-lg-size
+		}
+	}
+}
+
+
+.color-name(@index, @rules) when (@index < 10) {
+	.iconc-0@{index} {
+		@rules();
+	}
+}
+
+.color-name(@index, @rules) when (@index >= 10) {
+	.iconc-@{index} {
+		@rules();
+	}
+}
+
+// @icon-colors: #6BA817, #80C92B, #F6B509, #FF5D00, #F99100, #F52B04, #B53837, #D92A15, 
+// 			  #0A9B97, #1F9E69, #EFC809, #DE4F14, #EB6718, #E94B83, #EA543C, #911616,
+// 			  #158247, #3FB86F, #B2BE33, #F9885F, #FF7F00, #F20F52, #D72663, #CC0C0C,
+// 			  #60967C, #719EC4, #5E95F4, #BE90D4, #815B87, #E35378, #562E2E, #47475D,
+// 			  #1F4B66, #1E8BC3, #3FB2ED, #A170CF, #9048AF, #9C014D, #676767, #6C7A89,
+// 			  #3F6E9A, #2D9DB9, #4251B1, #644AC6, #501F57, #5C0534, #9D9D9D, #22313F;
+
+// @icon-colors: #FDF19E, #FEF076, #F9E814, #F6C913, #F6A804, #E87D05, #D15414, #B83217, 
+// 			  #FDD564, #F4A072, #F08667, #F299A0, #E86690, #D24331, #C32C38, #F8CBD1, 
+// 			  #77160D, #EAD2E3, #D4C7E3, #A6A5D2, #A08DC2, #B367A6, #551E54, #583552, 
+// 			  #CDEAFA, #BDD0E5, #B0DEF0, #7DC7D2, #65B2D8, #4598B6, #2D607D, #406676, 
+// 			  #C2DDC9, #C7D6A9, #A3BE72, #A0C638, #7A962A, #5C8F30, #3E998A, #3F7975, 
+// 			  #DFDFDF, #C9C1C1, #D2B293, #8B7D74, #766A5D, #A5703F, #5D4037, #414142;
+
+@icon-colors: #FFBD36, #FFB20F, #FF962B, #FA7A35, #F4633A, #E63422, #D22630, #C00D1E,
+			#F88180, #ED6F6C, #E6575C, #EF6079, #E95985, #E9414E, #C2213F, #A4123F,
+			#B07FB5, #917FB5, #838DC8, #707BBD, #936DB7, #B6619E, #775182, #613567,
+			#7EC1AD, #52AFAD, #50BDC0, #62B6CB, #51A2CA, #408DAE, #166886, #0A5468,
+			#A9CB77, #B3CB60, #A8BF58, #78BD70, #4EBD88, #4AA981, #408876, #2F7B65,
+			#BAC5B9, #B5B7B3, #A6A098, #878583, #6F7F73, #5A7665, #586055, #47515A;
+
+
+@ICON_COLOR_ROW_SPAN: 6;
+@ICON_COLOR_COL_SPAN: 8;
+
+
+.color-i-loop (@i) when (@i > 0) {
+  .color-j-loop (@j) when (@j > 0) {
+
+	@color: extract(@icon-colors, @ICON_COLOR_COL_SPAN * (@i - 1) + @j);
+	.color-name((@i - 1) * 10 + @j - 1, {
+		&.bg {
+			background-color: @color;
+		}
+
+		&.cx-bg {
+			background-color: fade(@color, 30%);
+			&:after {
+				background-color: @color;
+			}
+		}
+
+		&.lb {
+			color: @color;
+		}
+
+		&.tag {
+			.tag-css(@color);
+		}
+	});
+
+	.color-j-loop(@j - 1);
+  }
+  .color-j-loop(@ICON_COLOR_COL_SPAN);
+  .color-i-loop(@i - 1);
+}
+.color-i-loop(@ICON_COLOR_ROW_SPAN);//start generate
+
+.iconc-null {
+
+	@color: @lighter-text-color;
+	&.bg {
+		background-color: @color;
+	}
+
+	&.cx-bg {
+		background-color: fade(@color, 30%);
+		&:after {
+			background-color: @color;
+		}
+	}
+
+	&.lb {
+		color: @color;
+	}
+
+	&.tag {
+		.tag-css(@color);
+	}
+}
+
+
+//Used for hidding keywords (used for SEO only)
+div.kwd, div.kwd * {
+	position: absolute; overflow: hidden;
+}

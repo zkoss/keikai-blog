@@ -1,0 +1,132 @@
+// header
+.quire-logo-icon {
+	background: url('/s/img/website/quire_logo.svg') no-repeat transparent 0 15px;
+	background-size: 76px;
+	margin: 0;
+	padding: 15px 0;
+
+	a {
+		display: block;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 76px;
+		height: 26px;
+		text-indent: 150%;
+	}
+	img {
+		display: none;
+	}
+}
+
+#header {
+	#quire-logo {
+		//padding-top: 20px;
+		//padding-left: 1px;
+	}
+
+	#menu-toggle {
+		margin: 10px 0 0;
+		padding: 0;
+		font-size: 24px;
+	}
+	
+	.navbar-nav {
+
+		.start-free {
+			padding: 0;
+			.start-free-btn {
+				letter-spacing: .5px;
+				font-weight: 700;
+				color: @green-text-color;
+				border: 2px solid @green-text-color;
+
+				margin: 10px 0 10px 12px;
+				padding: 7px 9px;
+				line-height: 13px;
+
+				background: none;
+				box-shadow: none;
+
+				&:hover {
+					border-color: @dark-green-text-color;
+					color: @dark-green-text-color;
+				}
+			}
+		}
+	}
+}
+
+.navbar-default .navbar-nav {
+
+	.item {
+		font-size: 14px;
+		color: @light-text-color;
+    	font-weight: @ws-font-weight-regular;
+
+		> a {
+			.hover-text;
+			line-height: 12px;
+
+			margin: 19px 13px;
+			padding: 0;
+		}
+
+		&:last-child {
+			> a {
+				margin-right: 0 !important;
+			}
+		}
+
+		&.open > a {
+			color: @item-active-color;
+		}
+
+		&.active > a {
+			color: @item-active-color;
+			background: none;
+			font-weight: 500;
+		}
+	}
+
+	.t-help {
+ 		.i-btn {
+ 			margin: 10px 0px;
+ 		}
+
+ 		&.open {
+			.icon-question-circle {
+				color: @item-active-color;
+			}
+ 		}
+
+ 		.dropdown-menu {
+			&:before {
+				right: 5px;
+			}
+		}
+ 	}
+
+ 	.t-help,
+	.t-notification,
+	.t-user {
+		> a {
+			margin: 10px 13px;
+			line-height: 30px;
+			background-color: transparent !important;
+		}
+	}
+
+	.t-notification {
+		> a {
+			line-height: 30px;
+		}
+	}
+
+	.dropdown-menu {
+		min-width: 150px;
+
+		.divider {
+			margin: 3px 0;
+		}
+	}
+}

@@ -1,0 +1,300 @@
+.navbar {
+
+	.navbar-nav {
+		> .item > a.i-btn {
+			font-size: 20px;
+		}
+	}
+
+	.t-help {
+		.dropdown-menu {
+			&:after {
+				right: 6px;
+			}
+		}
+	}
+
+	.t-notification {
+		.dropdown-menu {
+		    left: auto;
+			right: -43px;//user icon width
+
+			&:before {
+				right: 61px;
+			}
+
+			&:after {
+				right: 62px;
+			}
+		}
+	}
+
+	.t-user {
+
+		.img-icon {
+			vertical-align: top;
+		}
+
+		.dropdown-menu {
+			margin-right: -1px;
+			min-width: 143px;
+			&:after {
+				right: 7px;
+			}
+		}
+
+		&.open {
+			> a {
+				background-color: transparent !important;
+			}
+		}
+	}
+
+	li.u-item {
+		[class^="icon-"], [class*=" icon-"] {
+			margin-right: 6px;
+		}
+
+		a {
+			padding: 4px 8px;
+		}
+	}
+}
+
+.notification-btn {
+	position: relative;
+	text-decoration: none;
+	outline: none;
+	.user-select(none);
+	
+	.notification-count {
+		position: absolute;
+		left: 15px;
+		top: -1px;
+		display: none;
+
+		padding: 0 2px;
+		min-width: 16px;
+		height: 16px;
+		line-height: 16px;
+
+		font-family: @ws-body-font;
+		font-style: normal;
+		color: #FFF;		
+		font-size: 10px;
+		font-weight: bold;
+
+		background-color: @unread-icon-color;
+		border-radius: 50%;
+		white-space: nowrap;
+	}
+}
+
+a#notification, a#home-noti {
+	overflow: visible;
+}
+
+//notification
+.hasNew .notification-count {
+	display: block;
+}
+
+.t-notification {
+	.dropdown-menu {
+		width: @notification-dropdown-width;
+	}
+
+	.ntf-cnt {
+		max-height: 300px;
+
+		&.loading {
+			&:after {
+				content: '';
+				display: inline-block;
+				position: absolute;
+    			top: -6px;
+
+				background-color: @green-bg-color;
+				border-radius: 1px;
+				width: 50px;
+				height: 2px;
+
+				.animation(notification-loading 1.5s infinite ease-in-out);
+			}
+		}
+	}
+
+	.ntf-list {
+		//min-height: 25px;
+		width: 100%;
+
+		&.no-connect {
+			display: none;
+			~ .no-connect-cnt {
+				display: block;
+			}
+		}
+
+		&:empty + .message-empty {
+			display: block;
+		}
+	}
+
+	.message-empty {
+		display: none;
+		font-size: 13px;
+		color: @light-text-color;
+		text-align: center;
+		line-height: 60px;
+	}
+
+	.scroll-content {
+		overflow: hidden;//for .scroller-buttons
+	}
+
+	.scroller-buttons {
+	    position: absolute;
+	    width: 100%;
+	    text-align: center;
+	    top: 0;
+
+	    margin-top: -55px;
+	    .transition(margin 0.5s);
+
+	    .scroller-btn {
+	    	border-radius: 15px;
+	    	line-height: normal;
+	    	&:after {
+				.font-quire-base;
+				content: '\e9bf'; // icon-circle
+				color: @unread-icon-color;
+				font-size: 9px;
+			    margin-left: 3px;
+			}
+	    }
+	}
+
+	.scroll-hint {
+		.scroller-buttons {
+			margin-top: 0;
+		}
+	}
+
+	.dropdown-header {
+		font-size: 11px;
+	}
+
+	.mk-rd-btn {
+		.hover-icon;
+		padding: 0;
+
+		&:hover,
+		&:focus {
+			background: none;
+		}
+	}
+
+	.notification-item {
+		padding: 8px 12px;
+		border-bottom: 1px solid @menu-border-color;
+		overflow: hidden;
+
+		cursor: pointer;
+		opacity: .8;
+		background-color: @new-notification-bg-color;
+		
+		&, &.old {
+			&:hover {
+				background-color: @unread-notification-hover-bg-color;
+			}
+		}
+
+		&.old {//old unread
+			background-color: @unread-notification-bg-color;
+		}
+
+		&.read {
+			background-color: @notification-bg-color;
+			&:hover {
+				background-color: @notification-hover-bg-color;
+			}
+
+			.desc {
+				.notification-action {
+					font-weight: 400;
+				}
+			}
+		}
+
+		&.trans {
+			padding-top: 0;
+			padding-bottom: 0;
+
+			background-color: @notification-bg-color;
+			.transition(all .5s ease-in);
+
+			.img-icon,
+			.desc {
+				margin: 8px 0;
+			}
+
+			&.in {
+				background-color: @new-notification-bg-color !important;
+			}
+		}
+
+		.desc {
+			padding-left: 10px;
+			font-weight: 400;
+			overflow: hidden;
+
+			.notification-action {
+				font-size: 13px;
+				line-height: 1.3;
+			}
+			
+			.notification-time {
+				margin-top: -1px;
+				font-size: 11px;
+				color: @light-text-color;
+			    line-height: normal;
+			}
+		}
+	}
+}
+
+@keyframes notification-loading {
+   0% {
+    .transform(translateX(-0px));
+  }
+  50% {
+    .transform(translateX(250px));
+  }
+}
+
+// center top alert
+.alert-wrapper {
+	position: relative;
+
+	> .container {
+		position: absolute;
+		top: 10px;
+		left: 0;
+		right: 0;
+		z-index: 500;
+		pointer-events: none;
+	}
+
+	.alert {
+		margin: 0 auto;
+		max-width: 50%;
+		text-align: center;
+	}
+}
+
+.alert {
+	pointer-events: none;
+	&.in {
+		pointer-events: auto;
+	}
+}

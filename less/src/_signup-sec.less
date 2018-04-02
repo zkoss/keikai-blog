@@ -1,0 +1,406 @@
+.signup-cnt {
+	margin-top: 37px;
+	text-align: center;
+
+	.tooltip {
+	&.bottom {
+		margin-top: 3px;
+		}
+	}
+
+	&.signup-success,
+	&.signup-exists {
+		margin-top: 86px;
+
+		.img {
+			overflow: hidden;
+			margin: 0;
+			width: auto;
+			height: 246px;
+		}
+
+		.signup-msg-wrap {
+			display: block;
+		}
+
+		.bubble {
+			background: url('/s/img/home/dialogueBox_signUp_1360.svg') no-repeat transparent;
+			width: 442px;
+			height: 215px;
+			line-height: 215px;
+		}
+
+
+		.banner-buttons {
+			display: none;
+		}
+	}
+
+	&.signup-success {
+		.img {
+			background: url('/s/img/home/elk_signUp.svg') no-repeat transparent right bottom;
+		}
+
+		.signup-msg-wrap {
+			margin-left: 16px;
+		}
+	}
+
+	&.signup-exists {
+		.img {
+			background: url('/s/img/home/elk_alreadySignedUp.svg') no-repeat transparent right bottom;
+		}
+
+		.signup-msg-wrap {
+			margin-left: 38px;
+		}
+	}
+
+	.signup-msg-wrap {
+		display: none;
+		padding-top: 22px;
+		padding-left: 15px;
+	}
+
+	.bubble {
+		padding-left: 25px;
+
+		.signup-msg {
+			text-align: center;
+			margin: 0;
+			padding: 30px 20px;
+
+			width: 100%;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.title,
+		.desc {
+			margin: 0;
+		}
+
+		.title {
+			font-size: 21px;
+			font-weight: 400;
+			margin-bottom: 10px;
+		}
+
+		.desc {
+			font-size: 17px;
+			font-weight: 300;
+			line-height: 1.4em;
+
+			a {
+				font-weight: 400;
+			}
+
+			.email-txt {
+				display: inline-block;
+				margin-bottom: 7px;
+			}
+		}
+	}
+
+	.banner-buttons {
+		margin: 38px 0;
+	}
+
+	.email,
+	.signup-button,
+	.google-login-btn,
+	.google-login-btn .buttonText {
+		height: 39px;
+		line-height: 39px;
+	}
+
+	.email {
+		width: 205px;
+		font-size: 16px;//#5550
+	}
+
+	.signup-button {
+		font-size: 14px;
+		padding: 0px 23px;
+		letter-spacing: 1.2px;
+
+		&:before {
+			content: attr(data-label);
+		}
+	}
+
+	.get-start {
+		position: relative;
+
+		input.email {
+			border-color: @border-focus-shadow-color;
+			box-shadow: @border-focus-shadow;
+			&:hover {
+				border-color: @button-green-hover-border-color; // special case, same as button
+			}
+		}
+
+		> form {
+			&:after {
+				content: '';
+				position: absolute;
+				right: 35px;
+				bottom: -23px;
+
+				background: url('/s/img/home/arrow_free.svg') no-repeat transparent;
+				width: 53px;
+				height: 22px;
+			}
+		}
+	}
+
+	.sep {
+		font-size: 14px;
+		line-height: 37px;
+	 	font-weight: @ws-font-weight-regular;
+		float: left;
+		margin: 0 5px;
+		color: @lighter-text-color;
+	}
+
+	.g-plus .google-login-btn {
+		float: right;
+
+		.buttonText {
+			padding: 0 23px;
+			font-size: 14px;
+			letter-spacing: 0.5px;
+		}
+
+		&:active,
+		&.active {
+			.buttonText {
+				margin-top: 0;
+				padding-top: 0;
+			}
+		}
+	}
+}
+
+@media (min-width: @screen-md-min)  {//large then 960
+	.signup-msg-wrap {
+		float: right;
+	}
+}
+
+@media (max-width: @screen-sm-max)  {// less then 959
+	.signup-cnt {
+		&.signup-success,
+		&.signup-exists {
+			margin-top: 19px;
+
+			.signup-msg-wrap {
+				margin-left: 0;
+			}
+
+			.img {
+				width: 100%;
+				background-position: center;
+			}
+
+			.bubble {
+				margin: 0 auto -16px;
+				padding-left: 0;
+				padding-bottom: 30px;
+				line-height: 164px;
+			}
+		}
+
+		.bubble {
+			.signup-msg {
+				padding: 20px;
+			}
+		}
+	}
+}
+
+@media (min-width: @screen-xs-min) and (max-width: @screen-sm-max)  {//480~760
+	.signup-cnt {
+		&.signup-success,
+		&.signup-exists {
+
+			.img {
+
+			}
+
+			.bubble {
+				background: url('/s/img/home/dialogueBox_signUp_760.svg') no-repeat transparent;
+				width: 456px;
+				height: 194px;
+			}
+		}
+	}
+}
+
+@media (max-width: @screen-xs-max) {//less then 760
+	.signup-cnt {
+		margin-top: 24px;
+
+		.banner-buttons {
+			margin: 34px;
+		}
+
+		.get-start > form,
+		.g-plus .google-login-btn {
+			float: none;
+			margin: 0 auto;
+		}
+
+		.sep {
+			float: left;
+			width: 100%;
+			line-height: 28px;
+			margin: 0;
+
+			span {
+				display: inline-block;
+				border-top: 1px solid @light-text-color;
+				width: 90px;
+				height: 4px;
+				margin: 0 14px;
+			}
+		}
+	}
+}
+
+@media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) {//480
+	.signup-cnt {
+
+		&.signup-success,
+		&.signup-exists {
+
+			.img {
+				background-size: 310px;
+			}
+
+			.bubble {
+				background-size: 430px;
+				width: 430px;
+				height: 180px;
+				padding-bottom: 25px;
+				line-height: 155px;
+				margin-bottom: -10px;
+			}
+		}
+
+		.g-plus .google-login-btn {
+			width: 350px;
+		}
+
+
+		.bubble {
+
+			.title {
+				font-size: 20px;
+			}
+
+			.desc {
+				font-size: 16px;
+			}
+
+			.signup-msg {
+				padding: 19px;
+			}
+		}
+	}
+}
+
+@media (max-width: @screen-xxs-max) {//320
+	.signup-cnt {
+
+		.banner-buttons {
+			margin: 15px 40px;
+		}
+
+		.email,
+		.signup-button,
+		.google-login-btn {
+			width: 100%;
+		}
+
+		.email {
+			margin-bottom: 3px;
+		}
+
+		.signup-button {
+
+			&:before {
+				content: attr(data-label-320);
+			}
+		}
+
+		.get-start {
+			> form:after {
+				display: none;
+			}
+
+		}
+
+		.sep {
+			line-height: 23px;
+			span {
+				margin: 0;
+				&:first-child {
+					margin-right: 14px;
+				}
+				&:last-child {
+					margin-left: 14px;
+				}
+			}
+		}
+
+		&.signup-success,
+		&.signup-exists {
+			margin-top: 5px;
+
+			.img {
+				margin: 0 auto;
+			}
+
+			.bubble {
+				background: url('/s/img/home/dialogueBox_signUp_320.svg') no-repeat transparent;
+				width: 279px;
+				height: 183px;
+				line-height: 145px;
+
+				margin-bottom: 4px;
+			}
+		}
+
+		&.signup-success {
+			.img {
+				background: url('/s/img/home/elk_signUp_320.svg') no-repeat transparent right bottom;
+				width: 137px;
+				height: 105px;
+			}
+		}
+
+		&.signup-exists {
+			.img {
+				background: url('/s/img/home/elk_alreadySignedUp_320.svg') no-repeat transparent right bottom;
+				width: 137px;
+				height: 118px;
+			}
+		}
+
+		.bubble {
+
+			.title {
+				font-size: 17px;
+			}
+
+			.desc {
+				font-size: 14px;
+			}
+
+			.signup-msg {
+				padding: 10px;
+			}
+		}
+	}
+}

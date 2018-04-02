@@ -1,0 +1,104 @@
+li {
+
+	&.u-item {
+		[class^="icon-"], [class*=" icon-"],
+		.i-label {
+			color: @light-text-color;
+			width: 14px;
+			.icon-v-align;
+
+			margin-right: 8px;
+    		font-size: 16px;
+		}
+
+		.edit-btn {
+			&[class^="icon-"], &[class*=" icon-"],
+			&.i-label {
+				.hover-icon;
+			}
+		}
+
+		.tag-color {
+			margin-right: 10px;
+		}
+		
+		.u-name,
+		.u-email,
+		.name {
+			.text-overflow-nowrap;
+		}
+
+		.desc {
+			white-space: normal;
+
+			font-size: 11px;
+			line-height: 1.3em;
+		}
+
+		.hidden-icon {
+			display: none;
+		}
+
+		> a {
+			color: @item-text-color;
+			display: block !important;//for override .dl-horizontal a
+
+			padding: 5px 12px;
+
+
+			.no-touch({
+				&:hover, &:focus, &.focus {
+					color: @item-text-color;
+
+					.hidden-icon {
+						display: inline-block;
+					}
+				}
+				&:focus, &.focus {
+					background-color: @item-focus-bg-color;
+				}
+			});
+		}
+
+		&.active {
+			> a {
+
+				&, .desc {
+					color: @item-active-color !important;
+				}
+				
+				background-color: transparent;
+				&:focus {
+					background-color: @item-focus-bg-color;
+				}
+			}
+		}
+
+		&.focus {
+			> a {
+				background-color: @item-focus-bg-color;
+			}
+		}
+
+		&.disabled {
+			pointer-events: none;
+			a {
+				.disabled-item-style;
+				[class^="icon-"], [class*=" icon-"] {
+					color: @disabled-text-color;
+				}
+				
+			}
+		}
+
+		&.highlight {
+			.animation(row-highlight 4s);
+		}
+
+		&.dropdown-submenu {
+			> a {
+				padding-right: 30px !important
+			}
+		}
+	}
+}

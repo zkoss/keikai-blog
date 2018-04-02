@@ -1,0 +1,609 @@
+@green-5e: #5E8F29;//only for button color
+@green-65: #65A224;//only for button color
+
+@red-97: #971820;//only for button color
+@red-a7: #A70A15;//only for button color
+
+// red button
+@button-red-text-color: #FFF;
+@button-red-bg-color: @red-eb;
+@button-red-border-color: @red-c1;
+
+@button-red-hover-bg-color: @red-c1;
+@button-red-hover-border-color: @red-97;
+
+@button-red-active-bg-color: @red-a7;
+@button-red-active-border-color: @red-97;
+
+@button-red-focus-bg-color: @red-a7;
+@button-red-focus-border-color: #830A12;
+@button-red-focus-shadow-color: rgba(193,29,40,0.85);
+
+
+// green button
+@button-green-text-color: #FFF;
+@button-green-bg-color: @green-9a;
+@button-green-border-color: @green-7b;
+
+@button-green-hover-bg-color: @green-7b;
+@button-green-hover-border-color: @green-5e;
+
+@button-green-active-bg-color: @green-65;
+@button-green-active-border-color: @green-5e;
+
+@button-green-focus-bg-color: @green-65;
+@button-green-focus-border-color: #51821D;
+@button-green-focus-shadow-color: rgba(123,179,64,0.85);
+
+
+// white button
+@button-white-text-color: @light-text-color;//default 58, hover 90
+@button-white-bg-color: @body-bg-color;
+@button-white-border-color: @dark-border-color;
+
+@button-white-hover-bg-color: @gray-f8;
+@button-white-hover-border-color: @gray-7f;
+
+@button-white-active-bg-color: @gray-ed;
+@button-white-active-border-color: @gray-7f;
+
+@button-white-focus-bg-color: @gray-ed;
+@button-white-focus-border-color: @gray-7f;
+@button-white-focus-shadow-color: rgba(0,0,0,0.30);
+
+// grey button
+@button-grey-bg-color: @gray-f8;
+
+@cmn-toggle-bg-color: @gray-f8;
+@cmn-toggle-button-bg-color: #FFF;
+
+//green outline
+@button-green-outline-text-color: @green-7b;
+@button-green-outline-bg-color: @body-bg-color;
+@button-green-outline-border-color: @green-9a;
+
+@button-green-outline-hover-text-color: @green-7b;
+@button-green-outline-hover-border-color: @green-7b;
+
+@button-green-outline-active-text-color: @green-65;
+@button-green-outline-active-border-color: @green-65;
+
+@button-green-outline-focus-text-color: @green-65;
+@button-green-outline-focus-border-color: @green-65;
+@button-green-outline-focus-shadow-color: rgba(123,179,64,0.85);
+
+//grey outline
+@button-grey-outline-text-color: @text-color;
+@button-grey-outline-bg-color: @body-bg-color;
+@button-grey-outline-border-color: @gray-7f;
+
+@button-grey-outline-hover-text-color: @text-color;
+@button-grey-outline-hover-border-color: @gray-4c;
+
+@button-grey-outline-active-text-color: @text-color;
+@button-grey-outline-active-border-color: @gray-4c;
+
+@button-grey-outline-focus-text-color: @text-color;
+@button-grey-outline-focus-border-color: @gray-4c;
+@button-grey-outline-focus-shadow-color: rgba(0,0,0,0.30);
+
+// g+ button
+@button-google-text-color: white;
+@button-google-border-color: @dark-border-color;
+@button-google-bg-color: #4285F4;
+
+@button-google-hover-bg-color: #3367D6;
+
+@button-google-active-bg-color: #3367D6;
+
+
+
+@button-white-border-color: @dark-border-color;
+
+@button-white-hover-bg-color: @gray-f8;
+@button-white-hover-border-color: @gray-7f;
+
+@button-white-active-bg-color: @gray-ed;
+@button-white-active-border-color: @gray-7f;
+
+@button-white-focus-bg-color: @gray-ed;
+@button-white-focus-border-color: @gray-7f;
+@button-white-focus-shadow-color: rgba(0,0,0,0.30);
+
+
+
+
+.btn-group-css(@rules) {
+	.btn-group & {
+		@rules();
+	}
+}
+
+.button-css(@text, @background, @border, 
+	@hover-background, @hover-border, @active-background, @active-border, 
+	@focus-background, @focus-border, @focus-shadow) {
+	
+	color: @text;
+	background-color: @background;
+	border-color: @border;
+	
+	&:hover {
+		background-color: @hover-background;
+		border-color: @hover-border;
+	}
+	
+	&:active,
+	&.active {
+		background-color: @active-background;
+		border-color: @active-border;
+	}
+
+	&.disabled,
+	&[disabled] {
+		&,
+	    &:hover,
+	    &:focus,
+	    &:active,
+	    &.active {
+	    	color: fade(#000, 18%);
+	      	background-color: @gray-f8;
+			border-color: @border-color;
+	    }
+	}
+
+	&:focus,
+	&.focusable:focus,
+	&.focusable.focused {
+		background-color: @focus-background;
+		border-color: @focus-border;
+		box-shadow: 0 0 2px 1px @focus-shadow;
+	}
+
+	//combobutton
+	.btn-group-css({
+		&:focus ~ .dropdown-toggle,
+		&.focusable:focus ~ .dropdown-toggle,
+		&.focusable.focused ~ .dropdown-toggle {
+			background-color: @focus-background;
+			border-color: @focus-border;
+			box-shadow: 0 0 2px 1px @focus-shadow;
+		}
+	});
+}
+
+.outline-button-css(@text, @background, @border, 
+	@hover-text, @hover-border, @active-text, @active-border, 
+	@focus-text, @focus-border, @focus-shadow) {
+	
+	color: @text;
+	background-color: @background;
+	border-color: @border;
+	
+	&:hover {
+		color: @hover-text;
+		border-color: @hover-border;
+		text-decoration: none;
+	}
+	
+	&:active,
+	&.active {
+		color: @active-text;
+		border-color: @active-border;
+	}
+	&.disabled,
+	&[disabled] {
+		&,
+	    &:hover,
+	    &:focus,
+	    &:active,
+	    &.active {
+	      	color: fade(#000, 18%);
+			border-color: @border-color;
+	    }
+	}
+	&:focus,
+	&.focusable:focus,
+	&.focusable.focused {
+		color: @focus-text;
+		border-color: @focus-border;
+		box-shadow: 0 0 2px 1px @focus-shadow;
+		text-decoration: none;
+	}
+
+	//combobutton
+	.btn-group-css({
+		&:focus ~ .dropdown-toggle,
+		&.focusable:focus ~ .dropdown-toggle,
+		&.focusable.focused ~ .dropdown-toggle {
+			color: @focus-text;
+			border-color: @focus-border;
+			box-shadow: 0 0 2px 1px @focus-shadow;
+		}
+	});
+}
+
+.make-button(@color) {
+	@text: "button-@{color}-text-color";
+	@background: "button-@{color}-bg-color";
+	@border: "button-@{color}-border-color";
+	@hover-background: "button-@{color}-hover-bg-color";
+	@hover-border: "button-@{color}-hover-border-color";
+	@active-background: "button-@{color}-active-bg-color";
+	@active-border: "button-@{color}-active-border-color";
+	@focus-background: "button-@{color}-focus-bg-color";
+	@focus-border: "button-@{color}-focus-border-color";
+	@focus-shadow: "button-@{color}-focus-shadow-color";
+
+	.button-css(@@text, @@background, @@border, 
+		@@hover-background, @@hover-border, @@active-background, @@active-border, 
+		@@focus-background, @@focus-border, @@focus-shadow);
+}
+
+.make-outline-button(@color) {
+	@text: "button-@{color}-outline-text-color";
+	@background: "button-@{color}-outline-bg-color";
+	@border: "button-@{color}-outline-border-color";
+	@hover-text: "button-@{color}-outline-hover-text-color";
+	@hover-border: "button-@{color}-outline-hover-border-color";
+	@active-text: "button-@{color}-outline-active-text-color";
+	@active-border: "button-@{color}-outline-active-border-color";
+	@focus-text: "button-@{color}-outline-focus-text-color";
+	@focus-border: "button-@{color}-outline-focus-border-color";
+	@focus-shadow: "button-@{color}-outline-focus-shadow-color";
+
+	.outline-button-css(@@text, @@background, @@border, 
+		@@hover-text, @@hover-border, @@active-text, @@active-border, 
+		@@focus-text, @@focus-border, @@focus-shadow);
+}
+
+
+.btn, .b {
+	// font-size: 12px;
+	// font-weight: 500;
+	border-radius: 4px;
+	padding: 6px 14px;
+
+	&.sm {
+		padding: 4px 16px;
+	}
+
+	&.x24 {
+		height: 24px;
+	}
+	&.x30 {
+		height: 30px;
+	}
+	&.x32 {
+		height: 32px;
+	}
+	&.x40 {
+		height: 40px;
+	}
+
+	&[class^="icon-"], 
+	&[class*=" icon-"] {
+		font-size: 20px;
+		padding: 5px;
+		&.sm {
+			font-size: 15px;
+			padding: 3px;
+		}
+	}
+}
+
+.btn {
+	margin-bottom: 1px;//shadow
+}
+
+.b {
+	border: 1px solid;
+
+	&,
+	&:focus {
+		outline: none;
+	}
+
+	&.red {
+		.make-button(~"red");
+	}
+	
+	&.green {
+		.make-button(~"green");
+	}
+	
+	&.white {
+		.make-button(~"white");
+
+	    &:hover,
+	    &:focus,
+	    &:active,
+	    &.active {
+	    	color: fade(#000, 90%);
+	    }
+
+	}
+
+	&.grey {
+		background-color: @button-grey-bg-color;
+	}
+
+	&.green-outline {
+		.make-outline-button(~"green");
+	}
+
+	&.grey-outline {
+		.make-outline-button(~"grey");
+	}
+
+	&.google-signin {
+		display: inline-block;
+		box-shadow: none;
+
+		color: @button-google-text-color;
+		background: url('/s/img/social/google_dark_normal.svg') no-repeat;
+		background-size: contain;
+		border: 1px solid @border-color;
+		border-radius: 2px 4px 4px 2px;
+		background-color: @button-google-bg-color;
+
+		padding: 0 0 0 39px;
+		white-space: nowrap;
+		text-decoration: none;
+
+		&:focus {
+			color: @button-google-text-color;
+			background-color: @button-google-hover-bg-color;
+		}
+
+		&:hover {
+			color: @button-google-text-color;
+			background-color: @button-google-hover-bg-color;
+		}
+
+		&.x44 {
+			padding: 0 0 0 38px;
+			font-size: 16px;
+			.buttonText {
+				padding: 12px 30px;
+			}
+
+			&:hover {
+				.buttonText {
+					margin-bottom: 2px;
+					padding-bottom: 10px;
+				}
+			}
+
+			&:active,
+			&.active {
+				.buttonText {
+					margin-top: 2px;
+					padding-top: 10px;
+					margin-bottom: 0px;
+					padding-bottom: 12px;
+				}
+			}
+		}
+
+		.buttonText {
+			padding: 8px 20px;
+			font-weight: 500;
+		}
+	}
+	
+	&.disabled,
+	&[disabled] {
+		//opacity: 0.65;
+		cursor: not-allowed;
+	    pointer-events: none; // Future-proof disabling of clicks
+	    box-shadow: none;
+	}
+}
+
+///toggle-switch button. from http://speckyboy.com/2015/04/02/animating-css-only-hamburger-menu-icons/
+
+
+@toggle-menu-btn-color: @text-color;
+@toggle-menu-btn-hover-color: @light-text-color;
+
+@toggle-menu-btn-size: 30px;
+@toggle-menu-btn-bar-width: 24px;
+@toggle-menu-btn-bar-height: 3px;
+
+.cmn-toggle-switch {
+	display: block;
+	position: relative;
+	overflow: hidden;
+
+	margin: 0;
+	padding: 0;
+	width: 108px;
+	height: 96px;
+
+	font-size: 0;
+	text-indent: -9999px;
+
+	box-shadow: none;
+	border-radius: none;
+
+	border: none;
+	cursor: pointer;
+	//.appearance(none);
+	//.transition(background .3s);
+
+	&:focus {
+		outline: none;
+	}
+	span {
+		display: block;
+		position: absolute;
+
+		top: (@toggle-menu-btn-size - @toggle-menu-btn-bar-height)/2;
+		left: (@toggle-menu-btn-size - @toggle-menu-btn-bar-width)/2;
+		right: (@toggle-menu-btn-size - @toggle-menu-btn-bar-width)/2;
+		
+
+		&,
+		&:before,
+		&:after {
+			background: @toggle-menu-btn-color;
+			height: @toggle-menu-btn-bar-height;
+		}
+		
+		&:before,
+		&:after {
+			position: absolute;
+			display: block;
+			left: 0;
+			width: 100%;
+			content: "";
+		}
+		
+		&:before {
+			top: floor(-(@toggle-menu-btn-size - @toggle-menu-btn-bar-height)/4);
+		}
+		
+		&:after {
+			bottom: floor(-(@toggle-menu-btn-size - @toggle-menu-btn-bar-height)/4);
+		}
+	}
+
+	&:hover {
+		span {
+			&,
+			&:before,
+			&:after {
+				background-color: @toggle-menu-btn-hover-color;
+			}
+		}
+	}
+
+	&.rot {
+		span {
+			.transition-transform(.3s);
+		}
+
+		&.open {
+			span {
+				.transform(rotate(90deg));
+			}
+		}
+	}
+	
+	&.htx {
+		span {
+			//.transition(background 0 .3s);
+
+			&:before,
+			&:after {
+				.transition-duration(~".3s, 0.3s");
+				.transition-delay(~".3s, 0");
+			}
+
+			&:before {
+				transition-property: top, transform;
+				-webkit-transition-property: top, -webkit-transform;
+			}
+			
+			&:after {
+				transition-property: bottom, transform;
+				-webkit-transition-property: bottom, -webkit-transform;
+			}
+		}
+
+		&.open {
+			span {
+				background: none;
+
+				&:before {
+					top: 0;
+					.transform(rotate(45deg));
+				}
+				
+				&:after {
+					bottom: 0;
+					.transform(rotate(-45deg));
+				}
+
+				&:before,
+				&:after {
+					.transition-delay(~"0, .3s");
+				}
+			}
+		}
+	}
+
+	&.htla {
+		span {
+			.transition-transform(.3s);
+
+			&:before {
+				.transform-origin(top right);
+				.transition-transform(~".3s, width .3s, top .3s");
+			}
+			
+			&:after {
+				.transform-origin(bottom right);
+				.transition-transform(~".3s, width .3s, bottom .3s");
+			}
+		}
+
+		&.open {
+			span {
+				.transform(rotate(180deg));
+
+				&:before,
+				&:after {
+					width: 50%;
+				}
+
+				&:before {
+					top: 0;
+					.transform(translateX(42px) translateY(3px) rotate(45deg));
+				}
+				
+				&:after {
+					bottom: 0;
+					.transform(translateX(42px) translateY(-3px) rotate(-45deg));
+				}
+			}
+		}
+	}
+
+	&.htra {
+		span {
+			.transition-transform(.3s);
+
+			&:before {
+				.transform-origin(top left);
+				.transition-transform(~".3s, width .3s, top .3s");
+			}
+			
+			&:after {
+				.transform-origin(bottom left);
+				.transition-transform(~".3s, width .3s, bottom .3s");
+			}
+		}
+
+		&.open {
+			span {
+				.transform(rotate(180deg));
+
+				&:before,
+				&:after {
+					width: 50%;
+				}
+
+				&:before {
+					top: 0;
+					.transform(translateX(-6px) translateY(3px) rotate(-45deg));
+				}
+				
+				&:after {
+					bottom: 0;
+					.transform(translateX(-6px) translateY(-3px) rotate(45deg));
+				}
+			}
+		}
+	}
+}

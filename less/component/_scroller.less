@@ -1,0 +1,76 @@
+/* scroller */
+.scrolled {
+	position: relative;
+	
+	.content {
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+	}
+	&.horizontal {
+		.scroller {
+			height: 22px;
+			left: 0;
+		}
+	}
+	&.vertical {
+		.scroller {
+			width: 8px;
+			top: 0;
+		}
+	}
+	
+	.scroller {
+		.box-sizing(border-box);
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		padding: 7px 2px;
+		margin-left: 5px;
+		margin-right: 5px;
+		cursor: pointer;
+		
+		.scroller-track, .scroller-handle {
+			width: 100%;
+			height: 100%;
+			border-radius: 12px; // it will be capped at 50% width/height
+		}
+		
+		.scroller-track {
+			position: relative;
+			overflow: hidden;
+			background-color: @scroller-track-bg;
+		}
+		.scroller-handle {
+			position: absolute;  
+			background-color: @scroller-handle-bg;
+		}
+		
+		&.scrolling,
+		&:hover {
+			padding: 5px 0px;
+			opacity: 1 !important;
+		}
+		
+		&.full {
+			display: none;
+		}
+		
+		.transition(~"padding 0.5s, opacity 0.5s");
+	}
+}
+.scrolled:hover > .scroller.visible-hover,
+.scroller.visible-always {
+	opacity: 0.5;
+}
+.mobile .scrolled {
+	.content {
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;// Fixed touch scroll smooth
+	}
+
+	.scroller {
+		display: none;
+	}
+}

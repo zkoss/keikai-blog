@@ -1,0 +1,439 @@
+@tree-ghost-index: 150;
+
+.task-tree { // TODO: combine with #task-tree
+	
+	// dragger uses margin-top to push down items, which affects tree element
+	// position when first child is pushed down.
+	&::before {
+		content: '.';
+		display: block;
+		visibility: hidden;
+		height: 0;
+	}
+	
+	.drag-handle {
+		float: left;
+		width: 30px;
+		background: transparent no-repeat 5px center;
+		background-image: url("/s/img/drag-handle.png");
+	}
+	
+	// drag transition setting //
+	&.no-drag-transition,
+	&.no-drag-transition .tree-item {
+		// provides a hook to escape from regular animation on setup/teardown
+		.transition-property(~"none !important");
+	}
+}
+
+.tree-drop-level (@value, @offset) {
+	.tree-item.drop-pushed > .tree-row::after,
+	&.drop-pushed::after {
+		left: @tree-item-head-space + @offset + @tree-row-offset + (@value - 1) * @tree-row-indent;
+	}
+}
+
+.tree-drop-level-block (@offset) {
+	&.drop-level-1 {
+		.tree-drop-level(1, @offset);
+	}
+	&.drop-level-2 {
+		.tree-drop-level(2, @offset);
+	}
+	&.drop-level-3 {
+		.tree-drop-level(3, @offset);
+	}
+	&.drop-level-4 {
+		.tree-drop-level(4, @offset);
+	}
+	&.drop-level-5 {
+		.tree-drop-level(5, @offset);
+	}
+	&.drop-level-6 {
+		.tree-drop-level(6, @offset);
+	}
+	&.drop-level-7 {
+		.tree-drop-level(7, @offset);
+	}
+	&.drop-level-8 {
+		.tree-drop-level(8, @offset);
+	}
+	&.drop-level-9 {
+		.tree-drop-level(9, @offset);
+	}
+}
+
+
+// drag //
+body.dragging {
+	* {
+		cursor: url("/s/img/closedhand.cur"), move !important;
+		//#3583: disable text selection when drag
+		.user-select(none);
+		.u-collapse-header > a { //override other style
+			.user-select(none);
+		}
+	}
+	&.dragging-invalid * {
+		cursor: no-drop !important;
+	}
+	.task-tree {
+		.transition(padding-bottom 0.5s);
+	}
+	.tree-item {
+		.transition(~"padding-top 0.5s, margin-top 0.5s");
+		overflow: visible; // #593
+	}
+	//drag task to other groups
+	.tree-item.group-drop-mask {
+		.tree-list, .tree-row {
+			opacity: 0.4;
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 2px;
+			right: 2px;
+			bottom: @tree-group-bottom-space;
+			pointer-events: none;
+			border: 1px dashed @border-focus-color;
+			background: rgba(255, 255, 255, 0.8); //avoid too long task name
+		}
+		&.group-drop-candidate:before {
+			border: transparent; //drop area has border, so hide group node's border
+		}
+	}
+
+	//disable other color (inspected or selected)
+	.tree-item.in-drag-status {
+		> .tree-row {
+			opacity: .5;
+		}
+
+		/*
+		&, &.selected {
+			.in-drag-function(@tree-item-select-bg-color);
+		}
+		&.inspected {
+			.in-drag-function(@tree-item-select-inspect-bg-color);
+		}
+		.in-drag-function(@color) {
+			> .tree-row {
+				border: transparent;
+				&, &:hover {
+					> * {
+						//opacity will delegate to descendant and can't override
+						background-color: fade(@color, 50%) !important;
+					}
+				}
+			}
+		}
+		> .tree-row {
+			.task-name-frame-border:hover { //hover on one task with long name
+				border-color: transparent !important;
+			}
+			&, &:hover {
+				.tree-row-front::before,
+				.task-complete,
+				.task-priority,
+				.task-assignee,
+				.task-due,
+				.task-tags,
+				.new-task-btn {
+					visibility: hidden !important;
+				}
+			}
+		}
+		*/
+	}
+}
+.task-tree.drop-pushed {
+	padding-bottom: @tree-item-height;
+}
+.tree-item.drop-pushed {
+	margin-top: @tree-item-height;
+}
+.tree-item.drop-into > .tree-row::before,
+.tree-item.drop-pushed > .tree-row::before,
+.tree-item.drop-pushed > .tree-row::after,
+.task-tree.drop-pushed::before,
+.task-tree.drop-pushed::after {
+	content: ' ';
+	overflow: hidden;
+	pointer-events: none;
+	position: absolute;
+	z-index: 50;
+	left: @tree-item-head-space;
+	right: 0;
+}
+.task-tree {
+	&.drop-over {
+		.tree-item.drop-into > .tree-row::before {
+			top: 0;
+			bottom: 0;
+			border: 1px solid @border-focus-color;
+			box-shadow: @border-focus-shadow;
+		}
+	}
+	&.drop-cancel,
+	&.drop-insert {
+		.tree-item.drop-pushed > .tree-row::before,
+		&.drop-level .tree-item.drop-pushed > .tree-row::after {
+			top: -@tree-item-height;
+			height: @tree-item-height;
+		}
+		&.drop-pushed::before,
+		&.drop-level.drop-pushed::after {
+			bottom: 0;
+			height: @tree-item-height;
+		}
+		.tree-item.drop-pushed > .tree-row::before,
+		&.drop-pushed::before {
+			border: 1px dotted @border-focus-color;
+			visibility: visible;
+		}
+		&.drop-level {
+			.tree-item.drop-pushed > .tree-row::after,
+			&.drop-pushed::after {
+				border-left: 1px dotted @border-focus-color;
+			}
+			.tree-drop-level-block(@tree-row-offset-margin);
+		}
+	}
+}
+
+body.resizing {
+	* {
+		cursor: ew-resize !important;
+	}
+}
+
+.dragger-ghost.task {
+	box-shadow: @border-focus-shadow;
+
+	list-style: none;
+	pointer-events: none;
+
+	height: @tree-item-height;
+	line-height: @tree-item-height;
+	z-index: @tree-ghost-index; //should be larger than sidebar
+	
+	&.multiple {
+		box-shadow: none;
+		
+		&::before,
+		&::after {
+			content: ' ';
+			position: absolute;
+			display: block;
+		    background-color: @tree-multiple-drag-ghost-bg-color;
+    		border: 1px solid @tree-item-select-border-color;
+    		box-shadow: @border-focus-shadow;
+		}
+		&::before {
+			top: 2px;
+			left: 2px;
+			right: -3px;
+			bottom: -3px;
+		}
+		&::after {
+			top: 4px;
+			left: 4px;
+			right: -5px;
+			bottom: -5px;
+			box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+		}
+	}
+
+	&:before,
+	.tree-row-content,
+	.tree-row-num {
+		z-index: @tree-ghost-index + 1;
+	}
+	
+	.tree-row-content {
+		margin: 0 !important;
+		padding: 0 5px;
+		background-color: @tree-item-select-inspect-bg-color;
+		border: 1px solid @tree-drag-ghost-border-color;
+		.text-overflow-nowrap;
+	}
+
+	.tree-row-num,
+	.ghost-tooltip {
+		color: @body-bg-color;
+		text-align: center;
+	}
+
+	.tree-row-num {
+		display: block;
+		min-width: 16px; //when num >= 100, it will become ellipse
+		height: 16px;
+		line-height: 16px;
+
+		position: absolute;
+		top: -5px;
+		right: -5px;
+		
+		font-size: 10px;
+		background-color: @border-focus-color;
+		border-radius: 50%;
+	}
+
+	.ghost-tooltip {
+		position: absolute;
+		top: -24px;
+		display: inline-block;
+		background-color: @tooltip-color;
+		white-space: nowrap;
+		padding: 3px 8px;
+		text-decoration: none;
+		font-size: 12px;
+		line-height: 1.4;
+	}
+}
+
+.group-drop-area {
+	position: absolute;
+	z-index: @tree-ghost-index - 1; //should be smaller than ghost
+
+	border: 1px dashed @border-focus-color;
+	background-color: rgba(255,255,255,.85); /* white, opacity:0.85 */
+	box-shadow: @border-focus-shadow;
+
+	.drop-text {
+		position: relative;
+		font-size: 16px;
+		font-style: italic;
+		color: @border-focus-color;
+		text-align: center;
+	}
+
+	&.after-drop {
+		border: 1px solid @border-focus-color;
+		& .drop-text {
+			.hover-animation(push-area);
+		}
+	}
+
+	&.drop-320 {
+		.week-picker {
+			margin-left: -15px;
+		}
+
+		.week-picker .box-item {
+			width: 45px;
+			height: 45px;
+			line-height: 40px;
+
+			&:not(:first-child) {
+				margin-left: 5px;
+			}
+		}
+	}
+
+	.hover-animation(@name) {
+		.animation(0.4s linear @name);
+		.backface-visibility(hidden);
+	}
+
+	.week-picker {
+		display: none;
+		position: relative;
+		justify-content: center;
+
+		.box-item {
+			margin-left: 20px;
+			width: 50px;
+			height: 50px;
+			line-height: 46px;
+			border-radius: 50%;
+
+			text-align: center;
+			font-size: 16px;
+
+			border: 1px dashed @border-focus-color;
+			background-color: rgba(255, 255, 255, 0.8); //avoid too long task name
+			box-shadow: @border-focus-shadow;
+
+			a.i-btn {
+				color: @border-focus-color;
+			}
+
+			&.active {
+				border: 1px solid @item-active-color;
+				background-color: transparent;
+			}
+
+			&.after-drop {
+				border: 1px solid @border-focus-color;
+				.hover-animation(push-area);
+			}
+		}
+		.box-list-cnt {
+			overflow: visible;
+		}
+	}
+
+	.keyframes(push-area, {
+		50% {
+			.transform(scale(1.1));
+		}
+
+		100% {
+			.transform(scale(1));
+		}
+	});
+
+	&.show-week-picker {
+		border: transparent;
+		box-shadow: none;
+		.drop-text {
+			display: none;
+		}
+		.week-picker {
+			display: flex;
+		}
+	}
+}
+
+.contextmenu-ref {
+	pointer-events: none;
+	position: absolute;
+}
+
+.contextmenu-popover {
+	.arrow {
+		display: none;
+	}
+}
+
+.tree-op-popover {
+	.assignee-dropdown {
+		.scroll-content {
+			max-height: none;//override submenu css
+		}
+	}
+}
+
+//create fake TreeItem for animation when dragging
+.animate-task-ghost {
+	position: absolute;
+	width: 100px;
+	height: @tree-item-height;
+	pointer-events: none;
+	z-index: 40; //not equal to or larger than dragger-ghost
+	background-color: @green-bg-color;
+
+	&.trans {
+		.transition(width .3s ease-in);
+		.transition-property(~"width, margin-top, margin-left"); //will override origin property ('width' should be here again)
+	}
+}
+
+@media (max-width: @screen-xxs-max) {
+	.task-tree.drop-insert.drop-level {
+		.tree-drop-level-block(0); //#2535: see variable @tree-row-offset-margin
+	}
+}

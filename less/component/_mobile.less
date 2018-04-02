@@ -1,0 +1,163 @@
+@import "../workspace/tree/_tree_dnd.less";
+
+.mobile {
+
+	input,
+	textarea,
+	.form-control {
+		// -webkit-appearance: none;
+		-webkit-border-radius:0; 
+		border-radius:0;
+	}
+}
+
+// we put it here is because of swipe is currently used in mobile
+.mobile-320 {
+
+	/// tree
+	.task-tree {
+		&.focused {
+			.inspected.selected > .tree-row {
+				> * {
+					background-color: @body-bg-color; // outweight selected state
+				}
+			}
+		}
+
+		.selected,
+		.inspected {
+			> .tree-row {
+				z-index: 1;
+
+				> * {
+					background-color: @body-bg-color;
+					border-color: @tree-item-border-color;
+					border-top-color: @tree-item-border-color !important;
+				}
+			}
+		}
+
+		&.drop-insert.drop-level {
+			.tree-drop-level-block(-@tree-item-head-space); //reset the head space indent
+		}
+	}
+
+	.tree-row {
+		padding-left: 0;
+
+		.tree-row-front {
+			.task-complete,
+			.task-priority {
+				display: none;
+			}
+		}
+
+		.tree-row-content {
+			.task-menu-bar {
+				pointer-events: none;
+			}
+
+			.task-assignee,
+			.task-due,
+			.task-tags,
+			.task-favorites,
+			.new-task-btn,
+			.new-task-btn {
+				display: none;
+			}
+
+			.task-assignee,
+			.task-due {
+				&.available {
+					display: inline-block;
+				}
+			}
+
+			.task-due {
+				min-width: 20px;
+				max-width: 70px;
+				width: inherit;
+
+				&:not(.recurring):not(.start):not([class*=" time"]) {
+					padding-left: 0;
+				}
+			}
+		}
+	}
+
+	.tree-item {
+		&.editing > .tree-row {
+			.task-name-wrapper {
+				padding: 0;
+
+				.task-input {
+					border-width: 0;
+				}
+			}
+		}
+
+		&.highlight-search-result {
+			> .tree-row {
+				> * {
+					background-color: @tree-item-highlight-bg-color !important;
+				}
+			}
+
+			&.inspected.selected > .tree-row {
+				.task-name {
+					color: @light-text-color !important;
+				}
+			}
+		}
+	}
+
+	.tree-item.drop-into > .tree-row::before,
+	.tree-item.drop-pushed > .tree-row::before,
+	.tree-item.drop-pushed > .tree-row::after,
+	.task-tree.drop-pushed::before,
+	.task-tree.drop-pushed::after {
+		left: 0;
+	}
+
+	.ws-cnt-wrap .content {
+		overflow-x: hidden;
+	}
+
+
+
+	#wrap {
+		.header-wrap {
+			z-index: 1;
+		}
+
+		#body {
+			z-index: 0;
+		}
+	}
+	
+
+	/// sidebar
+	#sidebarTgl {
+		&:hover, &:active:hover {
+			text-decoration: none;
+		}
+	}
+
+	/// quire alert
+	.quire-alert {
+		height: auto;
+		left: 0;
+		right: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

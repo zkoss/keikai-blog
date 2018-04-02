@@ -1,0 +1,139 @@
+//Copyright (C) 2013 Potix Corporation. All Rights Reserved.
+@import "../bootstrap/_variables.less";
+@import "_variables-bg.less";
+@import "_variables-sep.less";
+@import "_variables-text.less";
+@import "_tree_variables.less";
+
+// colors
+//gray
+@gray-4c: #4C4C4C;//was text-color, only used for button since m2
+@gray-7f: #7F7F7F;//was light-text-color
+@gray-bd: #BDBDBD;//dark-border was lighter-text-color
+@gray-ed: #EDEDED;//grey-bg-color, border-color
+
+@gray-f8: #F8F8F8;
+
+//green
+@green-9a: #9AC656;//rgb(154,198,86)
+@green-90: #90C262;//TBD
+@green-7b: #7BB340;
+
+@green-c8: #C8E3AD;//tree item border
+@green-e6: #E6F2D1;
+@green-ed: #EDF6DF;//was #EDF6DF
+@green-f4: #F4FAEC;
+
+//red
+@red-c1: #C11D28;
+@red-eb: #EB5E60;//replace @red-d7: #D7434D;
+
+//etc
+@orange-e5: #E57815;
+
+@yellow-f8: #F8BA09;
+
+//priority color
+@priority-urgent: @red-eb;
+@priority-high: @yellow-f8;
+@priority-medium: @gray-bd;
+@priority-low: #7AA6A6;
+
+//favorited
+@favorited-icon-color: @yellow-f8;
+@task-favorited: #EB5F64;
+@task-followed: @green-text-color;
+@task-in-progress: @green-text-color;
+
+//due
+//for charts
+@overdue-bg-color: @red-eb;
+@today-bg-color: @yellow-f8;
+@tomorrow-bg-color: @priority-low;//rgb(122, 166, 166)
+@upcoming-bg-color: rgba(122,166,166,.6);
+@later-bg-color: rgba(122,166,166,.3);
+
+//SPEC: task tree only 3 colors
+@overdue-text-color: @overdue-bg-color;
+@today-text-color: @today-bg-color;
+@upcoming-text-color: @tomorrow-bg-color;//and later for date label
+
+
+//font
+@ws-body-font: Lato, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+@ws-font-weight-light: 300;
+@ws-font-weight-regular: 400;
+@ws-font-weight-bold: 700;
+
+//size
+@ws-header-height: 48px;
+@ws-footer-height: 48px;
+
+
+//component
+@unread-icon-color: @orange-e5;
+@ws-announcement-border: #F2B074;
+@ws-announcement-bg-color: #FAE0C8;
+@ws-search-hit-bg-color: #FFE093;
+@tree-picker-opened-button-bg: @green-f4;//#CEE4BA;
+
+
+
+// color
+@orange: #F26522;
+@orange-dark: #D47502;
+@brown: #8C765A;
+@brown-light: #b08b5e;
+@brown-dark: #594b39;
+
+//Text
+@error-text-color: @red-eb;
+@link-text-color2: #7DA755; // new design (regular) #1709 2015/5/26
+
+// tooltip
+@tooltip-color: rgba(64,64,64,0.90);
+@red-tooltip-color: @red-c1;
+
+// comment
+@comment-pined-color: @orange-e5;
+
+
+// font
+//@body-font: 'Open Sans', sans-serif;
+@body-font: @ws-body-font;
+@body-font-size: 14px;
+@home-body-font: @ws-body-font;
+
+// size
+@header-height: 52px;
+@footer-height: 89px;
+
+@footer-height-480: 110px;
+@footer-height-320: 154px;
+@announcement-height: 34px;
+
+//home
+@home-menu-height: 52px;
+@home-menu-height-480: 48px;
+
+@notification-dropdown-width: 320px;
+
+
+@task-desc-min-height: 44px;
+@task-desc-max-height: 105px;
+
+
+//icon message
+@message-view-icon-size: 48px;
+@message-view-title-size: 16px;
+@message-view-desc-size: 12px;
+
+@message-view-icon-lg-size: 64px;
+@message-view-title-lg-size: 24px;
+@message-view-desc-lg-size: 16px;
+
+//Toggle Switch button
+@cmn-toggle-size: 20px;
+
+

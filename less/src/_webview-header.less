@@ -1,0 +1,55 @@
+//Copyright (C) 2013 Potix Corporation. All Rights Reserved.
+@import "_header-white-menu.less";
+
+html, body {
+	height: 100%;
+}
+
+#wrap {
+	position: relative;
+	height: auto;
+	min-height: 100%;
+	// overflow: auto;
+	// overflow-x: hidden;
+}
+
+.header-wrap, .footer-wrap {
+	// position: absolute;
+
+}
+
+.header-wrap .t-user .img-icon {
+	line-height: 32px;
+}
+
+.footer-wrap {
+	position: absolute;
+	bottom: 0;
+}
+
+#body {
+	min-height: 100%;
+	padding-top: @header-height;
+	padding-bottom: @footer-height + 20px; //leave 20px space at bottom
+}
+
+.left-sidebar {
+	padding-top: @header-height;
+}
+
+.header-wrap {
+	height: auto;// for 480 menu
+	background-color: @header-bg-color;
+}
+
+@media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) {//480
+	#body {
+		padding-bottom: @footer-height-480 + 20px; //leave 20px space at bottom
+	}
+}
+
+@media (max-width: @screen-xxs-max) {//320
+	#body {
+		padding-bottom: @footer-height-320 + 20px; //leave 20px space at bottom
+	}
+}

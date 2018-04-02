@@ -1,0 +1,174 @@
+.t-desc-block,
+.comment-block {
+	word-wrap: break-word;
+
+	p, li, th, td {
+		white-space: pre-wrap; //#6208
+	}
+
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		font-weight: 700;
+	}
+
+	h1, .h1 {
+		margin-top: 24px;
+		
+		margin-bottom: 16px;
+		font-weight: @ws-font-weight-bold;
+		&:first-child {
+			margin-top: 0px;
+		}
+	}
+
+	h4, .h4, h5, .h5, h6, .h6 {
+	    margin-top: 20px;
+	    &:first-child {
+	    	margin-top: 10px;
+	    }
+	}
+
+	strong {
+		font-weight: bold;
+	}
+
+	> p {
+		margin-bottom: 16px;
+		&:last-child {
+			margin: 0;//override bootstrap setting for check text overflow
+		}
+	}
+
+	img {
+		max-width: 100%;
+		cursor: pointer;
+
+		
+		min-height: 24px;
+    	min-width: 24px;
+		.animation(img-loading 5s);
+	}
+
+	> ul {
+		list-style-type: disc;
+	}
+
+	blockquote {
+		font-size: 15px;
+		margin: 0 0 16px 0;
+		padding: 5px 12px;
+		border-left: 5px solid @border-color;
+	 	color: @lighter-text-color;
+	}
+
+	//add 5 more pixel to padding-left on each level
+	@listPaddingSize: 25px;
+	> ul {
+		padding-left: @listPaddingSize;
+		.loop(@n, @i: 1) when (@i =< @n) {
+			> li > ul {
+				padding-left: (@listPaddingSize + 5px * @i);
+				.loop(@n, (@i + 1));
+			}
+		}
+		.loop(10); //hard code for 10 levels
+	}
+	> ol {
+		padding-left: @listPaddingSize;
+		.loop(@n, @i: 1) when (@i =< @n) {
+			> li > ol {
+				padding-left: (@listPaddingSize + 5px * @i);
+				.loop(@n, (@i + 1));
+			}
+		}
+		.loop(10); //hard code for 10 levels
+	}
+	ol, ul {
+		margin-bottom: 16px;
+	}
+
+	li {
+		line-height: 1.6em;
+	}
+
+	table {
+	    .table;
+	}
+
+	hr {
+	    border-top: 1px solid @border-color;
+	}
+}
+
+.mobile {
+
+	.t-desc-block {
+		font-size: 17px;
+	}
+	.comment-block {
+		font-size: 16px;
+	}
+
+	.t-desc-block, 
+	.comment-block {
+		code {
+			font-size: 15px;
+		}
+		//add 5 more pixel to padding-left on each level
+		@listPaddingSize: 20px;
+		> ul {
+			padding-left: @listPaddingSize;
+			.loop(@n, @i: 1) when (@i =< @n) {
+				> li > ul {
+					padding-left: (@listPaddingSize + 5px * @i);
+					.loop(@n, (@i + 1));
+				}
+			}
+			.loop(10); //hard code for 10 levels
+		}
+		> ol {
+			padding-left: @listPaddingSize;
+			.loop(@n, @i: 1) when (@i =< @n) {
+				> li > ol {
+					padding-left: (@listPaddingSize + 5px * @i);
+					.loop(@n, (@i + 1));
+				}
+			}
+			.loop(10); //hard code for 10 levels
+		}
+	}
+}
+
+.table() {
+    display: block;
+    width: 100%;
+    overflow: auto;
+
+    tr {
+        background-color: @body-bg-color;
+        border-top: 1px solid @border-color;
+
+        &:nth-child(2n) {
+            background-color: @light-grey-bg-color;
+        }
+    }
+
+    th, td {
+        padding: 6px 13px;
+        border: 1px solid @border-color;
+    }
+
+    th {
+        font-weight: 600;
+    }
+
+    td {
+        font-weight: 400;
+    }
+}
+
+@keyframes img-loading {
+	0%      {background-color:transparent;}
+	50.0%   {background-color:#f8f8f8;}
+	100.0%  {background-color:transparent;}
+}
