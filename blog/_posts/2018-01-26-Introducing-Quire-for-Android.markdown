@@ -33,6 +33,10 @@ Finally, it is here. Kicking off the new year 2018, we are proud to present to y
 We took time to craft and create this app for Android, so we can get it right. We made sure the layout, navigation, gestures and look-and-feel were simple, and intuitive to Android users. We also had help from a group of dedicated Android beta users who provided valuable feedback along the way!
 Here are a couple things to get you started:
 
+> “It is much easier to assign people, track progress and review what we have done in Quire than doing all these in a spreadsheet.”<br>
+> -- José Luís Prado<br>
+> 2nd generation of melon-growing company ITAUEIRA
+
 ## Dump Your Ideas via Text, Camera and Photos
 
 You can add ideas, notes or tasks as plain words, using the Camera of your smartphone, or selecting an existing image from your Gallery.

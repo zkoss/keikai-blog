@@ -157,6 +157,13 @@ a {
 	color: @link-text-color;
 	cursor: pointer;
 
+	&:hover,
+	&:focus {
+		color: @link-text-hover-color;
+		text-decoration: none;
+		font-weight: @ws-font-weight-bold;
+	}
+
 	.no-touch({
 		&:hover,
 		&:focus {

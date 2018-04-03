@@ -198,12 +198,18 @@ body {
 
 						.more {
 							display: block;
-							color: @red-c8;
+							color: @link-text-color;
 							margin-top: 10px;
-							font-weight: 400;
+							font-weight: @ws-font-weight-regular;
 
 							&:hover {
-								color: darken(@red-c8, 10%);
+								color: @link-text-hover-color;
+								font-weight: @ws-font-weight-bold;
+							}
+							&::after {
+								display: inline-block;
+								margin-left: 12px;
+								content: "\2192";
 							}
 						}
 					}
@@ -325,23 +331,23 @@ body {
 						font-size: 26px;
 						font-weight: 300;
 						font-style: italic;
-						color: @orange;
+						color: @blockquote-text-color;
 						line-height: 1.38em;
 						margin: 5px 0;
 
 						&:hover {
-							color: #E45325;
+							color: @blockquote-text-hover-color;
 						}
 					}
 				}
 
 				table {
-                    .table;
-                }
+					.table;
+				}
 
-                .highlight {
-                    margin: 20px 0;
-                }
+				.highlight {
+					margin: 20px 0;
+				}
 			}
 
 			.bottom {
