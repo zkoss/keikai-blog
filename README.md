@@ -1,25 +1,4 @@
-# blogs
-Quire Blogs
-
-
-
-
-installation steps for mac:
-(if the version is specified, please don't install other version)
-
-install brew
-
-install ruby at least v. 2.0.0
-
-install node
-
-install jekyll 2.5.3
-
-install gem jekyll-paginate 1.1.0
-
-install gem redcarpet 3.3.2
-
-----------------------------
+# Keikai Blog
 
 ## setup
 
@@ -47,10 +26,6 @@ this will read the `Gemfile` and download dependencies automatically, also compl
 
 ### run/build the project
 
-    bundle exec jekyll serve
+    bundle exec jekyll build -s blog/
 
-    bundle exec jekyll build
-
-
-### TODO
-move the jekyll files into a subfolder to avoid the Gemfile ending up in `/_site` when building
+    bundle exec jekyll serve -s blog/ --config blog/_config.yml,blog/_config_dev.yml
