@@ -4,7 +4,7 @@ title:  "4 productivity tips that make sense for your project in 2018"
 date:   2018-01-30 11:58:07
 categories: "dreams"
 
-index-intro: "A new year is a new start, and it often comes with a new determination to do better, and be better. If 2017 ended unhappily for you with chaos like sticky notes being everywhere all the time, figuring out what was where in your head nonstop and chasing after your colleagues for updates tirelessly, it is time for a change...."
+index-intro: "Very happy new year, and it often comes with a new determination to do better, and be better. If 2017 ended unhappily for you with chaos like sticky notes being everywhere all the time, figuring out what was where in your head nonstop and chasing after your colleagues for updates tirelessly, it is time for a change...."
 category-intro: "A new year is a new start, and it often comes with a new determination to do better, and be better. If 2017 ended unhappily for you with chaos..."
 
 image: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018/0.jpg"
