@@ -2,6 +2,9 @@
 
 ## setup
 
+### install node 9.10.1 with lessc 3.0.1
+TODO: automate this using npm
+
 ### install ruby 2.5.1 (project also builds using 2.1.10 - after changing the Gemfile)
 
 recommended ruby version manager rbenv 

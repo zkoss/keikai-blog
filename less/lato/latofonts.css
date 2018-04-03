@@ -1,0 +1,61 @@
+/* http://www.latofonts.com/lato-free-fonts/ */
+/* http://www.latofonts.com/download/Lato2OFLWeb.zip */
+/* Webfont: Lato-Bold */@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Bold.woff2') format('woff2'), /* Modern Browsers */
+         url('fonts/Lato-Bold.woff') format('woff'), /* Modern Browsers */
+         url('fonts/Lato-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-BoldItalic */@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-BoldItalic.woff2') format('woff2'), /* Modern Browsers */
+         url('fonts/Lato-BoldItalic.woff') format('woff'), /* Modern Browsers */
+         url('fonts/Lato-BoldItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Regular */@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
+         url('fonts/Lato-Regular.woff') format('woff'), /* Modern Browsers */
+         url('fonts/Lato-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Italic */@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Italic.woff2') format('woff2'), /* Modern Browsers */
+         url('fonts/Lato-Italic.woff') format('woff'), /* Modern Browsers */
+         url('fonts/Lato-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Light */@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Light.woff2') format('woff2'), /* Modern Browsers */
+         url('fonts/Lato-Light.woff') format('woff'), /* Modern Browsers */
+         url('fonts/Lato-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-LightItalic */@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-LightItalic.woff2') format('woff2'), /* Modern Browsers */
+         url('fonts/Lato-LightItalic.woff') format('woff'), /* Modern Browsers */
+         url('fonts/Lato-LightItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
