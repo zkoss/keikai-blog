@@ -1,11 +1,16 @@
 ---
 layout: post
 title:  "Why we spent 10 years to create another web spreadsheet"
-date:   2018-04-10 11:58:07
-categories: "Spreadsheet"
+date:   2018-04-10 
 
-index-intro: "Keikai - けいかい 【軽快】- Light, and Swift
-..."
+
+index-intro: "Keikai - けいかい 【軽快】 - Nimble, and Mighty. <br/>
+
+Hi, I am Henri, founder of Keikai. 
+
+
+It has been more than 40 years since the first spreadsheet was invented. As time goes by, spreadsheet has been invented, reinvented, dropped, picked up and put online. Even on our mobile devices.
+ "
 
 image: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018/0.jpg"
 tags: dream vision ideas
@@ -20,6 +25,8 @@ imgDir: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018
 
 ![My helpful screenshot]({{ site.baseurl }}/images/{{page.imgDir}}/0.jpg)
 
+Keikai - けいかい 【軽快】 - Nimble, and Mighty
+
 Hi, I am Henri, founder of Keikai.
 
 It has been more than 40 years since the first spreadsheet was invented. As time goes by, spreadsheet has been invented, reinvented, dropped, picked up and put online. Even on our mobile devices.
@@ -33,12 +40,6 @@ Since the early 2000s, we have committed ourselves to web spreadsheet. In 2008, 
 However, this did not stop us striving for excellence.
 
 
-<div style="max-width: 550px; max-height: 300px; margin: 0 auto;">
-{% markdown %}
-![My helpful screenshot]({{ site.baseurl }}/images/{{page.imgDir}}/1.png)
-{% endmarkdown %}
-</div>
-
 ## Spreadsheet for Big Data
 
 In the past decade, we have never stopped exploring web spreadsheet.
@@ -49,12 +50,6 @@ To solve it once and for all, two years ago, our team redesigned spreadsheet fro
 
 Now, having successfully exceeded the size and speed limits of web spreadsheet, we are more than happy to present Keikai - the only web spreadsheet for big data.
 
-
-<div style="max-width: 550px; max-height: 300px; margin: 0 auto;">
-{% markdown %}
-![My helpful screenshot]({{ site.baseurl }}/images/{{page.imgDir}}/2.png)
-{% endmarkdown %}
-</div>
 
 ## Keikai’s Architecture
 
@@ -75,23 +70,12 @@ Unlike conventional ad-hoc, Keikai is employed with the most powerful BNF (Backu
 
 Keikai is made ready for all devices, including PC, Mac, Android and iOS. You and your team can collaborate anywhere, anytime, and on any devices.
 
-<div style="max-width: 550px; max-height: 300px; margin: 0 auto;">
-{% markdown %}
-![My helpful screenshot]({{ site.baseurl }}/images/{{page.imgDir}}/3.png)
-{% endmarkdown %}
-</div>
 
 ## Start Your Journey with Keikai
 
 With all the efforts we have put in, we can now proudly announce KeiKai. Unlike any web spreadsheet, it is designed and architectured for big data -- the fastest web spreadsheet regardless of size!
 
 You are more than welcome to leave any comment below, or contact us at info@keikai.io.
-
-<div style="max-width: 550px; max-height: 300px; margin: 0 auto;">
-{% markdown %}
-![My helpful screenshot]({{ site.baseurl }}/images/{{page.imgDir}}/4.png)
-{% endmarkdown %}
-</div>
 
 
 [jekyll]:      http://jekyllrb.com
