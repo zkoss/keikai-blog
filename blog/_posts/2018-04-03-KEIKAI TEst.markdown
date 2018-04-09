@@ -1,19 +1,18 @@
 ---
 layout: post
-title:  "4 productivity tips that make sense for your project in 2018"
-date:   2018-01-30 11:58:07
+title:  "Why we spent 10 years to create another web spreadsheet"
+date:   2018-04-10 11:58:07
 categories: "Spreadsheet"
 
-index-intro: "Keikai is now ready for testing"
+index-intro: "Keikai - けいかい 【軽快】- Light, and Swift
+..."
 
 image: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018/0.jpg"
 tags: dream vision ideas
-author: "Elena Lin"
-authorImg: "/images/author/elena.png"
-authorDesc: "Content writer, marketing team."
+author: "Henri Chen"
+authorImg: "/images/author/Henri.jpg"
+authorDesc: "Founder of Keikai."
 authorLink: ""
-
-relatedPosts: ["Dream Chasers: Taking on the world with the best melons from Brazil", "Dream Chasers: Making the best off-road vehicles."]
 
 imgDir: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018"
 ---
@@ -21,11 +20,18 @@ imgDir: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018
 
 ![My helpful screenshot]({{ site.baseurl }}/images/{{page.imgDir}}/0.jpg)
 
-A new year is a new start, and it often comes with a new determination to do better, and be better.
+Hi, I am Henri, founder of Keikai.
 
-If 2017 ended unhappily for you with chaos like sticky notes being everywhere all the time, figuring out what was where in your head nonstop and chasing after your colleagues for updates tirelessly, it is time for a change.
+It has been more than 40 years since the first spreadsheet was invented. As time goes by, spreadsheet has been invented, reinvented, dropped, picked up and put online. Even on our mobile devices.
 
-That change, is [GTD method](https://gettingthingsdone.com/). If you haven’t heard or read about Getting Things Done, Proposed by David Allen, it is a way for getting organized and stay productive. [Chris Winfield’s system](http://www.chriswinfield.com/dream-dump-map-chunk/) is a simpler vision of it and I call it, **the 4 Ds**.
+In the face of all these efforts, there is a group of people out there still trying, pushing it to go beyond its limits.
+
+Yes, that is us.
+
+Since the early 2000s, we have committed ourselves to web spreadsheet. In 2008, we saw our very first web spreadsheet ZK Spreadsheet went online. It is loved by numerous users worldwide, especially in finance, technology and research. Our customers include Citigroup, Seagate, Adobe, Nokia, USC, just to name a few.
+
+However, this did not stop us striving for excellence.
+
 
 <div style="max-width: 550px; max-height: 300px; margin: 0 auto;">
 {% markdown %}
@@ -33,18 +39,15 @@ That change, is [GTD method](https://gettingthingsdone.com/). If you haven’t h
 {% endmarkdown %}
 </div>
 
-## 1. Dream it. Know the big picture
+## Spreadsheet for Big Data
 
-People say your goals should be SMART: specific, measurable, achievable, relevant and timed. In J.D. Roth’s [article](http://www.getrichslowly.org/2017/12/26/smart-goals/), it is about being realistic of your dream with hierarchical, achievable goals to achieve it for a large purpose ultimately. I couldn’t agree more.
+In the past decade, we have never stopped exploring web spreadsheet.
 
-Let’s say my friends and I have a vision: make the Earth a better place by creating a lightweight, grab-n-go water bottle.
+For years, we have kept improving our [ZK Spreadsheet] (https://www.zkoss.org/product/zkspreadsheet) to accommodate users’ needs. We have boosted its performance 10x, but as we live in an age where it is difficult to keep up with data that grows exponentially, it is not just about evolutionizing spreadsheet anymore, but revolutionizing it. For now, and the future.
 
-We see how it has become a habit for people to buy Coke from 7-Eleven that come in plastic bottles, or how OLs grab Starbucks coffee in paper cup on their way to work. If we could make a portable water bottle great for all kinds of drinks, we can help reduce plastic waste, and thus contribute to a better Earth - the one and only place we now live in.
+To solve it once and for all, two years ago, our team redesigned spreadsheet from head to toe. It was nights after nights of pushing ourselves and sending us back to square one over and over again, that led us where we are today.
 
-Creating it is one thing; Letting people know about it is another story. So how do we promote it? 
-
-That, is the question of the day.
-nt to be, what you want to do and where you want to be for now. Don’t worry about not knowing how to get there. You can fill in the details later.
+Now, having successfully exceeded the size and speed limits of web spreadsheet, we are more than happy to present Keikai - the only web spreadsheet for big data.
 
 
 <div style="max-width: 550px; max-height: 300px; margin: 0 auto;">
@@ -53,17 +56,24 @@ nt to be, what you want to do and where you want to be for now. Don’t worry ab
 {% endmarkdown %}
 </div>
 
-## 2. Dump it. Get all your ideas down
+## Keikai’s Architecture
 
-First thing first. You can start by jotting down all your ideas. What better way to do it than in [Quire](https://quire.io/)? You can dump all of your ideas the second the lightbulb goes on in your head even via Siri.
 
-Let’s go back to the question on promoting the water bottle.
+Built with the most innovative technologies, Keikai has made a breakthrough in terms of size and speed.
 
-Right off the bat, ideas like content marketing, social media marketing, viral marketing, email marketing, SEO, leveraging the community - just to name a few - will pop up in our head.
+To speed up loading and viewing, we transfer the required and yet minimal set of data to the client first. As the data is being loaded, you can start viewing and editing it right away.
 
-We might not have the details on how to do them yet, but it is perfectly fine to just have the rough, big picture for now.
+To further boost the performance, we invented a super light-weight structure to stream data on the fly. This structure also reduces memory footprints, and saves server-side resource.
 
-The key here is to get our ideas down before they fade away.
+On the client side, we gave up conventional HTML tables or DIVs and invented a frame-based rendering engine. With such, Keikai can minimize the generated DOM, upgrade the browser performance, and guarantee reasonable response time by skipping unchanged bits and pieces and only updating the latest changes. Even if you are running on slow machines.
+
+This also makes it possible to render literally anything you want: diagonals, dashed borders, fractions, double-sided alignment, angled texts and more, without being limited by HTML syntax.
+
+In addition to supporting big data, Keikai provides the most complete feature sets that are required for today’s enterprises.
+
+Unlike conventional ad-hoc, Keikai is employed with the most powerful BNF (Backus–Naur form) parser that successfully parses up to 99.99% of the sampled one million Excel formulas. It also supports 400+ formulas and 800+ locale, not to mention the commonly used editing, sorting, filtering, charting, conditional formatting, validation, sheet/cell protection, etc.
+
+Keikai is made ready for all devices, including PC, Mac, Android and iOS. You and your team can collaborate anywhere, anytime, and on any devices.
 
 <div style="max-width: 550px; max-height: 300px; margin: 0 auto;">
 {% markdown %}
@@ -71,15 +81,11 @@ The key here is to get our ideas down before they fade away.
 {% endmarkdown %}
 </div>
 
-## 3. Divide it. Organize, categorize and prioritize
+## Start Your Journey with Keikai
 
-What happens now? We have a list of ideas too big to chew. So, we need to break them down into pieces that are smaller, and easier to tackle.
+With all the efforts we have put in, we can now proudly announce KeiKai. Unlike any web spreadsheet, it is designed and architectured for big data -- the fastest web spreadsheet regardless of size!
 
-It is just how we humans think. Naturally.
-
-For example, when we brainstorm about social media marketing, we will think of connecting to influencers on Twitter and Instagrams and also YouTubers to help us spread the words; Thinking further down this line, we can ask them to share beautiful, real-life photos, and upload crazy, funny videos of them using bottle (remember how the [Ice Bucket Challenge](https://en.wikipedia.org/wiki/Ice_Bucket_Challenge) went viral?).
-
-Also, when we think of leveraging the community, free giveaway of our bottle at charity events like marathons and concerts sound like a wonderful idea. Just look at how [Mous is featured in Oscars gift bag](https://www.popsugar.com.au/fitness/Australian-MOUS-Fitness-Bottle-Feature-Oscars-Gift-Bag-43196349).
+You are more than welcome to leave any comment below, or contact us at info@keikai.io.
 
 <div style="max-width: 550px; max-height: 300px; margin: 0 auto;">
 {% markdown %}
@@ -87,20 +93,6 @@ Also, when we think of leveraging the community, free giveaway of our bottle at 
 {% endmarkdown %}
 </div>
 
-## 4. Do it. Complete each task one by one
- 
-Now that our ideas are broken down into items that have become actionable, my friends and I can starting doing them!
-
-First, we can start by compiling a list of influencers and YouTubers we know or after asking around, study them a bit to know what they are into, and ask them politely via an email or Twitter message to get the marketing campaign rolling.
-
-The more we complete the items, the closer we are to accomplishing our goal and thus our dream.
-
-The nice thing about [Quire](https://quire.io/) is each item - or I should say task - has an assignee, due date, tag, comments, etc. You can rest assured everyone, and everything is on track and stays on track.
-
-
-Time is money, and you should spend it wisely. Efficiently.
-
-So what are you waiting for? Get that crazy, innovative ideas out of your head and follow **the 4 Ds** steps yourself!
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
