@@ -107,6 +107,7 @@
     </div>
     
     <script src="{{'/js/jquery-1.10.2.min.js' | prepend: site.baseurl | prepend: site.url}}"></script>
+    <script src="{{'/js/jquery.sticky.js' | prepend: site.baseurl | prepend: site.url}}"></script>
     <script async>
       $('#side-menu-toggle').click(function() {
         $('#wrap').toggleClass('menu-open');
@@ -116,6 +117,17 @@
         $(this).toggleClass('open');
         $('#header nav').toggleClass('in');
       });
+
+      var toggleStickyShareButtons = function() {
+        var $shareDiv = $('div.share');
+        if(window.innerWidth >= 1180) {
+          $shareDiv.sticky({topSpacing: 57});
+        } else {
+          $shareDiv.unstick();
+        }
+      };
+      toggleStickyShareButtons();
+      $(window).resize(toggleStickyShareButtons);
     </script>
   </body>
 
