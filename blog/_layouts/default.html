@@ -107,16 +107,8 @@
     </div>
     
     <script src="{{'/js/jquery-1.10.2.min.js' | prepend: site.baseurl | prepend: site.url}}"></script>
-    <script async>
-      $('#side-menu-toggle').click(function() {
-        $('#wrap').toggleClass('menu-open');
-      });
-      $('#header-wrapper').addClass('qr-collapse-navbar');
-      $('#header #menu-toggle').click(function() {
-        $(this).toggleClass('open');
-        $('#header nav').toggleClass('in');
-      });
-    </script>
+    <script src="{{'/js/jquery.sticky.js' | prepend: site.baseurl | prepend: site.url}}"></script>
+    <script src="{{'/js/main.js' | prepend: site.baseurl | prepend: site.url}}"></script>
   </body>
 
 </html>
