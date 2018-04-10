@@ -44,11 +44,11 @@ However, this did not stop us striving for excellence.
 
 In the past decade, we have never stopped exploring web spreadsheet.
 
-For years, we have kept improving our [ZK Spreadsheet] (https://www.zkoss.org/product/zkspreadsheet) to accommodate users’ needs. We have boosted its performance 10x, but as we live in an age where it is difficult to keep up with data that grows exponentially, it is not just about evolutionizing spreadsheet anymore, but revolutionizing it. For now, and the future.
+For years, we have kept improving our ZK Spreadsheet to accommodate users’ needs. Though we have boosted its performance 10x, but as we live in an age where it is difficult to keep up with data that grows exponentially, it is not just about evolutionizing spreadsheet anymore, but revolutionizing it. For now, and the future.
 
-To solve it once and for all, two years ago, our team redesigned spreadsheet from head to toe. It was nights after nights of pushing ourselves and sending us back to square one over and over again, that led us where we are today.
+To settle it once and for all, two years ago, our team redesigned spreadsheet from head to toe. It was nights after nights of pushing ourselves and sending us back to square one over and over again, that led us where we are today.
 
-Now, having successfully exceeded the size and speed limits of web spreadsheet, we are more than happy to present Keikai - the only web spreadsheet for big data.
+Now, having successfully exceeded the size and speed limits of web spreadsheet, we are more than happy to present Keikai — the only web spreadsheet for big data.
 
 
 ## Keikai’s Architecture
@@ -73,7 +73,7 @@ Keikai is made ready for all devices, including PC, Mac, Android and iOS. You an
 
 ## Start Your Journey with Keikai
 
-With all the efforts we have put in, we can now proudly announce KeiKai. Unlike any web spreadsheet, it is designed and architectured for big data -- the fastest web spreadsheet regardless of size!
+With all the efforts we have put in, we can now proudly announce KeiKai. Unlike any web spreadsheet, it is designed and architected for big data — and is the fastest web spreadsheet regardless of size!
 
 You are more than welcome to leave any comment below, or contact us at info@keikai.io.
 
