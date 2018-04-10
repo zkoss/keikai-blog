@@ -13,9 +13,11 @@ body {
 }
 
 
-@1160-margin: 95px; // 1160 ~
-@960-margin: 30px;  // 960 + 760 + 480
-@320-margin: 10px;  // 320
+@1160-margin: 72px; // 1160 ~
+@960-margin: 48px;  // 980
+@768-margin: 30px;  // 768
+@480-margin: 23px;  // 480
+@320-margin: 23px;  // 360 + 320
 
 @side-menu-width: 284px;
 @side-menu-top: 100px;
@@ -940,8 +942,8 @@ body {
 	}
 }
 
-// 480 ~ 1179: 480 mode and to 960 mode
-@media (min-width: @screen-xs-min) and (max-width: @screen-md-max)  {
+// 980 ~ 1179 (960 mode)
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max)  {
 	#header {
 		padding-right: @960-margin;
 		padding-left: @960-margin;
@@ -958,11 +960,56 @@ body {
 	}
 }
 
-// 480 ~ 767: 480 mode
+// 768 ~ 979: 768 mode
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max)  {
+	#header {
+		padding-right: @768-margin;
+		padding-left: @768-margin;
+	}
+
+	#side-menu-toggle {
+		right: @768-margin;
+	}
+
+	#body {
+		#post-list {
+			padding: 0 (@768-margin + @side-menu-toggle-width);
+		}
+	}
+}
+
+// 480 ~ 767: 768 mode
 @media (min-width: @screen-xs-min) and (max-width: @screen-xs-max)  {
+	#header {
+		padding-right: @768-margin;
+		padding-left: @768-margin;
+	}
+
+	#side-menu-toggle {
+		right: @768-margin;
+	}
+
+	#body {
+		#post-list {
+			padding: 0 (@768-margin + @side-menu-toggle-width);
+		}
+	}
+}
+
+// ~ 480 ~ 767: 480 mode
+@media (min-width: @screen-xs-min) and (max-width: @screen-xs-max)  {
+	#header {
+		padding-right: @480-margin;
+		padding-left: @480-margin;
+	}
+
+	#side-menu-toggle {
+		right: @480-margin;
+	}
+
 	#body {
 		#post {
-			padding: 0 (@960-margin + @side-menu-toggle-width);
+			padding: 0 (@480-margin + @side-menu-toggle-width);
 		}
 
 		#category { 
