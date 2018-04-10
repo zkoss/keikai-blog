@@ -2,7 +2,7 @@
 layout: post
 title:  "Why we spent 10 years to create another web spreadsheet"
 date:   2018-04-10 
-
+categories: "Value"
 
 index-intro: "Keikai - けいかい 【軽快】 - Nimble, and Mighty. <br/>
 
@@ -15,7 +15,7 @@ It has been more than 40 years since the first spreadsheet was invented. As time
 image: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018/0.jpg"
 tags: dream vision ideas
 author: "Henri Chen"
-authorImg: "/images/author/Henri.jpg"
+authorImg: "/images/author/henri.jpg"
 authorDesc: "Founder of Keikai."
 authorLink: ""
 
@@ -44,7 +44,7 @@ However, this did not stop us striving for excellence.
 
 In the past decade, we have never stopped exploring web spreadsheet.
 
-For years, we have kept improving our ZK Spreadsheet to accommodate users’ needs. Though we have boosted its performance 10x, but as we live in an age where it is difficult to keep up with data that grows exponentially, it is not just about evolutionizing spreadsheet anymore, but revolutionizing it. For now, and the future.
+For years, we have kept improving our [ZK Spreadsheet] (https://www.zkoss.org/product/zkspreadsheet) to accommodate users’ needs. Though we have boosted its performance 10x, but as we live in an age where it is difficult to keep up with data that grows exponentially, it is not just about evolutionizing spreadsheet anymore, but revolutionizing it. For now, and the future.
 
 To settle it once and for all, two years ago, our team redesigned spreadsheet from head to toe. It was nights after nights of pushing ourselves and sending us back to square one over and over again, that led us where we are today.
 
