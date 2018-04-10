@@ -24,8 +24,8 @@ imgDir: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018
 
 
 ![My helpful screenshot]({{ site.baseurl }}/images/{{page.imgDir}}/0.jpg)
-
-Keikai - けいかい 【軽快】 - Nimble, and Mighty
+<link href="https://fonts.googleapis.com/earlyaccess/Noto Serif.css" rel="stylesheet" />
+<p style="font-family: 'Noto Serif';font-style: normal;font-weight: bold"> Keikai - けいかい 【軽快】 - Nimble, and Mighty.</p>
 
 Hi, I am Henri, founder of Keikai.
 
