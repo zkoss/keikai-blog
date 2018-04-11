@@ -19,10 +19,6 @@
 }
 
 #header {
-	#quire-logo {
-		//padding-top: 20px;
-		//padding-left: 1px;
-	}
 
 	#menu-toggle {
 		margin: 10px 0 0;
@@ -59,22 +55,22 @@
 .navbar-default .navbar-nav {
 
 	.item {
-		font-size: 14px;
+    font-family: @ws-navbar-font;
+		font-size: @ws-navbar-font-size;
+		line-height: 56px;
 		color: @light-text-color;
-    	font-weight: @ws-font-weight-regular;
+   	font-weight: @ws-font-weight-regular;
 
 		> a {
 			.hover-text;
-			line-height: 12px;
-
-			margin: 20px 13px;
+  		line-height: inherit;
+			margin: 0;
 			padding: 0;
+      padding-left: 36px;
 		}
 
-		&:last-child {
-			> a {
-				margin-right: 0 !important;
-			}
+		&:first-child {
+			padding-left: 0;
 		}
 
 		&.open > a {
@@ -130,3 +126,25 @@
 		}
 	}
 }
+
+/* ~1440*/
+@media (max-width: @screen-lg-max)  {
+  .navbar-default .navbar-nav {
+	  .item {
+		  font-size: @ws-navbar-font-size-small;
+    }
+  }
+}
+
+/* ~980 hidden behind hamburger menu 
+@media (max-width: @screen-sm-max) {
+  .navbar-default .navbar-nav {
+	  .item {
+		  > a {
+        padding-left: 25px;
+      }
+    }
+  }
+}
+*/
+
