@@ -19,11 +19,11 @@ authorImg: "/images/author/henri.jpg"
 authorDesc: "Founder of Keikai."
 
 
-imgDir: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018"
+imgDir: "2018-04-11-Why-we-spent-10-years-to-create-another-web-spreadsheet"
 ---
 
 
-![My helpful screenshot]({{ site.baseurl }}/images/{{page.imgDir}}/0.jpg)
+![My helpful screenshot]({{ site.baseurl }}/images/{{page.imgDir}}/1.jpg)
 <link href="https://fonts.googleapis.com/earlyaccess/Noto Serif.css" rel="stylesheet" />
 <p style="font-family: 'Noto Serif';font-style: normal;font-weight: bold"> Keikai - けいかい 【軽快】 - Nimble, and Mighty.</p>
 
