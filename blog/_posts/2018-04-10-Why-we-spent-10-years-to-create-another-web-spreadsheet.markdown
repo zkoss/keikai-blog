@@ -5,6 +5,7 @@ date:   2018-04-11
 categories: "Intro"
 
 index-intro: "Keikai - けいかい 【軽快】 - Nimble, and Mighty. <br/>
+<br/>
 
 Hi, I am Henri, founder of Keikai. 
 
