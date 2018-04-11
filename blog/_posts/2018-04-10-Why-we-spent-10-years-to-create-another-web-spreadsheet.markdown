@@ -12,12 +12,12 @@ Hi, I am Henri, founder of Keikai.
 It has been more than 40 years since the first spreadsheet was invented. As time goes by, spreadsheet has been invented, reinvented, dropped, picked up and put online. Even on our mobile devices.
  "
 
-image: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018/0.jpg"
+image: "2018-04-11-Why-we-spent-10-years-to-create-another-web-spreadsheet/1.jpg"
 tags: dream vision ideas
 author: "Henri Chen"
 authorImg: "/images/author/henri.jpg"
 authorDesc: "Founder of Keikai."
-authorLink: ""
+
 
 imgDir: "2018-01-30-4-productivity-tips-that-make-sense-for-your-project-in-2018"
 ---
