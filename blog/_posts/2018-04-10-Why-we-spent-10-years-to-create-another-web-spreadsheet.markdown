@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Why we spent 10 years to create another web spreadsheet"
-date:   2018-04-10 
+date:   2018-04-11 
 categories: "Intro"
 
 index-intro: "Keikai - けいかい 【軽快】 - Nimble, and Mighty. <br/>
