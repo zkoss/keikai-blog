@@ -45,7 +45,7 @@ However, this did not stop us striving for excellence.
 
 In the past decade, we have never stopped exploring web spreadsheet.
 
-For years, we have kept improving our [ZK Spreadsheet] (https://www.zkoss.org/product/zkspreadsheet) to accommodate users’ needs. Though we have boosted its performance 10x, but as we live in an age where it is difficult to keep up with data that grows exponentially, it is not just about evolutionizing spreadsheet anymore, but revolutionizing it. For now, and the future.
+For years, we have kept improving our <a href="https://www.zkoss.org/product/zkspreadsheet" onclick="ga('send', 'pageview', {'page':'/zkoss.org/product/zkspreadsheet', 'title':'ZK Spreadsheet'})">ZK Spreadsheet</a> to accommodate users’ needs. Though we have boosted its performance 10x, but as we live in an age where it is difficult to keep up with data that grows exponentially, it is not just about evolutionizing spreadsheet anymore, but revolutionizing it. For now, and the future.
 
 To settle it once and for all, two years ago, our team redesigned spreadsheet from head to toe. It was nights after nights of pushing ourselves and sending us back to square one over and over again, that led us where we are today.
 
