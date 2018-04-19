@@ -1,0 +1,23 @@
+{
+  "name": "keikai-blog",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keikai/keikai-blog.git"
+  },
+  "author": "Robert, Elena, Michelle, Jean",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/keikai/keikai-blog/issues"
+  },
+  "homepage": "https://github.com/keikai/keikai-blog#readme",
+  "devDependencies": {
+    "less": "^3.0.1"
+  }
+}

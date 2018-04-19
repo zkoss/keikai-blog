@@ -2,3 +2,5 @@
 blog/css/**
 release/
 preview/
+node_modules/
+
