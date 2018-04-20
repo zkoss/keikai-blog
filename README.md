@@ -7,10 +7,6 @@ install `npx` command used in build-styles.sh
 
     npm install -g npx
 
-install `lessc` dependency locally
-
-    npm install
-
 ### install ruby 2.5.1 (project also builds using 2.1.10 - after changing the Gemfile)
 
 recommended ruby version manager rbenv 
@@ -28,12 +24,20 @@ rbenv will read the file .ruby-version to identify which version to use when ins
     gem install bundler
 
 ### install project dependencies
+`jekyll` dependencies
 
     bundle install
   
 this will read the `Gemfile` and download dependencies automatically, also complain if the wrong ruby version is active
 
+`lessc` dependency
+
+    npm install
+
+
 ### run/build the project
+
+    ./build-styles.sh
 
     bundle exec jekyll build -s blog/
 
