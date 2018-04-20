@@ -2,8 +2,12 @@
 
 ## setup
 
-### install node 9.10.1 with lessc 3.0.1
-TODO: automate this using npm
+### install node 9.x
+install `npx` command used in build-styles.sh
+    npm install -g npx
+
+install `lessc` dependency locally
+    npm install
 
 ### install ruby 2.5.1 (project also builds using 2.1.10 - after changing the Gemfile)
 
