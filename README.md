@@ -2,8 +2,8 @@
 
 ## setup
 
-### install node 9.x
-install `npx` command used in build-styles.sh
+### install node 10.x
+install `npx` command used in build-styles.sh (if not present)
 
     npm install -g npx
 
@@ -39,6 +39,6 @@ this will read the `Gemfile` and download dependencies automatically, also compl
 
     ./build-styles.sh
 
-    bundle exec jekyll build -s blog/
+    bundle exec jekyll build -s blog/ -d release
 
-    bundle exec jekyll serve -s blog/ --config blog/_config.yml,blog/_config_dev.yml
+    bundle exec jekyll serve -s blog/ -d preview --config blog/_config.yml,blog/_config_dev.yml
