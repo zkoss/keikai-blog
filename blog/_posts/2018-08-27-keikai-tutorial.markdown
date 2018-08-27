@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Keikai Getting Started"
-date:   2018-08-17
+date:   2018-08-27
 categories: "Tutorial"
 
 index-intro: "Keikai Getting Started <br/>
