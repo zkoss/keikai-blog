@@ -19,6 +19,12 @@ authorDesc: "Customer Care, Keikai."
 
 imgDir: "2018-08-keikai-tutorial"
 ---
+<style>
+    #body #post .right-part .markdown li {
+        color: rgba(0,0,0,0.9);
+        font-weight: 400;
+    }
+</style>
 
 # 大數據網路試算表 -- Keikai<br/>產品發表會
 
@@ -46,7 +52,6 @@ KEIKAI 到底是甚麼？ 對我的工作流程是否有幫助？
 * 14:50-15:15 繳回問卷，領取茶點及小冊子，享用茶點
 * 15:15-15:40 實例講解 
 * 15:40-16:00 會後諮詢
-
 
 免費參加，名額有限，請盡速報名(線上報名連結)<br/>
 諮詢電話: 2523-3700 ext. 123 陳小姐
