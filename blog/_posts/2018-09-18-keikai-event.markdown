@@ -25,6 +25,8 @@ imgDir: "2018-08-keikai-tutorial"
 This page should not be indexed or listed on main/category pages
 
 
+jhkerhkwjerhwkjewehjk
+
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
