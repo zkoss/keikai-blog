@@ -13,7 +13,7 @@ Keikai product launch event at Taipei Taiwan
 image: "2018-08-keikai-tutorial/tutorial.png"
 tags: tutorial developer
 author: "Jean Yen"
-authorImg: "/images/author/jean.png"
+authorImg: "/images/author/jean.jpg"
 authorDesc: "Customer Care, Keikai."
 
 
