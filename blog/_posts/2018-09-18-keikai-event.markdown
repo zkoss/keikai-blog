@@ -99,8 +99,9 @@ KEIKAI 到底是甚麼？ 對我的工作流程是否有幫助？
 * 官網: [keikai.io](https://keikai.io)
 * 若您不克參加本活動但希望另外安排日期進行展示，請於線上報名表中註明
 
-
+<script src="{{ base.url | prepend: site.url }}/blog/js/galinkactivation.js"></script>
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-help]: https://github.com/jekyll/jekyll-help
+
