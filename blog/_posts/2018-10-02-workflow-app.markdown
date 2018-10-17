@@ -123,7 +123,7 @@ If anyone tries to edit a cell, Keikai will pop up a warning message:
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/sheetProtection.png)
 
 
-Note that even when the sheet is read-only, it is still possible to allow some user actions like selecting locked/unlocked cells, so that users can see a selection box when clicking a cell. Developers and designers can decide to turn on/off these actions depending on the actual use cases. For available user actions, please check [protect() JavaDoc]({{page.javadoc}}io/keikai/client/api/Worksheet.html#protect-java.lang.String-boolean-boolean-boolean-boolean-boolean-boolean-boolean-boolean-boolean-boolean-boolean-boolean-boolean-boolean-boolean-).
+Note that even when the sheet is read-only, it is still possible to allow some user actions like selecting locked/unlocked cells, so that users can see a selection box when clicking a cell. Developers and designers can decide to turn on/off these actions depending on the actual use cases. For available user actions, please check [protect() JavaDoc]({{page.javadoc}}io/keikai/client/api/Worksheet.html#protect-io.keikai.client.api.SheetProtection-).
 
 Since I don't want users to edit cells in these sheets, I decided to hide the toolbar to avoid confusing users. This can be done with the data attribute below:
 
