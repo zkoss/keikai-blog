@@ -9,7 +9,7 @@ index-intro: "A Keikai Workflow Application<br/>
 This article demonstrates how to build a workflow application with Keikai only.
  "
 
-image: "2018-10-workflow/tabSwitching.gif"
+image: "2018-10-workflow/featuredImage.png"
 tags: tutorial developer
 author: "Hawk Chen"
 authorImg: "/images/author/hawk.png"
