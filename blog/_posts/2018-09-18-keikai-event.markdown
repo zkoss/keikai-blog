@@ -13,7 +13,7 @@ Keikai product launch event at Taipei Taiwan
 image: "2018-08-keikai-tutorial/tutorial.png"
 tags: tutorial developer
 author: "Jean Yen"
-authorImg: "/images/author/hawk.png"
+authorImg: "/images/author/jean.jpg"
 authorDesc: "Customer Care, Keikai."
 
 
@@ -99,8 +99,15 @@ KEIKAI 到底是甚麼？ 對我的工作流程是否有幫助？
 * 官網: [keikai.io](https://keikai.io)
 * 若您不克參加本活動但希望另外安排日期進行展示，請於線上報名表中註明
 
-
+<script>
+window.addEventListener('load',function(){  
+  jQuery('[href*="https://docs.google.com/forms/"]').click(function(){
+    ga('send', 'event','link','click','register');
+  })
+})
+</script>
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-help]: https://github.com/jekyll/jekyll-help
+
