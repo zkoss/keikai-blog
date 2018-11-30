@@ -63,7 +63,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta charset="utf-8" />
 
-    <!-- <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}"> -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 
@@ -72,7 +71,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,400i,700,700i|Exo+2:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{'/css/lato/latofonts.min.css' | prepend: site.baseurl | prepend: site.url}}" />
     <link rel="stylesheet" type="text/css" href="{{'/css/bootstrap/bootstrap.min.css' | prepend: site.baseurl | prepend: site.url}}" />
-    <link rel="stylesheet" type="text/css" href="{{'/css/blog.min.css' | prepend: site.baseurl | prepend: site.url}}" />
+    <link rel="stylesheet" type="text/css" href="{{'/css/blog.min.css' | prepend: site.baseurl | prepend: site.url}}?{{site.time | date: '%s%N'}}" />
   </head>
 
   <body data-init="blog">
