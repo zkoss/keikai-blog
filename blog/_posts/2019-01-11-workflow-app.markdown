@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Zero-Code UI Building with Keikai"
-date:   2018-11-22
+date:   2019-01-11
 categories: "Application"
 
 index-intro: "Zero-Code UI Building with Keikai<br/>
@@ -9,7 +9,7 @@ index-intro: "Zero-Code UI Building with Keikai<br/>
 This article tells you how easy to build web application UI with Keikai.
 "
 
-image: "2018-11-zerocode/featuredImage.png"
+image: "2019-01-zerocode/featuredImage.png"
 tags: developer
 author: "Hawk Chen"
 authorImg: "/images/author/hawk.png"
