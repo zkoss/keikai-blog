@@ -21,18 +21,12 @@ javadoc: "http://keikai.io/javadoc/1.0.0-beta.7/"
 ---
 <!--
 images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_OEb made with draw.io
+
+寫作目標： Keikai 能幫助你輕鬆打造 UI
+# 開發者會遇到那些重大問題
+# keikai 如何解決這些問題
+# 如何滿足UI 其他的需求
 -->
-
-
-寫作目的： Keikai 能幫助你更容易打造 UI
-開發者會遇到那些重大問題
-keikai 如何解決這些問題
-如何滿足UI 其他的需求
- 換頁
- 增加其他的元件按鈕等等
- 怎麼處理事件
- 輸入驗證
- 使用者權限控制
 
 
 
@@ -40,50 +34,57 @@ keikai 如何解決這些問題
 Hello, mighty software developers! Have you ever feel frustrated with UI building? Especially the end user of the UI is not you. You probably never understand what those end users want. That's because there are gaps between developers and users.
 
 ## Communication Gap
-When you show the UI you build to your users, you might hear "this layout is such a tragedy", "that red is not the red I want", or "the font size is just too small"...etc. What! You think you already build according to what they describe (you suppose). After endless modifications, it seems they are never satisfied. 
+When you show the UI you build to your users, you might hear "this layout is such a tragedy", "I suppose the red will be ... darker", or "the font size is just too small"...etc. What! You think you already build according to what they describe (you suppose). After endless modifications, it seems they are never satisfied. 
 
-Because people from different backgrounds tend to use different terms and have different assumptions when communicating with others. When 2 persons are not fimilar with each other, they need to spend time to synchronize ideas in their heads each other. To know what "red" is your red.
+Because people from different backgrounds tend to use different terms and have different assumptions when communicating with others. When 2 persons are not familiar with each other, they need to spend time to synchronize ideas in their heads each other. To know what "red" is your red.
 
 ## The Gap between Design View and Runtime View
-Before actually building a UI, you usually ask end users's feedback by showing them a design draft. Maybe using a wireframe or a hand painting, such a design-time view still has a big difference from a runtime view - the real web page. Therefore, users' feedback can't reflect their real requirements precisely. Since users can't correctly image what the UI will look like and can't interact with the UI.
+Before actually building a UI, you usually ask end users' feedback by showing them a design draft. Maybe using a wireframe or a hand painting, such a design-time view still has a big difference from a runtime view - the real web page. Therefore, users' feedback can't reflect their real requirements precisely. Since users can't correctly image what the UI will look like and can't interact with the UI.
 
 ## UI Changes Frequently
-Another common problem is people tend to change UI. It could be caused by requirement change, preference change, or new feature. 
+Another common problem is people tend to change UI. It could be caused by requirement change, preference change, or new feature. Sometimes these changes are minor like increase font size, change a color, or move the position. If every change needs to be implemented developers, this will cost a lot.
 
 
 ## These Problems Fail UI Building
-These problems cause UI building failure, then you need to re-build, confirm, re-build, confirm... After sevaral iterations, the UI might match the expectation of end users. But it costs a lot.
+These problems cause UI building failure and time-consuming because you need to re-build, confirm, re-build, confirm... over and over again. After several iterations, the UI might finally match the expectation of end users. But it might take a long time.
 
 
-# How [Keikai](https://keikai.io) Eliminates Those Problems
+# How [Keikai Can Save Developers](https://keikai.io/saveIT/)
+
+## Users Can Design Pages
 Since the end users are normally those who know the best about their business needs and process, it's better to let them create forms and pages by themselves instead of letting developers do the work. Therefore, end users can design their pages first in Excel, using features like styles, colors, filters, validations, and formulas. Because lots of users know Excel and no technical details involves, users can easily create, modify pages by themselves.
 
-Users even can implement some simple application logic with formulas. For example, they can calculate work days by `NETWORKDAYS()` and fill the date of today by `TODAY()`.
-
-Then you just need to import that file into Keikai with one line of code below, and Keikai can render it on a web page:
-
-```java
-spreadsheet.importAndReplace("myForm.xlsx", myForm);
-```
-
-After imporing, when you compare the 2 screenshots below, you nearly can't find any difference between Excel and Keikai. (Only buttons' visibility is controlled programmatically)
+Users even can implement some simple application logic with formulas. For example, if a member of Human Resource create an leave application form, he can calculate work days by `NETWORKDAYS()` and fill the date of today by `TODAY()` as a default value like:
 
 **Excel File**
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/formExcel.png)
 
+
+## Users Can See Real Pages (WYSIWYG)
+Then you just need to import that file into Keikai with one line of code below, and Keikai can render it on a web page:
+
+```java
+spreadsheet.importAndReplace("Leave Application.xlsx", form);
+```
+
+After importing the leave application form (`Leave Application.xlsx`), when you compare the 2 screenshots, you nearly can't find any difference between Excel and Keikai. (Only buttons' visibility is controlled programmatically)
+
+
 **File in Keikai**
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/formKeikai.png)
 
-Hence, what a user create in Excel becomes a page of your web application. Since users design their pages without you, **no communication gap**. Besides, end users can build a page without worrying about the resulting web page looks differently. **No design time and runtime gap** exists anymore.
 
-Users can also change the UI in Excel without engineers. This also saves lots of time between users and you. Thus, Keikai can eliminate those problems by turning an Excel sheets as a web application page.
+Hence, what a user creates in Excel becomes a page of your web application. Since users design their pages without you, **no communication gap**. Besides, end users can build a page without worrying about the resulting web page looks different. **No design time and runtime gap** exists anymore.
+
+## Users Can Change Pages
+Users can also change the UI in Excel without engineers. This also saves lots of time between users and you. Thus, Keikai can solves those problems by turning an Excel sheet as a web application page.
 
 
 # Fulfill Other UI Requirements
 Showing a static page designed by Excel is just the first step. A good UI needs to fulfill more requirements like showing data from a data source dynamically, handling events, and page navigation. Let me tell you how to achieve them with Keikai as well.
 
 ## Fill Data in Cells
-A web application usually displays data loaded dynamically, e.g. from a database or a configuration file. Keikai provide `Range` setter API to set data into cells, the basic usage is:
+A web application usually displays data loaded dynamically, e.g. from a database or a configuration file. Keikai provides `Range` setter API to set data into cells, the basic usage is:
 
 ```java
 // get a Range object that represents one or more cells
@@ -108,10 +109,10 @@ List cellValues = spreadsheet.getRange(row, col, 1, 4).getValues();
 ```
 
 ## Page Navigation
-In our [Workflow application](), when a user visits a main page, the page transition is determined by a user's role:
+In our [Workflow application](https://github.com/keikai/keikai-tutorial#workflow-app), when a user visits the main page, the page transition is determined by a user's role:
 
-* enter as Employee -> form list
-* enter as Supervisor -> submission list
+* enter as **Employee**  -> form list
+* enter as **Supervisor**  -> submission list
 
 In the Excel file, I make one sheet for each page:
 
@@ -135,7 +136,7 @@ For editable cells, if you want to limit what a user can input you can apply a d
 
 
 ## Control Accessibility
-By default users can edit every cell in a sheet but a normal web page doesn't behave like this, so we need to restrict users' accessibility.
+By default, users can edit every cell in a sheet but a normal web page doesn't behave like this, so we need to restrict users' accessibility.
 
 
 ### Limit Editable Area
@@ -150,19 +151,19 @@ sheet.protect(new SheetProtection.Builder().setPassword("")
 ```
 
 ### Limit Available Features
-If I don't want users to edit cells arbitarily, I can hide the toolbar and context menu to avoid confusing users. This can be done with the data attribute below:
+If I don't want users to edit cells arbitrarily, I can hide the toolbar and context menu to avoid confusing users. This can be done with the data attribute below:
 
 ```xml
 <div id="spreadsheet" data-show-toolbar="false" data-show-context-menu="false"/>
 ```
 
 
-# Check [Workflow Demo Online]()
+# Check [Workflow Demo Online](https://keikai.io/demo/workflow)
 Try the demo by yourself to experience what I talk about in this article.
  
 
 # Source Code
-The complete source code in this article is available at [Github](https://github.com/keikai/keikai-tutorial).
+The complete source code of workflow application I mentioned in this article is available at [Github](https://github.com/keikai/keikai-tutorial).
 
 
 # Welcome Your Feedback
