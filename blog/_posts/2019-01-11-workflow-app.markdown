@@ -157,9 +157,35 @@ If I don't want users to edit cells arbitrarily, I can hide the toolbar and cont
 <div id="spreadsheet" data-show-toolbar="false" data-show-context-menu="false"/>
 ```
 
+## Support 9 UI Controls
+Cells of a sheet usually can't fulfill various input needs. Hence, Keikai supports to import all 9 UI controls including button, group box, label, check box, scroll bar, list box, option button, and spinner. 
+
+![]({{ site.baseurl }}/images/{{page.imgDir}}/excelUiControl.png)
+
+Users can drag to add a UI control in Excel, all you have to do is import the file. Keikai will render these UI controls as HTML elements. Then you can even customize them with CSS.
+
+![]({{ site.baseurl }}/images/{{page.imgDir}}/button.png)
+
+
+## Handling User Events
+Respond to user actions is what UI should do as well. Keikai supports to listen to events triggered by user actions and implement your application logic in an event listener.
+
+```java
+spreadsheet.addEventListener(Events.ON_CELL_CLICK, rangeEvent -> {
+    // your application logic
+});
+```
+
+You can also listen to a button clicking like:
+
+```java
+spreadsheet.getWorksheet(SHEET_FORM).getButton(BUTTON_LEAVE).addAction(shapeMouseEvent -> {
+    leave();
+});
+```
 
 # Check [Workflow Demo Online](https://keikai.io/demo/workflow)
-Try the demo by yourself to experience what I talk about in this article.
+Try the workflow application by yourself to experience what I talk about in this article.
  
 
 # Source Code
@@ -168,6 +194,8 @@ The complete source code of workflow application I mentioned in this article is 
 
 # Welcome Your Feedback
 I have demonstrated how you can build UI of an application with Keikai. Feel free to tell us what other applications we can show you.
+
+
 
 # Related Articles
 * [Getting Started With Keikai](https://dzone.com/articles/keikai-spreadsheet-for-big-data)
