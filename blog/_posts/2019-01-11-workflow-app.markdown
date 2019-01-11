@@ -9,7 +9,7 @@ index-intro: "Zero-Code UI Building with Keikai<br/>
 This article tells you how easy to build web application UI with Keikai.
 "
 
-image: "2019-01-zerocode/featuredImage.png"
+image: "2019-01-zero-code/leaveForm.png"
 tags: developer
 author: "Hawk Chen"
 authorImg: "/images/author/hawk.png"
@@ -34,23 +34,23 @@ images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_
 Hello, mighty software developers! Have you ever feel frustrated in building the UI of your application? Especially when the end user of the UI is not you. You probably never understand what those end users want. That's because there are gaps between developers and users.
 
 ## Communication Gap
-When you show the UI you build to your users, you might get responses like "this sucks", "the red should be ... darker", or "the font size is just too small"...etc. What?! You thought you have already built it according to what they described (you honestly thought so...). However after endless modifications, it seems that the end users are never satisfied. 
+When you show the UI you build to your users, you might get responses like "this sucks", "the red should be ... darker", or "the font size is just too small"...etc. What?! You thought you have already built it according to what they described (you honestly thought so...). However, after endless modifications, it seems that the end users are never satisfied. 
 
 Because people from different backgrounds tend to use different terms and have different assumptions when communicating with others. When 2 persons are not familiar with each other, they need to spend extra time to synchronize ideas in their heads with each other. To know what "red" is your red.
 
 ## The Gap between Design View and Runtime View
-Before actually building a UI, you usually ask end users' feedback by showing them a design draft, often you use a wireframe or a hand drawing. However such a design-time view is still very different from a runtime view - the real web page. Therefore, users' feedback on this draft can't really reflect their real requirements precisely; users weren't able to correctly image what the UI will look like and couldn't interact with the UI.
+Before actually building a UI, you usually ask end users' feedback by showing them a design draft, often you use a wireframe or a hand drawing. However, such a design-time view is still very different from a runtime view - the real web page. Therefore, users' feedback on this draft can't really reflect their real requirements precisely; users weren't able to correctly image what the UI will look like and couldn't interact with the UI.
 
 ## UI Changes Frequently
-Another common problem is that people tend to change UI from time to time. Reasons vary, could be due to requirement change, preference change, or new feature. Sometimes these changes are minor like increasing font size, change a color, or move the position of some elements. However if every change needs to be implemented by developers, it will cost a lot.
+Another common problem is that people tend to change UI from time to time. Reasons vary, could be due to requirement change, preference change, or new feature. Sometimes these changes are minor like increasing font size, change a color, or move the position of some elements. However, if every change needs to be implemented by developers, it will cost a lot.
 
 
 ## These Problems Fail UI Building
-These problems fail UI building and consumes extra time because you need to re-build, confirm, re-build, confirm... over and over again. After several iterations, the UI might finally match the expectation of end users. But it took way too long.
+These problems fail UI building and consume extra time because you need to re-build, confirm, re-build, confirm... over and over again. After several iterations, the UI might finally match the expectation of end users. But it took way too long.
 
 
 # How [Keikai Can Save Developers](https://keikai.io/saveIT/)
-Next we are going to look at how Keikai can change the way business users collaborate with developers -- helping developers to create spreadsheet-driven Web applications with a 100% user-proven UI. To put it in a more straightforward way - build Web Applications from Excel sheets.
+Next, we are going to look at how Keikai can change the way business users collaborate with developers -- helping developers to create spreadsheet-driven Web applications with a 100% user-proven UI. To put it in a more straightforward way - build Web Applications from Excel sheets.
 
 
 ## UI Designed by Users
@@ -63,7 +63,7 @@ Users even can implement some simple application logic with formulas. For exampl
 
 
 ## Users Can See Real Pages (WYSIWYG)
-Next you just need to import that Excel file into Keikai with one line of code, and Keikai can render it on a web page:
+Next, you just need to import that Excel file into Keikai with one line of code, and Keikai can render it on a web page:
 
 ```java
 spreadsheet.importAndReplace("Leave Application.xlsx", form);
@@ -79,7 +79,7 @@ After importing the leave application form (`Leave Application.xlsx`), when you 
 In short, what users created in Excel becomes a web application page. Since users design their pages by themselves, there's **no more communication gap** between users and developers. Besides, end users can build a page without worrying about the resulting web page looks different -- **No design view and runtime view gap** exists anymore.
 
 ## Users Can Change Pages
-Users can also change the UI in Excel without developers involved. This also saves lots of time between users and you. To sum up, Keikai can solves those problems and minimize the gaps by turning an Excel sheet into a web application page.
+Users can also change the UI in Excel without the developers involved. This also saves lots of time between users and you. To sum up, Keikai can solve those problems and minimize the gaps by turning an Excel sheet into a web application page.
 
 
 # Fulfill Other UI Requirements
