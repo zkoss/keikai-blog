@@ -1,5 +1,9 @@
 # Keikai Blog
 
+> Website: https://keikai.io  
+> Demo: https://keikai.io/demo  
+> Blog: https://keikai.io/blog
+
 ## setup
 
 ### install node 10.x
