@@ -26,6 +26,10 @@ rbenv will read the file .ruby-version to identify which version to use when ins
 ### install bundler (dependency manager similar to maven/npm)
 
     gem install bundler
+    
+in case bundler causes trouble install a specific bundler version
+
+    gem install bundler -v 1.16.1
 
 ### install project dependencies
 `jekyll` dependencies
