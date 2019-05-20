@@ -50,3 +50,14 @@ this will read the `Gemfile` and download dependencies automatically, also compl
     bundle exec jekyll build -s blog/ -d release
 
     bundle exec jekyll serve -s blog/ -d preview --config blog/_config.yml,blog/_config_dev.yml
+
+# Publish
+
+1. build the zip
+
+jenkin / Keikai / Keikai-Blog
+
+2. deploy
+
+* test: Keikai-Website testDeploy
+* production: keikai website » Keikai-Website deploy
