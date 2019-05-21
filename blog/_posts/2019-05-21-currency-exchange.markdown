@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Turn Your Excel File Into a Web Application"
-date:   2019-05-20
+date:   2019-05-21
 categories: "Application"
 
 index-intro: "
@@ -229,7 +229,6 @@ Through these steps, I can turn a traditional workflow of sending Excel forms in
 I hope you enjoyed reading my article. The complete source code of "buy currency" application mentioned in this article is available at [Github](https://github.com/keikai/dev-ref).
 
 Just run the project and visit http://localhost:8080/dev-ref/case/exchange
-
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
