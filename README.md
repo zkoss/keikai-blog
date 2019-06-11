@@ -55,9 +55,9 @@ this will read the `Gemfile` and download dependencies automatically, also compl
 
 1. build the zip
 
-jenkin / Keikai / Keikai-Blog
+[jenkin / Keikai / Keikai-Blog](http://jenkins/view/Keikai/job/keikai-website/job/Keikai-Blog/)
 
 2. deploy
 
-* test: Keikai-Website testDeploy
-* production: keikai website » Keikai-Website deploy
+* test: [Keikai-Website testDeploy](http://jenkins/view/Keikai/job/keikai-website/job/Keikai-Website%20testDeploy/)
+* production: [keikai website » Keikai-Website deploy](http://jenkins/view/Keikai/job/keikai-website/job/Keikai-Website%20deploy/)
