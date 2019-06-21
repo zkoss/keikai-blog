@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Create a payroll template in excel and automatically fill it in a web-based application" 
+title:  "Turn manual Excel workflow into automated Web App" 
 date:   2019-06-21
 categories: "Application"
 
@@ -47,26 +47,25 @@ Simply put, I want to read column headers, and automatically create a copy of th
 # Well formatted data
 
 Of course, the data must be readable. I’ve retrieved the original workbook, and just changed the formatting to follow my simple ruleset:
-*All the data will be in a table named “PayrollTable”. Easy to target from the Java API, plus adding a line in the table will automatically make it included in my dataset.
-*The first line of the table will contain headers. No data here, just the labels for the template fields.
-*Each row in the table will be output to one copy of the template
+
+* All the data will be in a table named “PayrollTable”. Easy to target from the Java API, plus adding a line in the table will automatically make it included in my dataset.
+* The first line of the table will contain headers. No data here, just the labels for the template fields.
+* Each row in the table will be output to one copy of the template
 
 # In-browser template edition
 
-Here’s the clever part. While the parsing and replacing is done in java, the application can be piloted directly by the user simply by editing the for template. Moving cells around, changing style, etc. All operations can be performed directly on the spreadsheet file, or through keitai web UI.
+Here’s the clever part. While the parsing and replacing is done in java, the application can be piloted directly by the user simply by editing the for template. Moving cells around, changing style, etc. All operations can be performed directly on the spreadsheet file, or through Keikai web UI.
 
 # Read data from excel, use it however you like
 
 Let’s get to it. The API here is simple. Since I’ve named my target range, I can retrieve it with a single line:
-
-There are some common fields that reside in every template, like "Category" or "Form Number". Instead of having to read the value of the field at different cells (e.g. A3 or D4) on each template, I shall define a named range for such cell in each template so that I can easily read all the common fields using the same line of code: 
 
 ```java
 Range payrollRange = spreadsheet.getRangeByName(sheetName, rangeName);
 ```
 
 There’s more to the API [here](https://doc.keikai.io/tutorial/javaClientApi#), if you’d like a detailed read.
-The range object can then be queried line by line to extract data. First stop, extracting the header to their own list.
+The range object can then be queried line by line to extract data. First step, extracting the header to their own list.
 
 ```java
 List<String> headersList = new ArrayList<String>();
@@ -96,8 +95,10 @@ private void generateAllTemplates (List<Map<String, Object>> dataset) {
 ```
 
 # In conclusion
-I was able to automate a boring task into a click-and-done workflow using only a few lines of Java and the Keikai library to control an excel spreadsheet. Designing with named ranges makes it easy to retrieve and write data to and from specific parts of the document without hardcoding values, which in turn makes the document extensible (new columns, new fields, moving fields or renaming them) and puts both the data and the formatting under the user’s control. It would also makes the table data available to be used in a different service entirely, such as writing to database, using in a business layer, etc. 
+I was able to automate a boring task into a click-and-done workflow using only a few lines of Java and the Keikai library to control an excel spreadsheet.
+Designing with named ranges makes it easy to retrieve and write data to and from specific parts of the document without hardcoding values, which in turn makes the document extensible (new columns, new fields, moving fields or renaming them) and puts both the data and the formatting under the user’s control. It would also makes the table data available to be used in a different service entirely, such as writing to database, using in a business layer, etc. 
 
+![]({{ site.baseurl }}/images/{{page.imgDir}}/2019-06-21_workflow.gif) 
 
 # Source Code
 I hope this was as interesting to read as it was to make. The complete source code of this project is available on [Github](https://github.com/keikai/dev-ref).
