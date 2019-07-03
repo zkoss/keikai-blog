@@ -1,20 +1,20 @@
 ---
 layout: post
 title:  "Turn manual Excel workflow into automated Web App" 
-date:   2019-06-21
+date:   2019-07-03
 categories: "Application"
 
 index-intro: "
 This article tells you how to build a datasheet and template apllication in keikai.
 "
-image: "2019-06-payroll/Article-Payroll-image.jpg"
+image: "2019-07-payroll/Article-Payroll-image.jpg"
 tags: developer
 author: "Matthieu Duchemin"
 authorImg: "/images/author/matt.jpg"
 authorDesc: "Developer, Keikai."
 
 
-imgDir: "2019-06-payroll"
+imgDir: "2019-07-payroll"
 javadoc: "http://keikai.io/javadoc/latest/"
 ---
 <!--
