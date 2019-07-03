@@ -98,7 +98,7 @@ private void generateAllTemplates (List<Map<String, Object>> dataset) {
 I was able to automate a boring task into a click-and-done workflow using only a few lines of Java and the Keikai library to control an excel spreadsheet.
 Designing with named ranges makes it easy to retrieve and write data to and from specific parts of the document without hardcoding values, which in turn makes the document extensible (new columns, new fields, moving fields or renaming them) and puts both the data and the formatting under the user’s control. It would also makes the table data available to be used in a different service entirely, such as writing to database, using in a business layer, etc. 
 
-![]({{ site.baseurl }}/images/{{page.imgDir}}/2019-06-21_workflow.gif) 
+![]({{ site.baseurl }}/images/{{page.imgDir}}/2019-07-03_workflow.gif) 
 
 # Source Code
 I hope this was as interesting to read as it was to make. The complete source code of this project is available on [Github](https://github.com/keikai/dev-ref).
