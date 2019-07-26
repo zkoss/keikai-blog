@@ -59,7 +59,7 @@ The page also needs to load Keikai client JavaScript. The script URL is dynamica
 **editor.jsp**
 
 ```xml
-<script async defer src="${keikaiJs}"></script>
+<script defer src="${keikaiJs}"></script>
 ```
 
 Now the page is ready.
