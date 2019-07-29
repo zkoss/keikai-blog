@@ -1,0 +1,132 @@
+---
+layout: post
+title:  "Turning an Excel Table Into a Web Workflow" 
+date:   2019-07-29
+categories: "Application"
+
+index-intro: "
+See how to turn anExcel table into a web workflow.
+"
+image: "2019-07-vendor/Article-Vendor-image.jpg"
+tags: developer
+author: "Matthieu Duchemin"
+authorImg: "/images/author/matt.jpg"
+authorDesc: "Developer, Keikai."
+
+
+imgDir: "2019-07-vendor"
+javadoc: "http://keikai.io/javadoc/latest/"
+---
+<!--
+images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_OEb made with draw.io
+goal： Keikai can help you build a spreadsheet-based app
+-->
+
+# Introduction
+
+Hi there. Today, I’d like to share a bit of code I made to turn a repetitive Excel task into an automated web application. We have so many time-consuming processes that are easy to automate and make easier.
+
+Our administrative staff deals with contractors and suppliers. We have the usual system in which every single company working with us needs to provide its administrative information through the vendor registration form. Being added to the approved vendor list is a necessary step before we can order services or supplies from them.
+
+The thing is, we do business with a lot of different vendors, which means that our admin staff spends a significant amount of time emailing the Excel forms around, reviewing them, and then entering the results in our internal vendor database. In the case that any update is made, it requires another round of manual updating for both the vendor and our admin staff. The whole process is a dull waste of time spent copying and pasting values around, error-prone, and generally awful.
+
+Sounds like [another process](https://keikai.io/blog/p/payroll-template) that I've recently automated. Let's improve on this one too.
+
+# Form and Table
+So, what’s in these vendor registration forms anyway? Well, the usual info you need to conduct business. We collect company name, contact info, etc.
+
+From there, the data is organized in a big table, which allows for searching, filtering, ordering… all the table stuff.
+
+![]({{ site.baseurl }}/images/{{page.imgDir}}/keikai-article-vendor.png) 
+
+# How to Improve?
+Well, we have two factors to consider: Who and How?
+
+## Who? Two User Populations:
+External contacts who need to fill in their company’s data
+Internal users who need to use that data to fill
+
+## How? Two Entry Points:
+A public web page for the public form
+An internal page for in-house access to the organized dataset.
+
+## The Tools of the Trade
+We need a form to retrieve data. This form should follow well-known accessibility standards, be easy to use, and be easy to update or extend by the administrative staff. A simple HTML form would do the trick for accessibility and usability if properly designed, but it’s not exactly to extend without some coding knowledge. I’m also not starting from zero here. The target population is familiar with the spreadsheet already in use, and I want to stay as close as possible to the current user expectations.
+
+For this reason, I’ll be using [Keikai](https://keikai.io/) to transform an xlxs document into a webpage and simply wire events to retrieve user data.
+
+We also need a page to display the results. I’ll be using Keikai here too, since the spreadsheet format is very suitable for data searching, filtering, ordering, and most end-users are familiar with spreadsheet application workflow. On top of that, the access from a web page makes it easy for any employee to access the latest list without having to worry about file versions, file sharing servers, or the file being locked by a different user.
+
+This said, those two pages are connected by a Java application which treats each data line as a Java object (more precisely as a Map matching field name and values). From this in-memory dataset, we could perform any kind of operation, such as generating a JSON string, calling a persistence layer to the database, etc. Any action taking well-formed data, essentially.
+
+#The Workflow in Detail
+##Public Form
+This one is quite simple. I have made a spreadsheet, which contains some named fields. Whenever the “submit form” button is pushed, I’ll have the Java application use the Keikai library to read the value of every cell matching the fields names. I’ll then simply store that data to a java object. For this article, I’ve simplified the code to simply store the value in memory, but — in real-life — there are a lot of persistence options ranging from a flat file to the databases.
+
+```java
+private void vendorDataToWorkbook() {
+  for (Map.Entry<String, Object> entry : vendor.getVendorData().entrySet()) {
+    Range rangeByName = spreadsheetTable.getRangeByName(entry.getKey());
+    if(rangeByName != null) {
+      rangeByName.setValue(entry.getValue());
+    }
+  }
+}
+```
+
+[Code sample on GitHub](https://github.com/keikai/dev-ref-vendor/blob/master/src/main/java/io/keikai/demo/app/VendorApp.java#L69-L76)
+
+As a result, I’m able to generate a tabular dataset (a set of rows of data, which can be easily be expressed as a table and organized by columns names).
+
+##Summary Form
+The goal is very simple. I need a way to effectively display the tabular dataset, which grows with every entry retrieved from the previous step.
+
+This one is only slightly more complex due to putting the data from every vendor each into a table row. Simply by iterating over the data and writing a row for each entry.
+
+```java
+for (VendorMap vendor : allVendors) {
+  displayTable.getRows(currentRow).insert(InsertShiftDirection.ShiftDown,
+                                          InsertFormatOrigin.LeftOrAbove);
+  for (int i = 0; i < rangeNames.length; i++) {
+    displayTable.getCell(currentRow+1, i).setValue(vendor.getVendorData().get(rangeNames[i]));
+  }
+  currentRow++;
+}
+```
+
+[Code sample on GitHub](https://github.com/keikai/dev-ref-vendor/blob/master/src/main/java/io/keikai/demo/app/ManagerApp.java#L115-L122)
+
+#Using the Data
+Here’s a very good idea. Instead of pushing the data to a blank sheet, I’ve pre-initialized a table with table headers as my page template. With this, I’m able to simply fill the headers with the relevant column names with a simple loop:
+
+```java
+for (int i = 0; i < rangeNames.length; i++) {
+  firstrow.getCell(firstrow.getRow(), i).setValue(DISPLAY_COLUMN_NAMES.get(rangeNames[i]));
+}
+```
+
+[Code sample on GitHub](https://github.com/keikai/dev-ref-vendor/blob/master/src/main/java/io/keikai/demo/app/ManagerApp.java#L111-L113)
+
+And from there, the user has access to all standard spreadsheet table features
+
+Filtering a column based on any value or type
+Ordering rows alphabetically or numerically based on any column’s content
+Grouping and searching
+And if we ever need data analysis, the spreadsheet format is prime support for a pivot-table.
+
+#The Resulting App
+Here’s a short video of the updated workflow:
+
+![]({{ site.baseurl }}/images/{{page.imgDir}}/vendorarticle1.gif) 
+
+Vendor and admin can now access the form via a single link without having to email files around; edited data are saved immediately to the vendor DB eliminating manual input; updates are reflected in real-time; and the summary form makes it very easy to filter desired result — super easy to find out available vendors in a specific category.
+
+#Conclusion
+It’s a great feeling to remove unnecessary steps from a time-consuming workflow. Making a web-form based on a spreadsheet is a great balance between usability for the end-user and complexity from a developer point-of-view. Using the same spreadsheet tool to have an internal data-table display is a powerful way to leverage all the collated data, with a friendly UI.
+
+The whole runnable project is available [on GitHub](https://github.com/keikai/dev-ref-vendor).
+
+
+[jekyll]:      http://jekyllrb.com
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-help]: https://github.com/jekyll/jekyll-help
