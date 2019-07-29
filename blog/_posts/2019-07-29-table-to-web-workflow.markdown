@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Turning an Excel Table Into a Web Workflow" 
+title:  "Turning an Excel Vendor Form Into a Web Workflow" 
 date:   2019-07-29
 categories: "Application"
 
 index-intro: "
-See how to turn anExcel table into a web workflow.
+Turning an Excel Vendor Form Into a Web Workflow
 "
-image: "2019-07-vendor/Article-Vendor-image.jpg"
+image: "2019-07-vendor/keikai-article-vendor.png"
 tags: developer
 author: "Matthieu Duchemin"
 authorImg: "/images/author/matt.jpg"
