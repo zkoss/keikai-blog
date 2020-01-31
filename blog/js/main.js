@@ -32,3 +32,43 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-116749276-1', 'auto');
 ga('send', 'pageview');
+
+function initFooterResponsive () {
+    var toggleClass = function (element, name, add) {
+        if (!element) {
+            return;
+        }
+        var arr = element.className.split(' ');
+        var i = arr.indexOf(name);
+        if (i === -1) {
+            if (add) {
+                element.className += ' ' + name;
+            }
+        } else if (!add) {
+            arr.splice(i, 1);
+            element.className = arr.join(' ');
+        }
+    };
+    var toggleFooter = function (evt) {
+        var sectionTitle = evt.currentTarget;
+        var sectionList = sectionTitle.nextElementSibling;
+        var currentTitle = document.querySelector('#footer-upper .sections .footer-open-section');
+        var currentList = document.querySelector('#footer-upper .sections .footer-show-list');
+
+        toggleClass(currentTitle, 'footer-open-section', false);
+        toggleClass(currentList, 'footer-show-list', false);
+
+        if (sectionList && sectionTitle !== currentTitle) {
+            toggleClass(sectionTitle, 'footer-open-section', true);
+            toggleClass(sectionList, 'footer-show-list', true);
+        }
+    };
+    window.onload = function () {
+        var sectionTitles = document.querySelectorAll('#footer .section > .sectionTitle');
+        for (var i = 0; i < sectionTitles.length; i++) {
+            var element = sectionTitles[i];
+            element.addEventListener('click', toggleFooter);
+        }
+    };
+}
+initFooterResponsive();
