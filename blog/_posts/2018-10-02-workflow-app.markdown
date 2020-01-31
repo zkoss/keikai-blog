@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Spreadsheet as a Web App - Workflow Example"
-date:   2018-10-17
+date:   2019-02-03
 categories: "Application"
 
 index-intro: "A Keikai Workflow Application<br/>
@@ -9,14 +9,14 @@ index-intro: "A Keikai Workflow Application<br/>
 This article demonstrates how to build a workflow application with Keikai only.
  "
 
-image: "2018-10-workflow/featuredImage.png"
+image: "2019-02-workflow/featuredImage.png"
 tags: tutorial developer
 author: "Hawk Chen"
 authorImg: "/images/author/hawk.png"
 authorDesc: "Developer, Keikai."
 
 
-imgDir: "2018-10-workflow"
+imgDir: "2019-02-workflow"
 javadoc: "http://keikai.io/javadoc/1.0.0-beta.5/"
 ---
 <!--
