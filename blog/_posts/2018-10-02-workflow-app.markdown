@@ -17,7 +17,7 @@ authorDesc: "Developer, Keikai."
 
 
 imgDir: "2019-02-workflow"
-javadoc: "http://keikai.io/javadoc/1.0.0-beta.5/"
+javadoc: "https://keikai.io/javadoc/5.0.0/"
 ---
 <!--
 images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_OEb made with draw.io
@@ -122,9 +122,7 @@ If anyone tries to edit a cell, Keikai will pop up a warning message:
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/sheetProtection.png)
 
 
-Note that even when the sheet is read-only, it is still possible to allow some user actions like selecting locked/unlocked cells, so that users can see a selection box when clicking a cell. Developers and designers can decide to turn on/off these actions depending on the actual use cases. For available user actions, please check [protect() JavaDoc]({{page.javadoc}}io/keikai/client/api/Worksheet.html#protect-io.keikai.client.api.SheetProtection-).
-
-!!!!!!!!! check doc link before publish !!!!!!!!!!!
+Note that even when the sheet is read-only, it is still possible to allow some user actions like selecting locked/unlocked cells, so that users can see a selection box when clicking a cell. Developers and designers can decide to turn on/off these actions depending on the actual use cases. For available user actions, please check the [protectSheet JavaDoc]({{page.javadoc}}io/keikai/api/Range.html#protectSheet-io.keikai.api.SheetProtection-) and the [SheetProtection JavaDoc]({{page.javadoc}}io/keikai/api/SheetProtection.html).
 
 Since I don't want users to edit cells in these sheets, I decided to hide the toolbar to avoid confusing users. This can be done directly on the spreadsheet object as shown below:
 
@@ -154,9 +152,7 @@ When we loaded the spreadsheet, the active workbook received the name "MAIN". We
 	}
 ```
 
-* Call `getButton(BUTTON_ENTER).addAction()` ([Javadoc]({{page.javadoc}}io/keikai/client/api/ctrl/Button.html#addAction-io.keikai.client.api.event.RangeEventListener-)) to add a button clicking event listener
-
-!!!!!!!!! check doc link before publish !!!!!!!!!!!
+* Use ([ZK event listeners](https://www.zkoss.org/wiki/ZK_Developer's_Reference/MVC/Controller/Wire_Event_Listeners) to add a button clicking event listener
 
 **Identify the current worksheet, and trigger the handleClickMain(Event event) method**
 
@@ -201,8 +197,8 @@ The same technique can be applied for "Cancel", "Approve", and "Reject" buttons,
 
 
 # Populate Form List
-After activating the "form list" sheet, I populate form file list with [Range setValue()]({{page.javadoc}}io/keikai/client/api/Range.html#setValue-T-):
-!!!!!!!!! check doc link before publish !!!!!!!!!!!
+After activating the "form list" sheet, I populate form file list with [Range setCellValue()]({{page.javadoc}}io/keikai/api/Range.html#setCellValue-java.lang.Object-):
+
 ```java
 	for (int index = 0; index < submissionList.size(); index++) {
 		Submission s = submissionList.get(index);
