@@ -80,7 +80,7 @@ From a Java implementation perspective, the architecture is:
 # Easy to Build Application UI
 We start by building the UI. In this application, I build every page with a sheet which contains clickable cells for actions.
 
-Keikai supports can bind mouse clicks events on a sheet. You can treat a sheet as a page and put background colors on cells, a larger text as a title, and a data validation control for drop-down selection. Anyone who can use Excel can build a page, no technical skills are required.
+Keikai supports binding mouse clicks events on a sheet. You can treat a sheet as a page and put background colors on cells, a larger text as a title, and a data validation control for drop-down selection. Anyone who can use Excel can build a page, no technical skills are required.
 
 First, I build a sheet to represent each workflow stage: the main sheet, form list sheet, and submission list sheet. Then, when a user moves among stages, I just need to switch to and display the corresponding sheets accordingly.
 
@@ -152,7 +152,7 @@ When we loaded the spreadsheet, the active workbook received the name "MAIN". We
 	}
 ```
 
-* Use ([ZK event listeners](https://www.zkoss.org/wiki/ZK_Developer's_Reference/MVC/Controller/Wire_Event_Listeners) to add a click event listener
+* Use [ZK event listeners](https://www.zkoss.org/wiki/ZK_Developer's_Reference/MVC/Controller/Wire_Event_Listeners) to add a click event listener
 
 **Identify the current worksheet, and trigger the handleClickMain(Event event) method**
 
