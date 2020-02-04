@@ -35,7 +35,7 @@ This article demonstrates how you can import a typical Excel template and turn i
 
 
 # Prerequisite
-To better understand this article and its code example, I assume that you already have the basic knowledge of HTML and Java EE web components (JSP and servlet) and that you have read [Keikai Getting Started](/blog/p/keikai-tutorial.html). We are also using the ZK Framework to provide the application context, but knowledge of ZK is not necessary to follow this article. 
+To better understand this article and its code example, I assume that you already have the basic knowledge of HTML and Java EE web components (JSP and servlet) and that you have read [Keikai Getting Started](https://doc.keikai.io/tutorial). We are also using the ZK Framework to provide the application context, but knowledge of ZK is not necessary to follow this article. 
 
 
 # Spreadsheet as an Application - A Workflow Application
@@ -56,10 +56,10 @@ The whole workflow is as illustrated as below:
 * When you select a form (or submission), Keikai imports the corresponding xlsx form.
 * **edit a form** stage: after a form is being imported, an Employee can fill out the form and submit or cancel.
 * **review a form** stage: when a Supervisor clicks on a *WAITING* item in the submission list, the application imports the said form for approval/rejection.
-* When you click a submit/cancel/approve/reject button in the form, the application will update the submission status accordingly to the database.
+* When you click a submit/cancel/approve/reject conntrol in the form, the application will update the submission status accordingly to the database.
 
 ## Form Template
-Assuming we already have an *Application for Leave* and a *Business Travel Request* form designed in Excel, and that we have already thought about the workflow and defined the roles. In this scenario, there should be 4 kinds of actions (buttons) in each form: submit, cancel, approve, and reject:
+Assuming we already have an *Application for Leave* and a *Business Travel Request* form designed in Excel, and that we have already thought about the workflow and defined the roles. In this scenario, there should be 4 kinds of actions in each form: submit, cancel, approve, and reject:
 
 **leave form in Excel**
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/formInExcel.png)
@@ -78,9 +78,9 @@ From a Java implementation perspective, the architecture is:
 (*) Composers are ZK objects that control part of a ZK page UI. They are used to listen to user action and to update the page based on user's choices.
 
 # Easy to Build Application UI
-We start by building the UI. In this application, I build every page with a sheet which contains buttons for actions.
+We start by building the UI. In this application, I build every page with a sheet which contains clickable cells for actions.
 
-Keikai supports rendering form controls like buttons on a sheet. You can treat a sheet as a page and put background colors on cells, a larger text as a title, and a data validation control for drop-down selection. Anyone who can use Excel can build a page, no technical skills are required.
+Keikai supports can bind mouse clicks events on a sheet. You can treat a sheet as a page and put background colors on cells, a larger text as a title, and a data validation control for drop-down selection. Anyone who can use Excel can build a page, no technical skills are required.
 
 First, I build a sheet to represent each workflow stage: the main sheet, form list sheet, and submission list sheet. Then, when a user moves among stages, I just need to switch to and display the corresponding sheets accordingly.
 
@@ -132,7 +132,7 @@ Since I don't want users to edit cells in these sheets, I decided to hide the to
 
 
 # Sheet(Page) Navigation
-In order to guide users going to the next stage(sheet) of the workflow, I need to add button clicking listeners and show the corresponding sheet to a user by activating the sheet.
+In order to guide users going to the next stage(sheet) of the workflow, I need to add "button" clicking listeners and show the corresponding sheet to a user by activating the sheet.
 
 When an Employee clicks the "Enter" button, I activate the "form list" sheet and it will lead him to that sheet:
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/tabSwitching.gif)
@@ -142,7 +142,7 @@ In this case, I've used the ZK @Listen annotation on my onClick event listener.
 
 When we loaded the spreadsheet, the active workbook received the name "MAIN". We will use this name to trigger the workflow handleClickMain(Event event);
 
-**add a listener for the spreadsheet ON_CELL_CLICK event **
+**add a listener for the spreadsheet ON_CELL_CLICK event**
 
 ```java
     @Listen(Events.ON_CELL_CLICK + "= #spreadsheet")
@@ -152,7 +152,7 @@ When we loaded the spreadsheet, the active workbook received the name "MAIN". We
 	}
 ```
 
-* Use ([ZK event listeners](https://www.zkoss.org/wiki/ZK_Developer's_Reference/MVC/Controller/Wire_Event_Listeners) to add a button clicking event listener
+* Use ([ZK event listeners](https://www.zkoss.org/wiki/ZK_Developer's_Reference/MVC/Controller/Wire_Event_Listeners) to add a click event listener
 
 **Identify the current worksheet, and trigger the handleClickMain(Event event) method**
 
@@ -214,7 +214,7 @@ When an Employee selects a file in the form list by clicking a specific cell, I 
 The event itself is retrived from the ON_CELL_CLICK listener declared above.
 Since our active page will be the form list, the listener will apply the method associated to this workbook.
 
-**from the spreadsheet ON_CELL_CLICK event, trigger the handleClickFormList(Event event) method**
+**From the spreadsheet ON_CELL_CLICK event, trigger the handleClickFormList(Event event) method**
 
 ```java
     @Listen(Events.ON_CELL_CLICK + "= #spreadsheet")
@@ -228,9 +228,9 @@ Since our active page will be the form list, the listener will apply the method 
 	}
 	
 ```
-*ZK will pass the mouse click event directly to the listener, and I can extract cell information (such as cell content, cell position, etc) direction from the Java object.
+* ZK will pass the mouse click event directly to the listener, and I can extract cell information (such as cell content, cell position, etc) direction from the Java object.
 
-**retrieve the matching excel file from storage, and import it as the current workbook
+**Retrieve the matching excel file from storage, and import it as the current workbook**
 
 ```java
 	int index = getClickedCell(event).getRow() - START_ROW;
@@ -241,7 +241,7 @@ Since our active page will be the form list, the listener will apply the method 
 		spreadsheet.setBook(book);
 };
 ```
-*The API will be able to retrieve the file from any source as long as it follows the excel format. It can be loaded from a storage layer, a database BLOB, the local drive, or any other source.
+* The API will be able to retrieve the file from any source as long as it follows the excel format. It can be loaded from a storage layer, a database BLOB, the local drive, or any other source.
 
 ## Show Buttons depending on the Role
 There are in total 4 possible buttons in the sheet. However since an Employee can only Submit or Cancel a form, I have to hide some buttons and show only the relevant buttons upon their role. This can be done by renaming the 2 actual buttons dynamically while loading the form: 
@@ -383,14 +383,7 @@ Since the end users are normally those who know the best about their business ne
 With Keikai `Range` API, you can populate business data from the database into sheets. It also allows you to retrieve what user input into the sheet in your preferred way.
 
 ## Apply business rules on form workflow
-By adding event listeners on cells and buttons, you can apply your business rules implemented by Java to the whole workflow.
-
-
-
-
-# Source Code
-The complete source code in this article is available at [Github](https://github.com/keikai/keikai-tutorial).
-
+By adding event listeners on cells, you can apply your business rules implemented by Java to the whole workflow.
 
 # I Welcome Your Feedback
 I have demonstrated how you can build a workflow application with Keikai. Feel free to tell us what other applications we can show you.
