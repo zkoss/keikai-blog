@@ -71,4 +71,19 @@ function initFooterResponsive () {
         }
     };
 }
+function browserDemoDetection () {
+    var userAgent = navigator.userAgent.toLowerCase();
+    var screenMinLength = Math.min(window.screen.width, window.screen.height);
+    var isIOS = /iphone|ipad/.test(userAgent);
+    var isMobile = userAgent.indexOf('mobi') !== -1;
+    var mightNotBeChrome = userAgent.indexOf('chrome') === -1;
+    if (isIOS || (!isIOS && isMobile && (screenMinLength < 640 || mightNotBeChrome))) {
+        var x = document.getElementsByClassName('nomob');
+        var i;
+        for (i = 0; i < x.length; i++) {
+            x[i].className += ' hidden';
+        }
+    }
+}
 initFooterResponsive();
+browserDemoDetection();
