@@ -8,6 +8,7 @@
 @import "src/_signup-sec.less";
 @import "component/_component.less";
 
+
 body {
 	background-color: #FFF;
 }
@@ -35,6 +36,251 @@ body {
 	position: relative;
 	min-height: 100%;
 }
+
+/*footer default*/
+@font-face {
+	font-family: keikai-icon;
+	src: url("./fonts/keikai-icon.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+#footer-wrapper * {
+    box-sizing: border-box;
+}
+
+#footer-wrapper .hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+#footer {
+	margin: 0 auto;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+}
+
+#footer ul {
+    padding-left: 0px;
+}
+
+#footer a, #footer a:active, #footer a:hover, #footer a:focus {
+	text-decoration: none;
+    color: #7d7d7d;
+}
+
+#footer-upper {
+	margin-bottom: 65px;
+}
+
+#footer .section .sectionTitle {
+	z-index: 75;
+	line-height: 100%;
+	font-size: 16px;
+	font-weight: bold;
+}
+#footer .section .sectionTitle:hover {
+	//color: #ffffff;
+}
+
+#footer .section > ul {
+	list-style: none;
+	z-index: 74;
+	margin-bottom: 24px;
+}
+#footer .section > ul:last-child {
+	margin-bottom: 0;
+}
+
+#footer .section > ul li {
+    padding-top: 16px;
+}
+#footer .section > ul li a {
+    font-size: 13px;
+}
+#footer .section > ul li a:hover {
+	color: #F22000;
+}
+
+#footer #footer-lower {
+    position: relative;
+}
+
+#footer #copyright {
+	font-size: 12px;
+	color: #848484;
+	text-align: center;
+}
+#footer #copyright a:hover {
+	color: #f22000;
+}
+
+#footer #company-icons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 96px;
+}
+#footer #company-icons svg {
+	width: 23px;
+    height: 23px;
+    display: block; /*prevent parent link element sizing relative to line-height. Use fixed svg width instead*/
+}
+#footer #company-icons > a:hover .st0 {
+    fill: #b0b0b0;
+}
+/*footer responsive*/
+@media (max-width: 959px) {
+	#footer { }
+	#footer-upper {
+		display: block;
+		margin-bottom: 0;
+	}
+	#footer .sections {
+		display: block;
+	}
+	#footer .section { }
+	#footer .section:first-child {}
+	#footer .section .sectionTitle {
+		position: relative;
+		border-bottom: 1px solid #d9d9d9;
+		cursor: pointer;
+		transition: border-bottom 100ms 400ms ease;
+		padding: 20px 0;
+	}
+	#footer .section .sectionTitle.footer-open-section {
+		//border-bottom: 1px solid #4a4a4a;
+		transition: border-bottom 100ms 10ms ease;
+	}
+	#footer .section:last-child .sectionTitle:last-of-type {
+		//border-bottom: 1px solid #4a4a4a;
+	}
+
+	#footer .section .sectionTitle::after {
+		position: absolute;
+    	right: 32px;
+		content: '\e927';
+		font-family: "keikai-icon";
+		font-weight: normal;
+		font-size: 20px;
+		transition: transform 500ms ease;
+	}
+	#footer .section .sectionTitle.footer-open-section::after {
+		transform: rotate(90deg);
+	}
+
+	#footer .section > ul {
+		//background-color: rgba(40, 40, 40, 0.4);
+		margin: 0;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 500ms cubic-bezier(0.24, 0.01, 0.24, 0.99);
+	}
+	#footer .section > ul.footer-show-list {
+		max-height: 400px;
+	}
+	#footer .section > ul li:first-child {
+		padding-top: 32px;
+	}
+	#footer .section > ul li:last-child {
+		padding-bottom: 32px;
+	}
+	#footer #footer-lower {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 17px 0 25px;
+	}
+	#footer #copyright {
+		text-align: left;
+	}
+}
+
+@media (max-width: 479px) {
+	#footer .section .sectionTitle {
+		padding-right: 15px;
+		padding-left: 28px;
+	}
+	#footer .section .sectionTitle::after {
+    	right: 15px;
+	}
+	#footer .section > ul {
+		padding-left: 28px;
+	}
+	#footer #copyright {
+		margin-left: 28px;
+		max-width: 204px;
+	}
+	#footer #company-icons {
+		margin-right: 20px;
+	}
+	#footer #copyright {
+		margin: auto;
+		margin-left: 28px;
+	}
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+	#footer .section .sectionTitle {
+		padding-right: 21px;
+		padding-left: 30px;
+	}
+	#footer .section .sectionTitle::after {
+    	right: 20px;
+	}
+	#footer .section > ul {
+		padding-left: 30px;
+	}
+	#footer #company-icons {
+		margin-right: 20px;
+	}
+	#footer #copyright {
+		margin-left: 30px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 959px) {
+	#footer .section .sectionTitle {
+		padding-right: 32px;
+		padding-left: 60px;
+	}
+	#footer .section > ul {
+		padding-left: 60px;
+	}
+	#footer #company-icons {
+		margin-right: 32px;
+	}
+	#footer #copyright {
+		margin-left: 60px;
+	}
+}
+
+@media (min-width: 960px) {
+
+	#footer {
+		max-width: 960px;
+		padding: 32px 50px;
+	}
+
+	#footer .sections {
+	    display: flex;
+		justify-content: center;
+	}
+	#footer .section {
+	    margin-right: 60px;
+	}
+	#footer .section:last-child {
+	    margin-right: 0;
+	}
+    #footer .section > ul.columns-2 {
+        columns: 2;
+    }
+	#footer #company-icons {
+	    position: absolute;
+		right: 0px;
+		top: calc(50% - 11.5px);
+	}
+}
+
 
 .menu-open {
 	&#wrap, & #header-wrapper {
@@ -755,6 +1001,7 @@ body {
 					top: ~"calc((100% - 208px)/2)";
 					left: -7px;
 					width: 32px;
+					z-index: 5;
 
 					a {
 						margin-bottom: 20px;

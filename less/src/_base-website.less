@@ -33,15 +33,17 @@ body {
 @media (max-width: @screen-md-max) {//less then 1160
 	.header-wrap, .footer-wrap {
 		.container {
-			padding: 0 30px;
+			padding: 0 0px;
 		}
+		z-index: 10;
+		background-color: white;
 	}
 }
 
 @media (max-width: @screen-xxs-max) {//320
 	.header-wrap, .footer-wrap {
 		.container {
-			padding: 0 10px;
+			padding: 0 0px;
 		}
 	}
 }
@@ -57,7 +59,7 @@ body {
 	//min-height: @footer-height;
 	height: auto;
 	//background-color: @footer-bg-color;
-	background-color: transparent;
+	background-color: #fff;
 	padding: 23px 0 23px 0;
 }
 

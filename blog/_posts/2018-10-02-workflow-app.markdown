@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Spreadsheet as a Web App - Workflow Example"
-date:   2018-10-17
+date:   2019-02-03
 categories: "Application"
 
 index-intro: "A Keikai Workflow Application<br/>
@@ -9,15 +9,15 @@ index-intro: "A Keikai Workflow Application<br/>
 This article demonstrates how to build a workflow application with Keikai only.
  "
 
-image: "2018-10-workflow/featuredImage.png"
+image: "2019-02-workflow/featuredImage.png"
 tags: tutorial developer
 author: "Hawk Chen"
 authorImg: "/images/author/hawk.png"
 authorDesc: "Developer, Keikai."
 
 
-imgDir: "2018-10-workflow"
-javadoc: "http://keikai.io/javadoc/1.0.0-beta.5/"
+imgDir: "2019-02-workflow"
+javadoc: "https://keikai.io/javadoc/5.0.0/"
 ---
 <!--
 images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_OEb made with draw.io
@@ -35,7 +35,7 @@ This article demonstrates how you can import a typical Excel template and turn i
 
 
 # Prerequisite
-To better understand this article and its code example, I assume that you already have the basic knowledge of HTML and Java EE web components (JSP and servlet) and that you have read [Keikai Getting Started](/blog/p/keikai-tutorial.html).
+To better understand this article and its code example, I assume that you already have the basic knowledge of HTML and Java EE web components (JSP and servlet) and that you have read [Keikai Getting Started](https://doc.keikai.io/tutorial). We are also using the ZK Framework to provide the application context, but knowledge of ZK is not necessary to follow this article. 
 
 
 # Spreadsheet as an Application - A Workflow Application
@@ -56,10 +56,10 @@ The whole workflow is as illustrated as below:
 * When you select a form (or submission), Keikai imports the corresponding xlsx form.
 * **edit a form** stage: after a form is being imported, an Employee can fill out the form and submit or cancel.
 * **review a form** stage: when a Supervisor clicks on a *WAITING* item in the submission list, the application imports the said form for approval/rejection.
-* When you click a submit/cancel/approve/reject button in the form, the application will update the submission status accordingly to the database.
+* When you click a submit/cancel/approve/reject conntrol in the form, the application will update the submission status accordingly to the database.
 
 ## Form Template
-Assuming we already have an *Application for Leave* and a *Business Travel Request* form designed in Excel, and that we have already thought about the workflow and defined the roles. In this scenario, there should be 4 kinds of actions (buttons) in each form: submit, cancel, approve, and reject:
+Assuming we already have an *Application for Leave* and a *Business Travel Request* form designed in Excel, and that we have already thought about the workflow and defined the roles. In this scenario, there should be 4 kinds of actions in each form: submit, cancel, approve, and reject:
 
 **leave form in Excel**
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/formInExcel.png)
@@ -71,15 +71,16 @@ From a Java implementation perspective, the architecture is:
 
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/implementationArchitecture.png)
 
-* `Servlet`: handle HTTP request/response
-* `MyWorkflow`: implement the whole workflow logic
+* `ZK Framework`: handle HTTP request/response
+* `Workflow Composer`: A ZK composer (*), which implement the whole workflow logic
 * `WorkflowDao`: query, insert, and update a form submission record in the database
 
+(*) Composers are ZK objects that control part of a ZK page UI. They are used to listen to user action and to update the page based on user's choices.
 
 # Easy to Build Application UI
-We start by building the UI. In this application, I build every page with a sheet which contains buttons for actions.
+We start by building the UI. In this application, I build every page with a sheet which contains clickable cells for actions.
 
-Keikai supports rendering form controls like buttons on a sheet. You can treat a sheet as a page and put background colors on cells, a larger text as a title, and a data validation control for drop-down selection. Anyone who can use Excel can build a page, no technical skills are required.
+Keikai supports binding mouse clicks events on a sheet. You can treat a sheet as a page and put background colors on cells, a larger text as a title, and a data validation control for drop-down selection. Anyone who can use Excel can build a page, no technical skills are required.
 
 First, I build a sheet to represent each workflow stage: the main sheet, form list sheet, and submission list sheet. Then, when a user moves among stages, I just need to switch to and display the corresponding sheets accordingly.
 
@@ -87,20 +88,20 @@ First, I build a sheet to represent each workflow stage: the main sheet, form li
 
 For example, when a user enters the application as an "Employee", the workflow application just activates (displays) "form list" sheet to the user. This is how we do page navigation easily.
 
-# Avoid Users Making Mistakes
-As mentioned in the previous section, anyone can build a UI page with a sheet easily. However since these sheets will be used as part of the application, there are some tips we need to keep in mind. 
+# Prevent User Mistakes
+As mentioned in the previous section, anyone can build a UI page with a sheet easily. Here are some tips to keep in mind since these sheets will be used as part of the application. 
 
-Normally, users are free to edit any cell in a worksheet. But if I take a sheet as an application UI, I need to enable proper protection on the sheet to avoid them breaking the application. For example, if users delete a sheet or a role, then they can not enter or use the workflow anymore. This sounds funny but it's definitely not funny for a serious user.
+Normally, users are free to edit any cell in a worksheet. But if I take a sheet as an application UI, I need to enable proper protection on the sheet to avoid them breaking the application. For example, if users delete a sheet or a role, then they can not enter or use the workflow anymore. This sounds funny but it could create unexpected issues in a business usecase.
 
-So I need to define what users can do and what they cannot do, to avoid such a disaster.
+So I need to define what users are allowed to do, to avoid such a disaster.
 
 ## Hide Sheet Tabs
 Hiding sheet tabs can avoid users performing any sheet operation such as switching sheets. With this, the application can fully control a user's stage transition without running into undesired surprises.
 
-This can be done by a data attribute below:
+This can be done by set showSheetbar to false on the spreadsheet.
 
-```xml
-<div id="spreadsheet" data-show-sheet-tabs="false" >
+```java
+	spreadsheet.setShowSheetbar(false);
 ```
 
 
@@ -108,14 +109,12 @@ This can be done by a data attribute below:
 Both the form list and the submission list are just a read-only list for selection, I don't want users to change these lists. Hence, I can easily make them read-only by [sheet protection](https://support.office.com/en-us/article/protect-a-worksheet-3179efdb-1285-4d49-a9c3-f4ca36276de6) with the following API.
 
 ```java
-    // need to unprotect a sheet before populating a list into cells
-    if (sheet.isProtected()) {
-        sheet.unprotect("");
-    }
-    //populate a list
-    sheet.protect(new SheetProtection.Builder().setPassword("")
-            .setAllowSelectLockedCells(true)
-            .build());
+    private static final SheetProtection READ_ONLY = SheetProtection.Builder.create().withSelectLockedCellsAllowed(true).build();
+	
+	...
+	
+	Ranges.range(spreadsheet.getSelectedSheet()).protectSheet(READ_ONLY);
+	
 ```
 
 If anyone tries to edit a cell, Keikai will pop up a warning message:
@@ -123,122 +122,172 @@ If anyone tries to edit a cell, Keikai will pop up a warning message:
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/sheetProtection.png)
 
 
-Note that even when the sheet is read-only, it is still possible to allow some user actions like selecting locked/unlocked cells, so that users can see a selection box when clicking a cell. Developers and designers can decide to turn on/off these actions depending on the actual use cases. For available user actions, please check [protect() JavaDoc]({{page.javadoc}}io/keikai/client/api/Worksheet.html#protect-io.keikai.client.api.SheetProtection-).
+Note that even when the sheet is read-only, it is still possible to allow some user actions like selecting locked/unlocked cells, so that users can see a selection box when clicking a cell. Developers and designers can decide to turn on/off these actions depending on the actual use cases. For available user actions, please check the [protectSheet JavaDoc]({{page.javadoc}}io/keikai/api/Range.html#protectSheet-io.keikai.api.SheetProtection-) and the [SheetProtection JavaDoc]({{page.javadoc}}io/keikai/api/SheetProtection.html).
 
-Since I don't want users to edit cells in these sheets, I decided to hide the toolbar to avoid confusing users. This can be done with the data attribute below:
+Since I don't want users to edit cells in these sheets, I decided to hide the toolbar to avoid confusing users. This can be done directly on the spreadsheet object as shown below:
 
-```xml
-<div id="spreadsheet" data-show-toolbar="false" .../>
+```java
+	spreadsheet.setShowToolbar(false);
 ```
 
 
 # Sheet(Page) Navigation
-In order to guide users going to the next stage(sheet) of the workflow, I need to add button clicking listeners and show the corresponding sheet to a user by activating the sheet.
+In order to guide users going to the next stage(sheet) of the workflow, I need to add "button" clicking listeners and show the corresponding sheet to a user by activating the sheet.
 
 When an Employee clicks the "Enter" button, I activate the "form list" sheet and it will lead him to that sheet:
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/tabSwitching.gif)
 
+The first step is to listen to click events from the spreadsheet object.
+In this case, I've used the ZK @Listen annotation on my onClick event listener.
 
-**add a listener for the Enter button**
+When we loaded the spreadsheet, the active workbook received the name "MAIN". We will use this name to trigger the workflow handleClickMain(Event event);
+
+**add a listener for the spreadsheet ON_CELL_CLICK event**
 
 ```java
-spreadsheet.getWorksheet(SHEET_MAIN).getButton(BUTTON_ENTER).addAction((ShapeMouseEvent) -> {
-    this.role = spreadsheet.getRange(ROLE_CELL).getValue().toString();
-    navigateByRole();
-    showList();
-});
+    @Listen(Events.ON_CELL_CLICK + "= #spreadsheet")
+    public void onClick(CellMouseEvent event) {
+        String sheetName = event.getSheet().getSheetName();
+		...
+	}
 ```
 
-* Call `getButton(BUTTON_ENTER).addAction()` ([Javadoc]({{page.javadoc}}io/keikai/client/api/ctrl/Button.html#addAction-io.keikai.client.api.event.RangeEventListener-)) to add a button clicking event listener
+* Use [ZK event listeners](https://www.zkoss.org/wiki/ZK_Developer's_Reference/MVC/Controller/Wire_Event_Listeners) to add a click event listener
 
-
-**select the corresponding sheet upon the role**
+**Identify the current worksheet, and trigger the handleClickMain(Event event) method**
 
 ```java
-   private void navigateByRole() {
-        if (role.equals(ROLE_EMPLOYEE)) {
-            spreadsheet.setActiveWorksheet(SHEET_FORM);
-        }else{
-            spreadsheet.setActiveWorksheet(SHEET_SUBMISSION);
+	switch (sheetName) {
+		case MAIN:
+			handleClickMain(event);
+			break;
+	...
+```
+
+**from the main page, check for the user role, and open the relevant workbook**
+
+```java
+    private void navigateToList() {
+        switch (currentRole) {
+            case SUPERVISOR:
+                navigateTo(SUBMISSION_LIST);
+                break;
+            case EMPLOYEE:
+                navigateTo(FORM_LIST);
+                break;
+        }
+    }
+	
+```
+
+**Change the view to a different sheet in the workbook**
+
+```java
+    private void navigateTo(String sheetName) {
+        spreadsheet.setSelectedSheet(sheetName);
+        if (MAIN.equals(sheetName)) {
+            spreadsheet.focusTo(roleCell.getRow(), roleCell.getColumn());
         }
     }
 ```
+
 * call `spreadsheet.setActiveWorksheet(SHEET_FORM)` to select a sheet by its name.
 
-The same technique can be applied for "Cancel", "Approve", and "Reject" buttons, and when users click on these buttons I will show the corresponding sheets. Please check `navigateTo(String sheetName)` in `MyWorkflow.java`.
+The same technique can be applied for "Cancel", "Approve", and "Reject" buttons, and when users click on these buttons I will show the corresponding sheets. Please check `navigateTo(String sheetName)` in `WorkflowComposer.java`.
 
 
 # Populate Form List
-After activating the "form list" sheet, I populate form file list with [Range setValue()]({{page.javadoc}}io/keikai/client/api/Range.html#setValue-T-):
+After activating the "form list" sheet, I populate form file list with [Range setCellValue()]({{page.javadoc}}io/keikai/api/Range.html#setCellValue-java.lang.Object-):
 
 ```java
-for (File file : AppContextListener.getFormList()) {
-    spreadsheet.getRange(row, STARTING_COLUMN).setValue(file.getName());
-    row++;
-}
+	for (int index = 0; index < submissionList.size(); index++) {
+		Submission s = submissionList.get(index);
+		Ranges.range(sheet, START_ROW + index, 2).setCellValue(s.getId());
 ```
 
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/formList.png)
 
 
 # Show a Form
-When an Employee selects a file in the form list by clicking a specific cell, I want to show him the corresponding form. To implement this, I need to add a cell click listener and check the value of the clicked-cell.
+When an Employee selects a file in the form list by clicking a specific cell, I want to show him the corresponding form. To implement this, I need to listen to mouse click events on cells and check the value of the target cell to identify the form.
 
-First, I create a `RangeEventListener`:
+The event itself is retrived from the ON_CELL_CLICK listener declared above.
+Since our active page will be the form list, the listener will apply the method associated to this workbook.
+
+**From the spreadsheet ON_CELL_CLICK event, trigger the handleClickFormList(Event event) method**
 
 ```java
-RangeEventListener formSelectionListener = new RangeEventListener() {
+    @Listen(Events.ON_CELL_CLICK + "= #spreadsheet")
+    public void onClick(CellMouseEvent event) {
+        String sheetName = event.getSheet().getSheetName();
+		switch (sheetName) {
+		...
+		case FORM_LIST:
+			handleClickFormList(event);
+			break;
+	}
+	
+```
+* ZK will pass the mouse click event directly to the listener, and I can extract cell information (such as cell content, cell position, etc) direction from the Java object.
 
-    @Override
-    public void onEvent(RangeEvent rangeEvent) throws Exception {
-        if (spreadsheet.getWorksheet().getName().equals(SHEET_FORM)
-                && rangeEvent.getRange().getValue().toString().endsWith(".xlsx")) {
-            File form = AppContextListener.getFormList().get(rangeEvent.getRow() - STARTING_ROW);
-            showForm(form);
-        }
-    }
+**Retrieve the matching excel file from storage, and import it as the current workbook**
+
+```java
+	int index = getClickedCell(event).getRow() - START_ROW;
+	...
+	File selectedForm = formList.get(index);
+	try {
+		Book book = Importers.getImporter().imports(selectedForm, selectedForm.getName());
+		spreadsheet.setBook(book);
 };
 ```
+* The API will be able to retrieve the file from any source as long as it follows the excel format. It can be loaded from a storage layer, a database BLOB, the local drive, or any other source.
 
-* Get clicked cell's value by `rangeEvent.getRange().getValue()`
-
-Then, add it to Keikai:
-
-```java
-spreadsheet.addEventListener(Events.ON_CELL_CLICK, formSelectionListener);
-```
-
-To show a form file, I need to import the file.
+## Show Buttons depending on the Role
+There are in total 4 possible buttons in the sheet. However since an Employee can only Submit or Cancel a form, I have to hide some buttons and show only the relevant buttons upon their role. This can be done by renaming the 2 actual buttons dynamically while loading the form: 
 
 ```java
-private void showForm(File formFile) throws FileNotFoundException, AbortedException {
-    spreadsheet.clearEventListeners();
-    spreadsheet.importAndReplace(formFile.getName(), formFile);
-    setupButtonsUponRole(spreadsheet.getWorksheet());
-}
+    private void addButtons(Sheet sheet) {
+        Range button1 = Ranges.rangeByName(sheet, BUTTON1);
+        Range button2 = Ranges.rangeByName(sheet, BUTTON2);
+        switch (currentRole) {
+            case SUPERVISOR:
+                button1.setCellValue(REJECT);
+                button2.setCellValue(APPROVE);
+                break;
+            case EMPLOYEE:
+                button1.setCellValue(CANCEL);
+                button2.setCellValue(SUBMIT);
+                break;
+        }
+    }
 ```
 
-* Remember to clear previously-added listeners by calling `spreadsheet.clearEventListeners()` if the incoming file is irrelevant to the previous one.
-
-
-## Show Buttons upon the Role
-There are in total 4 buttons in the sheet. However since an Employee can only Submit or Cancel a form, I have to hide some buttons and show only the relevant buttons upon their role. This can be done with [Button setVisible()]({{page.javadoc}}io/keikai/client/api/Shape.html#setVisible-boolean-): 
+The buttons button1 and button2 can then be used in a click listener. I can read they current name and trigger the associated method in the composer:
 
 ```java
-Button submit = worksheet.getButton(BUTTON_SUBMIT);
-Button cancel = worksheet.getButton(BUTTON_CANCEL);
-Button approve = worksheet.getButton(BUTTON_APPROVE);
-Button reject = worksheet.getButton(BUTTON_REJECT);
-if (role.equals(ROLE_EMPLOYEE)) {
-    submit.setVisible(true);
-    cancel.setVisible(true);
-    approve.setVisible(false);
-    reject.setVisible(false);
-    ...
-} else{
-    ...
+	private void handleClickForm(CellMouseEvent event) {
+        Range button1 = Ranges.rangeByName(event.getSheet(), BUTTON1);
+        Range button2 = Ranges.rangeByName(event.getSheet(), BUTTON2);
+        Range clickedCell = getClickedCell(event);
+        if (clickedCell.asString().equals(button1.asString())
+                || clickedCell.asString().equals(button2.asString())) {
+            String label = clickedCell.getCellValue().toString();
+            switch (label) {
+                case APPROVE:
+                    approve();
+                    break;
+                case REJECT:
+                    reject();
+                    break;
+                case SUBMIT:
+                    submitForm();
+                    break;
+            }
+            exitForm();
+        }
+    }
 ```
-
 
 ## Unlocked Cells
 I also want to prevent users from modifying some part of the form, so I protect the whole sheet and set editable cells unlocked in Excel. Then users can only edit these unlocked fields: **From**, **To**, and **Reason for Leave**:
@@ -246,16 +295,18 @@ I also want to prevent users from modifying some part of the form, so I protect 
 
 * All other cells are locked (read-only) under sheet protection.
 
-You can also unlock cells with API:
+You can also lock and unlock cells with API:
 
-**set cells unlocked**
+**Apply locked cells on top of existing style properties**
 
 ```java
-CellStyle style = range.createCellStyle();
-Protection protection = style.createProtection();
-protection.setLocked(false);
-style.setProtection(protection);
-range.setCellStyle(style);
+	for (String cell : cells){
+		Range range = Ranges.range(spreadsheet.getSelectedSheet(), cell);
+		CellStyle oldStyle = range.getCellStyle();
+		EditableCellStyle newStyle = range.getCellStyleHelper().createCellStyle(oldStyle);
+		newStyle.setLocked(true);
+		range.setCellStyle(newStyle);
+	}
 ```
 
   
@@ -266,18 +317,24 @@ When an Employee submits a form, I save the whole book content into the database
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/exportByteArray.png)
 
 ```java
-    private void submit() {
+	private void submitForm() {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        spreadsheet.export(spreadsheet.getBookName(), outputStream);
-        Submission submission = new Submission();
-        submission.setForm(outputStream);
-        submission.setFormName(spreadsheet.getBookName());
-        submission.setOwner(this.role);
-        WorkflowDao.insert(submission);
+        try {
+            lockCells();
+            Exporters.getExporter().export(spreadsheet.getBook(), outputStream);
+            Submission submission = new Submission();
+            submission.setForm(outputStream);
+            submission.setFormName(spreadsheet.getBook().getBookName());
+            submission.setOwner(this.currentRole);
+            workflowDao.insert(submission);
+            submissionChange = true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 ```
 
-* This snippet creates `Submission` and stores form content as a `ByteArrayOutputStream`. Then it inserts `Submission` into a table.
+* This snippet creates a `Submission` object and stores form content as a `ByteArrayOutputStream`. Then it inserts `Submission` into a table.
 
 Once this is done, I can import the byte array and show the submitted form content with Keikai when needed.
 
@@ -326,14 +383,7 @@ Since the end users are normally those who know the best about their business ne
 With Keikai `Range` API, you can populate business data from the database into sheets. It also allows you to retrieve what user input into the sheet in your preferred way.
 
 ## Apply business rules on form workflow
-By adding event listeners on cells and buttons, you can apply your business rules implemented by Java to the whole workflow.
-
-
-
-
-# Source Code
-The complete source code in this article is available at [Github](https://github.com/keikai/keikai-tutorial).
-
+By adding event listeners on cells, you can apply your business rules implemented by Java to the whole workflow.
 
 # I Welcome Your Feedback
 I have demonstrated how you can build a workflow application with Keikai. Feel free to tell us what other applications we can show you.
