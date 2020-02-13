@@ -24,7 +24,9 @@ images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_
 -->
 
 # Database Table Access Application
+
 Lots of companies have been operating their business with Excel for decades. The biggest issue they encountered is: it's hard to integrate an Excel file in a web application, especially with a database. If you just upload an Excel file as an attachment and download it to edit for each time. Then you just use Excel in another way. That's not an integration. In this article, I present you a solution to make an Excel file work seamlessly in a web application with a database.
+
 
 Assume you have a table of trade records in a database, you need to show those trade records in an spreadsheet-like UI, so users can edit and calculate numbers with formulas. Besides, the color, format, and style might need to change upon user preference from time to time, so it should be easy to update in the future. 
 
