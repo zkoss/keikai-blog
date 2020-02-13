@@ -24,9 +24,9 @@ images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_
 -->
 
 # Database Table Access Application
-Lots of companies operate their business with Excel for decades. They have the biggest issue is: it's hard to integrate an Excel file in a web application, especially with a database. If you just upload an Excel file as a attachment and download it to edit for each time. Then you just use Excel in another way. That's not an integration. In this article, I present you a solution to make an Excel file work seamlessly in a web appliation with a database.
+Lots of companies operate their business with Excel for decades. They have the biggest issue is: it's hard to integrate an Excel file in a web application, especially with a database. If you just upload an Excel file as a attachment and download it to edit for each time. Then you just use Excel in another way. That's not an integration. In this article, I present you a solution to make an Excel file work seamlessly in a web application with a database.
 
-Assume you have a table of trade records in a database, you need to show those trade records in an spreasheet-like UI, so users can edit and calculate numbers with formulas. Besides, the color, format, and style might need to change upon user preference from time to time, so it should be easy to update in the future. 
+Assume you have a table of trade records in a database, you need to show those trade records in an spreadsheet-like UI, so users can edit and calculate numbers with formulas. Besides, the color, format, and style might need to change upon user preference from time to time, so it should be easy to update in the future. 
 
 
 # Template-based Approach
@@ -60,7 +60,7 @@ An end user can:
 
 
 ## Build the UI
-In this application, I rely on a web spreadsheet component, [Keikai](https://keikai.io), which is based on [ZK UI framework](http://www.zkoss.org). Hence, I can build the UI in a zul with various ZK components. ZUL is the XML format language, each tag reprensents a component, so I can create UI like:
+In this application, I rely on a web spreadsheet component, [Keikai](https://keikai.io), which is based on [ZK UI framework](http://www.zkoss.org). Hence, I can build the UI in a zul with various ZK components. ZUL is the XML format language, each tag represents a component, so I can create UI like:
 
 {% highlight xml linenos %}
 <spreadsheet id="ss" width="100%" height="200px"
@@ -92,12 +92,12 @@ public class DatabaseComposer extends SelectorComposer<Component> {
 }
 {% endhighlight %}
 
-* line 4: With [`@Wire`](https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/MVC/Controller/Wire%20Components) on a member field, the underlying ZK framework can inject keiaki `Spreadsheet` object created according to the zul, so that you can control keikai with its method.
+* line 4: With [`@Wire`](https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/MVC/Controller/Wire%20Components) on a member field, the underlying ZK framework can inject keikai `Spreadsheet` object created according to the zul, so that you can control keikai with its method.
 
 ### Apply to the page
-We need to link `DatabaseComposer` with the zul page (database.zul), so that the controller can listen to events and controll components via API. 
+We need to link `DatabaseComposer` with the zul page (database.zul), so that the controller can listen to events and control components via API. 
 
-Specify the full-qualified class name at `apply` attribute, then Keikai will instatiate it automaticaly when you visit the page. The controller can contoller the root component, `<hlayout>`, and all its children components (those inner tags).
+Specify the full-qualified class name at `apply` attribute, then Keikai will instantiate it automatically when you visit the page. The controller can contoller the root component, `<hlayout>`, and all its children components (those inner tags).
 
 ```xml
 <hlayout width="100%" vflex="1" apply="io.keikai.tutorial.database.DatabaseComposer">
@@ -221,7 +221,7 @@ You can benefit from the template-based approach including:
 If you build a finance system, then it's better to let finance experts create their sheets instead of software developers. With this approach, domain experts can create/maintain Excel templates by themselves without communicating to a software developers. After an Excel file is modified, developers just imports the new file again without affecting other Java codes.
 
 ## Decouple the Display and Data
-Since the data is not stored in the file, it's effortless to change both side: **template** and **data**. You can either apply another a template or import a different set of trade records according to differnt contexts.
+Since the data is not stored in the file, it's effortless to change both side: **template** and **data**. You can either apply another a template or import a different set of trade records according to different contexts.
 
 ## Easy to integrate with other back-end systems
 Because Keikai is controlled by a Java controller class only, it's painless to integrate any Java-based backend and there is no limit for connecting a database.
