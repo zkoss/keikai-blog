@@ -53,7 +53,7 @@ Prepare an Excel file as a template:
 
 Combine the template and the data, my web application finally looks like:
 
-![]({{ site.baseurl }}/{{page.imgDir}}/displayTable.png)
+![]({{ site.baseurl }}/{{page.imgDir}}/displaytable.png)
 
 An end user can:
 
