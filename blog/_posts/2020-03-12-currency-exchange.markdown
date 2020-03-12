@@ -31,7 +31,7 @@ The other day a young lady in the administration department looked busy so I ask
 It is the year 2020. I was surprised that she still has to do lots of copy-paste routines and email Excel files around. My pride in being a developer wouldn't allow me, so I offered her that I will write a little program for her. Fortunately, with Keikai, I was able to do it in just 2 hours.
 
 
-First, I asked her to lay out what she wishes to see in Excel. Then, I grabbed currency data from internet and populated it to the desired cells. Next, I implemented page navigation to smoothen the workflow and finally I generated a report. That’s it! 
+First, I asked her to lay out what she wishes to see in Excel. Then, I grabbed currency data from the internet and populated it to the desired cells. Next, I implemented page navigation to smoothen the workflow and finally I generated a report. That’s it! 
 
 Let me describe in detail about how each step was done.
 
@@ -89,7 +89,7 @@ The lady can enter a formula according to her conditions without calculating num
 
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/usingFormula.png)
 
-When I call [`Range.getCellValue()`](https://keikai.io/javadoc/latest/io/keikai/api/Range.html#setCellValue-java.lang.Object-), I can get the calculated result of that formula. No need to parse the formula by myself. Isn't great?
+When I call [`Range.getCellValue()`](https://keikai.io/javadoc/latest/io/keikai/api/Range.html#setCellValue-java.lang.Object-), I can get the calculated result of that formula. No need to parse the formula by myself. Isn't it great?
 
 
 # Page Navigation
@@ -130,7 +130,7 @@ I customize UI by hiding column/row heading, the toolbar, context menu, and shee
     <spreadsheet ... hidecolumnhead="true" hiderowhead="true"/>
 ```
 
-By default, toolbar, context menu, and sheet tab are hidden.
+By default, the toolbar, context menu, and sheet tab are hidden.
 
 
 
@@ -149,7 +149,7 @@ Such customization can prevent the administration lady from making undesired cha
 
 
 ## Protect a Sheet to be Read-only
-But hiding toolbar and the context menu is not enough because users can still edit cells arbitrarily. Therefore, I enabled sheet protection to make the whole sheet read-only so that she won’t accidentally delete a currency row or change a currency rate.
+But hiding the toolbar and the context menu is not enough because users can still edit cells arbitrarily. Therefore, I enabled sheet protection to make the whole sheet read-only so that she won’t accidentally delete a currency row or change a currency rate.
 
 ```java
 private static final SheetProtection VIEW_ONLY = SheetProtection.Builder.create().withSelectLockedCellsAllowed(true).withSelectUnlockedCellsAllowed(true).withAutoFilterAllowed(true).build();
