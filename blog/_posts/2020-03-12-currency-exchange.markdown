@@ -124,24 +124,20 @@ private void buyAnother(CellMouseEvent e){
 Now that the application workflow has been implemented, but we need to implement some “safety” to make sure that she follows the desired path. By default, a user can edit any cell in a typical Excel file or spreadsheet. But when making a Web application, usually we wish users to follow the flow we defined. The following APIs are handy for controlling accessibility.
 
 ## Customize UI to Be a Web Page
-I customize UI by hiding column/row heading, the toolbar, context menu, and sheet tabs with component tag attributes:
+I customized the UI by hiding the column/row headers, toolbar, context menu, and sheet tabs with component tag attributes to avoid users accidentally click on them. By default, the toolbar, context menu, and sheet tab are already hidden and I need to only hide column and row headers:
 
 ```xml
     <spreadsheet ... hidecolumnhead="true" hiderowhead="true"/>
 ```
 
-By default, the toolbar, context menu, and sheet tab are hidden.
-
-
-
 ### Limit Visible Area
-Also, to let her concentrate on the application, I decided to show a smaller area instead of showing her the whole sheet, so the lady won't scroll to the end of the world (sheet):
+Also, to let her concentrate on the application, I decided to show a smaller area instead of showing her the whole sheet, so she won't scroll to the end of the world (sheet):
 
 ```xml
     <spreadsheet ... maxVisibleColumns="15" maxVisibleRows="20" .../>
 ```
 
-Such customization can prevent the administration lady from making undesired changes with these APIs, like deleting a sheet (page) by accident. Such UI also make the whole spreadsheet more like a normal page instead of a spreadsheet editor in a web application.
+Such customization can prevent her from making undesired changes with these APIs, like deleting a sheet (page) by accident. Such UI also make the whole spreadsheet more like a normal page instead of a spreadsheet editor in a web application.
 
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/uiAccessibility.png)
 
@@ -161,11 +157,11 @@ private void protectAllSheets() {
 }
 ```
 
-Since there are 15 different permissions of a `SheetProtection`, I create a `SheetProtection` object with a Builder pattern API, [SheetProtection.Builder](https://keikai.io/javadoc/latest/io/keikai/api/SheetProtection.Builder.html) which is a more readable code style.
+Since there are 15 different permissions of a `SheetProtection`, I created a `SheetProtection` object with a Builder pattern API, [SheetProtection.Builder](https://keikai.io/javadoc/latest/io/keikai/api/SheetProtection.Builder.html) which is a more readable code style.
 
 
 ## Limit Editable Area
-Now that I’ve made the whole sheet read-only, she can’t edit anywhere. I need to unlock the cell where she needs to input the buying cost in Excel:
+Now that I’ve made the whole sheet read-only, she can’t edit anywhere. I need to unlock the cells where she needs to input the buying cost in the sheet:
 
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/cellFormat.png)
 
@@ -175,7 +171,7 @@ So that cell (D7) becomes the only one editable cell in the read-only sheet:
 
 
 # Transaction Report
-In the last page, I will show a list of currency transaction in a table.
+In the last page, I will show a list of currency transactions in a table.
  
 ```java
 private void placeAnOrder(double cost, double amount) {
@@ -196,11 +192,11 @@ private void placeAnOrder(double cost, double amount) {
 }
 ```
 
-Keikai also saves your efforts to maintain a table's style including background color, borders, font, and filters. When inserting and deleting rows. You just need to call `insert()`, and Keikai handles all changes on the related styles for you.
+Keikai also saves your efforts to maintain a table's style including background color, borders, font, and filters when inserting and deleting rows. You just need to call `insert()`, and Keikai handles all changes on the related styles for you.
 
 
 # Filter Rows without Coding
-Since I enable a filter in Excel, Keikai also enables it after importing. After the lady places an order for many times, she may wish to filter some rows according to the criteria, e.g. list only the EUR to AUD transactions:
+Since I enabled the filter in Excel, Keikai also enables it after importing. After the lady places an order for many times, she may wish to filter some rows according to the criteria, e.g. list only the EUR to AUD transactions:
 
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/openFilter.png)
 
@@ -216,10 +212,10 @@ The whole usage is like:
 
 I hope she will appreciate this little arrangement I made.
 
-Through these steps, I can turn a traditional workflow of sending Excel forms into a web application. Then, those forms immediately become your system UI, and all my colleagues can effortlessly migrate to Keikai-based web system because they can execute workflows with a familiar UI without extra learning.
+Through these steps, I can turn a traditional workflow of sending Excel forms into a web application. The Excel forms immediately become your system UI, and all my colleagues can effortlessly migrate to Keikai-based web system because they can execute workflows with a familiar UI without extra learning.
 
 # Source Code
-I hope you enjoyed reading my article. The complete source code of "buy currency" application mentioned in this article is available at [Github](https://github.com/keikai/dev-ref).
+I hope you enjoyed reading my article. The complete source code of the "buy currency" application mentioned in this article is available at [Github](https://github.com/keikai/dev-ref).
 
 Just run the project and visit http://localhost:8080/dev-ref/usecase/exchange.zul
 
