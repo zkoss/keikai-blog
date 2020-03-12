@@ -152,7 +152,7 @@ Such customization can prevent the administration lady from making undesired cha
 But hiding toolbar and the context menu is not enough because users can still edit cells arbitrarily. Therefore, I enabled sheet protection to make the whole sheet read-only so that she won’t accidentally delete a currency row or change a currency rate.
 
 ```java
-private static final SheetProtection VIEW_ONLY = SheetProtection.Builder.create().withSelectLockedCellsAllowed(true).withSelectUnlockedCellsAllowed(true).build();
+private static final SheetProtection VIEW_ONLY = SheetProtection.Builder.create().withSelectLockedCellsAllowed(true).withSelectUnlockedCellsAllowed(true).withAutoFilterAllowed(true).build();
 ...
 private void protectAllSheets() {
     for (int i = 0; i < spreadsheet.getBook().getNumberOfSheets(); i++) {
@@ -180,10 +180,10 @@ In the last page, I will show a list of currency transaction in a table.
 ```java
 private void placeAnOrder(double cost, double amount) {
     Sheet sheet = spreadsheet.getBook().getSheet(LIST_SHEET);
-    Range firstRow = Ranges.rangeByName(sheet, "header").toShiftedRange(1,0);
-    firstRow.toRowRange().insert(Range.InsertShift.DOWN, Range.InsertCopyOrigin.FORMAT_LEFT_ABOVE);
-    //fill an order at 1st row
-    Range fillCell = firstRow;
+    insert1stRow(sheet);
+    //locate the 1st cell based on the header because insertion causes a name range shifted
+    Range firstCell1stRow = Ranges.rangeByName(sheet, "header").toShiftedRange(1,0);
+    Range fillCell = firstCell1stRow;
     fillCell.setCellValue(DateUtil.getExcelDate(new Date()));
     fillCell = fillCell.toShiftedRange(0, 1);
     fillCell.setCellValue(cost);
