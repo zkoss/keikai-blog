@@ -202,7 +202,7 @@ Ranges.range(spreadsheet.getBook().getSheetAt(0)).setSheetName(prefix + sheetNam
 # Source Code
 I hope you enjoy reading my article. The complete source code of this report generator is available at [Github](https://github.com/keikai/dev-ref).
 
-Just run the project and visit http://localhost:8080/dev-ref/case/report
+Just run the project and visit http://localhost:8080/dev-ref/usecase/reportGenerator.zul
 
 
 [jekyll]:      http://jekyllrb.com
