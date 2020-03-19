@@ -84,7 +84,7 @@ public class ReportGeneratorController extends SelectorComposer {
 * Line 2: I can store those imported templates (`Book`) into a Map without assigning them to a `Spreadsheet`. Because I don't need to show templates at the beginning.
 
 # Toggle Check Mark
-Since Keikai doesn't support form control, I put a checkmark box symbol in a cell. Each time a user clicks the checkmark box, my code will switch the cell between checked checkmark and not checked.
+Since there's no checkbox control in the current Keikai version I use, I put a checkbox symbol in each cell instead. Each time a user clicks the checkbox, my code will switch the cell between the checked checkbox and the unchecked one.
 
 ![]({{ site.baseurl }}/images/{{page.imgDir}}/checkmark.gif) 
 
