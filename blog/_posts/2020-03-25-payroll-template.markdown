@@ -7,7 +7,7 @@ categories: "Application"
 index-intro: "
 This article tells you how to build a datasheet and template apllication in keikai.
 "
-image: "2020-03-payroll/Article-Payroll-image.jpg"
+image: "2020-03-payroll/Article-Payroll-image.png"
 tags: developer
 author: "Matthieu Duchemin"
 authorImg: "/images/author/matt.jpg"
@@ -42,7 +42,7 @@ I’m using [Keikai](https://keikai.io) to turn this excel file into a web appli
 
 # The big idea
 Simply put, I want to read column headers, and automatically create a copy of the display template for each row. In each copy, I want to fill in the value of the cell matching the column name. Easy as pie.
-![]({{ site.baseurl }}/images/{{page.imgDir}}/Article-Payroll-image.jpg) 
+![]({{ site.baseurl }}/images/{{page.imgDir}}/Article-Payroll-image.png) 
 
 # Well formatted data
 
