@@ -65,6 +65,14 @@ this will read the `Gemfile` and download dependencies automatically, also compl
 
     bundle exec jekyll serve -s blog/ -d preview --config blog/_config.yml,blog/_config_dev.yml
 
+shortcut command for local preview server (clear + build styles + start jekyll preview server)
+
+    ./start-preview-server.sh
+
+clickable shortcut under windows for wsl ubuntu: (adjust paths as needed)
+
+    C:\Windows\System32\wsl.exe export PATH="$HOME/.rbenv/bin:$HOME/.n/bin:$PATH"; npm version; eval "$(rbenv init -)"; cd /mnt/c/workspace/keikai/keikai-blog; ruby --version; ./start-preview-server.sh
+
 # Publish
 
 1. build the zip
