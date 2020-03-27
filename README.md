@@ -7,9 +7,23 @@
 ## setup
 
 ### install node 10.x
+e.g. via https://github.com/tj/n
+
 install `npx` command used in build-styles.sh (if not present)
 
     npm install -g npx
+
+### install required tools/libs
+
+required by `rbenv install`
+
+    sudo apt install gcc
+    sudo apt install make
+    sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
+
+required by jekyll
+
+    sudo apt install python
 
 ### install ruby 2.5.1 (project also builds using 2.1.10 - after changing the Gemfile)
 
