@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  "Upgrading Your Data Processing Spreadsheet to the Web" 
-date:   2020-04-08
+date:   2020-04-09
 categories: "Application"
 
 index-intro: "
 Transform your Excel calculation sheets into a simple and powerful web workflow without exposing the internal calculations to the end-user.
 "
-image: "2020-04-data-transform/intro.png"
+image: "2020-04-data-transform/coverpage.png"
 tags: developer
 author: "Matthieu Duchemin"
 authorImg: "/images/author/matt.jpg"
