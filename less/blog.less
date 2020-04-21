@@ -173,16 +173,16 @@ body {
 		margin: 0;
 		max-height: 0;
 		overflow: hidden;
-		transition: max-height 500ms cubic-bezier(0.24, 0.01, 0.24, 0.99);
+		transition: all 500ms cubic-bezier(0.24, 0.01, 0.24, 0.99);
+		transition-property: max-height, padding-top, padding-bottom;
 	}
 	#footer .section > ul.footer-show-list {
 		max-height: 400px;
+		padding-top: 24px;
+		padding-bottom: 24px;
 	}
-	#footer .section > ul li:first-child {
-		padding-top: 32px;
-	}
-	#footer .section > ul li:last-child {
-		padding-bottom: 32px;
+	#footer .section > ul li {
+		padding: 8px 0;
 	}
 	#footer #footer-lower {
 		display: flex;

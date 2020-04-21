@@ -1,0 +1,47 @@
+.xl(@rules) {
+	@media (min-width: @xl-min) { @rules(); }
+}
+.lg(@rules) {
+	@media (min-width: @lg-min) and (max-width: @lg-max) { @rules(); }
+}
+.md(@rules) {
+	@media (min-width: @md-min) and (max-width: @md-max)  { @rules(); }
+}
+.sm(@rules) {
+	@media (min-width: @sm-min) and (max-width: @sm-max)  { @rules(); }
+}
+.xs(@rules) {
+	@media (max-width: @xs-max)  { @rules(); }
+}
+
+.xl-plus(@rules) {
+	@media (min-width: @xl-min) { @rules(); }
+}
+.lg-plus(@rules) {
+	@media (min-width: @lg-min) { @rules(); }
+}
+.md-plus(@rules) {
+	@media (min-width: @md-min) { @rules(); }
+}
+.sm-plus(@rules) {
+	@media (min-width: @sm-min) { @rules(); }
+}
+.xs-plus(@rules) {
+	@rules();
+}
+
+.xl-minus(@rules) {
+	@rules();
+}
+.lg-minus(@rules) {
+	@media (max-width: @lg-max) { @rules(); }
+}
+.md-minus(@rules) {
+	@media (max-width: @md-max) { @rules(); }
+}
+.sm-minus(@rules) {
+	@media (max-width: @sm-max) { @rules(); }
+}
+.xs-minus(@rules) {
+	@rules();
+}

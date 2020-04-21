@@ -1,4 +1,7 @@
-// collection of utilities 
+@import "./_pageVariables.less";
+@import "./_pageMixins.less";
+
+// collection of utilities
 .transition (@value) {
 	transition: @value;
 	-webkit-transition: @value;
@@ -670,4 +673,11 @@ a.icon-question-circle {
 			}
 		}
 	});
+}
+
+.sm-minus-hidden {
+    .sm-minus({display: none;});
+}
+.md-plus-hidden {
+    .md-plus({display: none;});
 }
