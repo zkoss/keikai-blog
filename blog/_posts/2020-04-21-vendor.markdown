@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Make an Excel data-collecting form live as a Web application" 
-date:   2020-04-21
+date:   2020-04-24
 categories: "Application"
 
 index-intro: "
