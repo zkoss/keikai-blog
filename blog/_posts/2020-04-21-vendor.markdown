@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Turning an Excel Table Into a Web Workflow" 
+title:  "Make a Excel data-collecting form live as a Web application" 
 date:   2020-04-21
 categories: "Application"
 
 index-intro: "
 See how to turn an Excel table into a web workflow.
 "
-image: "2020-04-vendor/keikai-article-vendor.png"
+image: "2020-04-vendor/vendor-title.png"
 tags: developer
 author: "Matthieu Duchemin"
 authorImg: "/images/author/matt.jpg"
@@ -37,18 +37,18 @@ So, what’s in these vendor registration forms anyway? Well, the usual info you
 
 From there, the data is organized in a big table, which allows for searching, filtering, ordering… all the table stuff.
 
-![]({{ site.baseurl }}/images/{{page.imgDir}}/keikai-article-vendor.png "Data to sheet")
+![]({{ site.baseurl }}/images/{{page.imgDir}}/vendor1.png "Data to sheet")
 
 # How to Improve?
 Well, we have two factors to consider: Who and How?
 
 ## Who? Two User Populations:
-**External contacts** who need to fill in their company’s data
-**Internal users** who need to use that data to fill
+* **External contacts** who need to fill in their company’s data.
+* **Internal users** who need to use the dataset filled by the external contacts.
 
 ##How? Two Entry Points:
-**A public web page** for the public form
-**An internal page** for in-house access to the organized dataset.
+* **A public web page** for the public form.
+* **An internal page** for in-house access to the organized dataset.
 
 ## The Tools of the Trade
 We need a form to retrieve data. This form should follow well-known accessibility standards, be easy to use, and be easy to update or extend by the administrative staff. A simple HTML form would do the trick for accessibility and usability if properly designed, but it’s not exactly to extend without some coding knowledge. I’m also not starting from zero here. The target population is familiar with the spreadsheet already in use, and I want to stay as close as possible to the current user expectations.
@@ -129,23 +129,23 @@ public void onCellClick(CellMouseEvent e) {
 ```
 
 And from there, the user has access to all standard spreadsheet table features such as:
-- Filtering a column based on any value or type
-- Ordering rows alphabetically or numerically based on any column’s content
-- Grouping and searching
+* Filtering a column based on any value or type
+* Ordering rows alphabetically or numerically based on any column’s content
+* Grouping and searching
 And if we ever need data analysis, the spreadsheet format is prime support for a pivot-table.
 
 # The Resulting App
 
 Here’s a short video of the updated workflow:
 
-![]({{ site.baseurl }}/images/{{page.imgDir}}/vendorArticle.gif "Sample ") 
+![]({{ site.baseurl }}/images/{{page.imgDir}}/vendorArticle2.gif "Sample ") 
 
 Vendor and admin can now access the form via a single link without having to email files around; edited data are saved immediately to the vendor DB eliminating manual input; updates are reflected in real-time; and the summary form makes it very easy to filter desired result — super easy to find out available vendors in a specific category.
 
 # Conclusion
 It’s a great feeling to remove unnecessary steps from a time-consuming workflow. Making a web-form based on a spreadsheet is a great balance between usability for the end-user and complexity from a developer point-of-view. Using the same spreadsheet tool to have an internal data-table display is a powerful way to leverage all the collated data, with a friendly UI.
 
-The whole runnable project is available on GitHub.
+The whole runnable project is available on [GitHub](https://github.com/keikai/dev-ref).
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
