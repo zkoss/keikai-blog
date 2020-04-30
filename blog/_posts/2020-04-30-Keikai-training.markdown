@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Live Training] Master Keikai Spreadsheet with Examples"
-date:   2020-04-29
+date:   2020-04-30
 categories: "Training"
 
 index-intro: "
