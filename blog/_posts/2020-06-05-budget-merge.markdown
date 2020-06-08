@@ -102,6 +102,7 @@ public void onCellClick(SheetSelectEvent e) {
 	}
 }
 ```
+[Code sample on GitHub](https://github.com/keikai/dev-ref/blob/master/src/main/java/io/keikai/devref/usecase/budget/BudgetComposer.java#L52)
 
 #Retrieving data from a table
 
@@ -122,6 +123,7 @@ private List<BudgetEntry> getBudgetData(){
 	return sheetEntries;
 }
 ```
+[Code sample on GitHub](https://github.com/keikai/dev-ref/blob/master/src/main/java/io/keikai/devref/usecase/budget/BudgetComposer.java#L89)
 
 The “getBudgetEntry” method is where we extract data from the sheets. We simply iterate over the range rows with a for loop.
 
@@ -142,11 +144,14 @@ private Collection<? extends BudgetEntry> getBudgetEntries(Range dataRange, Stri
 	return entries;
 }
 ```
+[Code sample on GitHub](https://github.com/keikai/dev-ref/blob/master/src/main/java/io/keikai/devref/usecase/budget/BudgetComposer.java#L97)
 
 ## Merging datasets
 
 As mentioned above, this is pure data manipulation in Java code. There is no Keikai or ZK feature used here, and we are free to implement this merging operation as we want.
 I have made the choice to only run through the initial result list once for efficiency, but there we can pull from the large pool of existing algorithms. [https://en.wikipedia.org/wiki/Merge_algorithm]
+
+[Code sample on GitHub](https://github.com/keikai/dev-ref/blob/master/src/main/java/io/keikai/devref/usecase/budget/BudgetComposer.java#L109-L137)
 
 ## Writing back to the sheet
 
@@ -164,6 +169,7 @@ private void fillPeriodTable(Range periodTable, Map<String, List<Number>> merged
 	}
 }	
 ```
+[Code sample on GitHub](https://github.com/keikai/dev-ref/blob/master/src/main/java/io/keikai/devref/usecase/budget/BudgetComposer.java#L70)
 
 # Conclusion
 
