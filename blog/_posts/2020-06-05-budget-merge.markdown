@@ -30,20 +30,30 @@ If the data have been gathered in separate sheet and tables, sometime with dupli
 
 This is where things usually get complicated. In the end, some usually will end-up copying and pasting row of data from the individual sheets to the summary table.
 
-
 # Real-world example
-Take for example budgeting. Even if your organization only has 4 departments, you will end up with for different budget sheets.
 
-Some of them will have duplicated expenses between departments. For example, wages and salaries will be an item for any organizational units. Some of them will be unique for a specific team, such advertising being exclusive to the marketing department. Some will be shared by only a few – but not all – of the teams, or even duplicated inside of a team’s sheet.
+Take for example budgeting. Even if your organization only has 4 departments, you will end up with for different budget sheets. Some of them will have duplicated expenses between departments. For example, wages and salaries will be an item for any organizational units. Some of them will be unique for a specific team, such advertising being exclusive to the marketing department. And then some will be shared by only a few – but not all – of the teams, or even duplicated inside of a team’s sheet.
+
+On top of that, each sheet must be filled by a different team manager, which usually ends up with multiple copies of the same file being passed around through email.
+
+This all culminates with the last person in the chain receiving five versions of the same file, some containing old data, some incomplete and one of them inexplicably blank. It takes a lot of effort and a significant amount of time to take this wildly divergent dataset and make it exploitable.
+
 
 ## Requirements of the summary sheet
+
+We want to improve it in two ways. First, we need to make sharing and collaborating much easier. The data-entering process should be streamlined, should have single point of access, and should be accessible to any designated users.
+
+We also need to improve on the sheet workflow itself. Excel formulas can be powerful in many situations, but they also have their limits. We already have our formulas set up in this document to calculate sums, ratios, averages, etc. inside each department sheet. These, we will absolutely keep. This is where Excel’s formulas work at their best, and we will rely on Keikai to simply use what we already have.
+
+On the other hand, Excel formulas are not ideal to perform dataset operations. Searching, merging and filtering are possible, but they take significant time to set up and execute. They are also fragile and often rely on static sheet layouts in order to be maintained. Keikai operate in a Java web server, so we will improve our workflow by delegating the data manipulation to this layer. 
+
 In this case, we need to generate two merged summaries of the data. One merged per period, and the other merged per department.
 
 The “per period” table will need to merge every entry using the same label and sum their values depending on each of the yearly periods (Q1 to Q4).
 
 The “per department” table will need to merge every entry using the same label and sum their values depending on the department declaring this expense.
-
 If we were to create these in Excel, we would either need complicated formulas checking and matching results from each of the source tables, or we would need to use custom merging queries.
+
 
 ## Limitations of the pure Excel workflow
 
@@ -55,10 +65,13 @@ This is far from the only formula-based processing to suffer from complexity and
 
 # Keikai java workflow improvements
 
-Since we are working in Keikai, there is a more powerful way to achieve this. Keikai relies on a Java server, and as such we can run java code on specific sheet events.
+First, we will make this existing document into a Keikai powered web page. The first benefit is immediate and obvious. No more emails, no more duplicated files. Everyone is working on the same document, and at the same time. Collaboration mode brings even more advantages since you can see other user’s activity in real time and adjust your entry accordingly.
+
+As we are working with Keikai, there is a more powerful way to achieve this. Keikai relies on a Java server, and as such we can run java code on specific sheet events.
 
 We have access to server-side Java programming which means that we can implement efficient algorithms instead of chaining functions.
 This will become more visible with each additional line of data.
+
 
 ## Implementation logic
 In this example, we are retrieving mixed data from individual sheet. Each of the sheet follows the same format, so we can use the same “get entries from sheet” method for each of the sheets. This said if we had multiple structures, we could make individual “get entries from sheet” methods to match each of the table structures used.
