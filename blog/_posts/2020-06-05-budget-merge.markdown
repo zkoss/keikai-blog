@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Merge multiple sheets of data with an extended workflow" 
+title:  "Excel UI with Java flexibility: merging spreadsheet data in Keikai" 
 date:   2020-06-05
 categories: "Application"
 
