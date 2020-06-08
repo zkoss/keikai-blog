@@ -74,13 +74,21 @@ This will become more visible with each additional line of data.
 
 
 ## Implementation logic
+
 In this example, we are retrieving mixed data from individual sheet. Each of the sheet follows the same format, so we can use the same “get entries from sheet” method for each of the sheets. This said if we had multiple structures, we could make individual “get entries from sheet” methods to match each of the table structures used.
+
 This let us build a full dataset of each individual rows, represented by the BudgetEntry java class. These objects have getters to retrieve the values relevant for this workflow: The expense label, the expense source department, and the values for each of the periods.
+
 We then pass this dataset to our merge functions. Once again, since we work in pure Java code, we can use performant algorithms and obtain a linear processing time. If processing 1 entry takes X milliseconds, then processing N entries takes N*X milliseconds.
+
 The merging itself can be as simple as reading each entry in the full dataset and adding its value to the relevant output. How this merge operation behaves is entirely up to us. Do we want to sum up duplicated entries or do we want to display them as individual items? This is just one of the choices we can make at this stage.
+
 Each of our merging functions will generate a merged dataset that we will use to write data back to the sheet.
+
 As with the “get entries from the sheet” step, the “write data to the sheet” methods can be customized to any target sheet structure.
 Since the spreadsheet format is great for tabular data, we will simply take the list of entries and write them one by one in a table for each of our merged datasets.
+
+![]({{ site.baseurl }}/images/{{page.imgDir}}/keikai-article-merge.png "Merge Workflow") 
 
 #implementation
 
@@ -170,6 +178,14 @@ private void fillPeriodTable(Range periodTable, Map<String, List<Number>> merged
 }	
 ```
 [Code sample on GitHub](https://github.com/keikai/dev-ref/blob/master/src/main/java/io/keikai/devref/usecase/budget/BudgetComposer.java#L70)
+
+# The Resulting App
+
+Here’s a short video of the updated workflow:
+
+![]({{ site.baseurl }}/images/{{page.imgDir}}/merge-article.gif "Sample ") 
+
+Every team leader can now work on the same document directly, and the Java workflow offer a quick and efficient summary of the data based on our customized merging workflow.
 
 # Conclusion
 
