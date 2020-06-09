@@ -88,7 +88,7 @@ Each of our merging functions will generate a merged dataset that we will use to
 As with the “get entries from the sheet” step, the “write data to the sheet” methods can be customized to any target sheet structure.
 Since the spreadsheet format is great for tabular data, we will simply take the list of entries and write them one by one in a table for each of our merged datasets.
 
-![]({{ site.baseurl }}/images/{{page.imgDir}}/keikai-article-merge.png "Merge Workflow") 
+![]({{ site.baseurl }}/images/{{page.imgDir}}/merge-article-rev1.png "Merge Workflow") 
 
 #implementation
 
