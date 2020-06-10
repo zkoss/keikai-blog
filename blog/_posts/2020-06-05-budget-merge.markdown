@@ -7,7 +7,7 @@ categories: "Application"
 index-intro: "
 Extend available excel functionality with customized workflows.
 "
-image: "2020-06-merge/Merge-2.png"
+image: "2020-06-merge/merge_cover.png"
 tags: developer
 author: "Matthieu Duchemin"
 authorImg: "/images/author/matt.jpg"
