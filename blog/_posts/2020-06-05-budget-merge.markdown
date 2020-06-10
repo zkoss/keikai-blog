@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  "Excel UI with Java flexibility: merging spreadsheet data in Keikai" 
-date:   2020-06-05
+date:   2020-06-10
 categories: "Application"
 
 index-intro: "
 Extend available excel functionality with customized workflows.
 "
-image: "2020-06-merge/merge-title.png"
+image: "2020-06-merge/Merge-1.png"
 tags: developer
 author: "Matthieu Duchemin"
 authorImg: "/images/author/matt.jpg"
@@ -28,13 +28,13 @@ There is a common end-goal to most sheet of formatted data. We want to analyze, 
 
 If the data have been gathered in separate sheet and tables, sometime with duplicated entries, we need to be able to merge all of it into a simple easy-to-use table.
 
-This is where things usually get complicated. In the end, some usually will end-up copying and pasting row of data from the individual sheets to the summary table.
+This is where things usually get complicated. In the end, some will usually end-up copying and pasting rows of data from the individual sheets to the summary table.
 
 # Real-world example
 
-Take for example budgeting. Even if your organization only has 4 departments, you will end up with for different budget sheets. Some of them will have duplicated expenses between departments. For example, wages and salaries will be an item for any organizational units. Some of them will be unique for a specific team, such advertising being exclusive to the marketing department. And then some will be shared by only a few – but not all – of the teams, or even duplicated inside of a team’s sheet.
+Take for example budgeting. Even if your organization only has four departments, you will end up with four different budget sheets. Some of them will have duplicated expenses between departments. For example, wages and salaries will be an item for any organizational units. Some of them will be unique for a specific team, such advertising being exclusive to the marketing department. And then some will be shared by only a few – but not all – of the teams, or even duplicated inside of a team’s sheet.
 
-On top of that, each sheet must be filled by a different team manager, which usually ends up with multiple copies of the same file being passed around through email.
+On top of that, each sheet must be filled by a different team manager, which usually ends up with multiple copies of the same file being passed around through emails.
 
 This all culminates with the last person in the chain receiving five versions of the same file, some containing old data, some incomplete and one of them inexplicably blank. It takes a lot of effort and a significant amount of time to take this wildly divergent dataset and make it exploitable.
 
@@ -88,16 +88,16 @@ Each of our merging functions will generate a merged dataset that we will use to
 As with the “get entries from the sheet” step, the “write data to the sheet” methods can be customized to any target sheet structure.
 Since the spreadsheet format is great for tabular data, we will simply take the list of entries and write them one by one in a table for each of our merged datasets.
 
-![]({{ site.baseurl }}/images/{{page.imgDir}}/merge-article-rev1.png "Merge Workflow") 
+![]({{ site.baseurl }}/images/{{page.imgDir}}/merge_workflow.png "Merge Workflow") 
 
-#implementation
+#Implementation
 
 Now that we know what we are doing, let us look at how exactly we are doing it. In this section, I will mention the key technical steps for this workflow
 Registering an event listener
 
-There are multiple ways to register an event listener. We are working in Keikai + ZK, so we can use any of the event listener structures. [https://www.zkoss.org/wiki/ZK_Developer's_Reference/Event_Handling/Event_Listening]
+There are multiple ways to register an event listener. We are working in Keikai + ZK, so we can use any of the [event listener structures](https://www.zkoss.org/wiki/ZK_Developer's_Reference/Event_Handling/Event_Listening).
 
-In this case, I chose to use the @Listen annotation. With this syntax, I listen to events of type “ON_SHEET_SELECT” sent by components of type “spreadsheet”.
+In this case, I chose to use the `@Listen` annotation. With this syntax, I listen to events of type `ON_SHEET_SELECT` sent by components of type “spreadsheet”.
 
 Since I don’t need to re-calculate the summary tables when navigating to the department entry sheets, I have also added an if statement to only do the merge workflow if I’m selecting the summary sheet. 
 
@@ -116,9 +116,9 @@ public void onCellClick(SheetSelectEvent e) {
 
 The first step of my workflow is to retrieve the data rows from each of the tables. In my case, all the entry tables have the same structure, so I can re-use the same data-extractor method.
 
-I start by creating an empty List “sheetEntries” to hold the result objects. Then, I iterate over the list of available sheets and run the “getBudgetEntries” method for each of these sheets.
+I start by creating an empty List `sheetEntries` to hold the result objects. Then, I iterate over the list of available sheets and run the “getBudgetEntries” method for each of these sheets.
 
-Since the tables have received names, I can simply use “Ranges.rangeByName(book, name)” to retrieve the Range containing the data and pass it to the “getBudgetEntry” method.
+Since the tables have received names, I can simply use `Ranges.rangeByName(book, name)` to retrieve the Range containing the data and pass it to the “getBudgetEntry” method.
 
 I collect all the resulting rows into sheetEntries which becomes my full dataset.
 
@@ -133,9 +133,9 @@ private List<BudgetEntry> getBudgetData(){
 ```
 [Code sample on GitHub](https://github.com/keikai/dev-ref/blob/master/src/main/java/io/keikai/devref/usecase/budget/BudgetComposer.java#L89)
 
-The “getBudgetEntry” method is where we extract data from the sheets. We simply iterate over the range rows with a for loop.
+The `getBudgetEntry` method is where we extract data from the sheets. We simply iterate over the range rows with a for loop.
 
-Inside of this loop, we iterate over the columns and retrieve the values of the cells one by one using “cellRange.getCellValue()”.
+Inside of this loop, we iterate over the columns and retrieve the values of the cells one by one using `cellRange.getCellValue()`.
 
 For each of these rows, we create a new BudgetEntry object and return the list of entry generated as result of this method.
 
@@ -157,7 +157,7 @@ private Collection<? extends BudgetEntry> getBudgetEntries(Range dataRange, Stri
 ## Merging datasets
 
 As mentioned above, this is pure data manipulation in Java code. There is no Keikai or ZK feature used here, and we are free to implement this merging operation as we want.
-I have made the choice to only run through the initial result list once for efficiency, but there we can pull from the large pool of existing algorithms. [https://en.wikipedia.org/wiki/Merge_algorithm]
+I have made the choice to only run through the initial result list once for efficiency, but there we can pull from the large pool of existing [algorithms](https://en.wikipedia.org/wiki/Merge_algorithm).
 
 [Code sample on GitHub](https://github.com/keikai/dev-ref/blob/master/src/main/java/io/keikai/devref/usecase/budget/BudgetComposer.java#L109-L137)
 
@@ -165,7 +165,7 @@ I have made the choice to only run through the initial result list once for effi
 
 Once we have merged our main dataset into two exploitable summary sets, we only need to write them back to the sheet.
 
-This is almost identical to the reading process, except instead of using .getCellValue() to retrieve data, we will use .setCellValue() to write data back to the sheet.
+This is almost identical to the reading process, except instead of using `.getCellValue()` to retrieve data, we will use `.setCellValue()` to write data back to the sheet.
 
 ```java
 private void fillPeriodTable(Range periodTable, Map<String, List<Number>> mergedMap) {
@@ -183,7 +183,7 @@ private void fillPeriodTable(Range periodTable, Map<String, List<Number>> merged
 
 Here’s a short video of the updated workflow:
 
-![]({{ site.baseurl }}/images/{{page.imgDir}}/merge-article.gif "Sample ") 
+![]({{ site.baseurl }}/images/{{page.imgDir}}/merge_result.gif "Resulting Workflow") 
 
 Every team leader can now work on the same document directly, and the Java workflow offer a quick and efficient summary of the data based on our customized merging workflow.
 
