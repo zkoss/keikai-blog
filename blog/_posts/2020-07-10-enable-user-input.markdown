@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Enable User Input in My Spreadsheet-based App"
-date:   2020-07-09
+date:   2020-07-10
 categories: "UseCase"
 
 index-intro: "Control spreadsheet from Java!"
@@ -22,7 +22,7 @@ images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_
 
 # New requirements: add new expenses
 
-A while ago I turned my colleague Michelle's Excel file into an online budget report web app, to save her from a bunch of manual routines. Recently, she had a new requirement, adding new expenses. She wanted to add new expenses in the sheet and aggregate the new expenses in the current summary report.
+[A while ago I turned my colleague Michelle's Excel file into an online budget report web app](https://keikai.io/blog/p/create-online-budget-report-from-excel.html), to save her from a bunch of manual routines. Recently, she had a new requirement, adding new expenses. She wanted to add new expenses in the sheet and aggregate the new expenses in the current summary report.
 
 This is how the summary report looks like:
 
