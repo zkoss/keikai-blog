@@ -6,7 +6,7 @@ date: 2020-08-05
 index-intro: "
 A web application, Invoice Builder, turns a manual process into an integrated, automated process leveraging Excel files, Java and, Keikai.
 "
-image: "2020-08-invoice/coverpage.jpg"
+image: "2020-08-invoice/cover.png"
 tags: developer
 author: "Hawk Chen"
 authorImg: "/images/author/hawk.png"
