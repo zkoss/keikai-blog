@@ -4,7 +4,7 @@ title:  "Automate Excel Sheet Processing with Java"
 date:   2020-08-13
 categories: "UseCase"
 
-index-intro: "Control spreadsheet from Java!"
+index-intro: "Avoid manual editing! Fill your data into spreadsheet templates automatically by using Keikai."
 
 image: "2020-08-automateExcelsheet/automate_excelsheet_cover.png"
 tags: tutorial developer
