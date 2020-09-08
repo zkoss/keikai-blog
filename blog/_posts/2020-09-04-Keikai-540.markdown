@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "Keikai 5.4.0 coming soon"
+date:   2020-09-08
+categories: "News"
+
+index-intro: "
+[Announcement] 5.4.0 release
+"
+image: "2020-09-Keikai_release/540_cover.png"
+tags: marketing
+author: "Michelle Chen"
+authorImg: "/images/author/michelle.jpg"
+authorDesc: "Marketing, Keikai."
+
+
+imgDir: "2020-09-Keikai_release"
+javadoc: "http://keikai.io/javadoc/latest/"
+---
+<!--
+images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_OEb made with draw.io
+goal： Keikai can help you build a spreadsheet-based app
+-->
+
+![]({{ site.baseurl }}/images/{{page.imgDir}}/540.png)
+
+Dear all, 
+
+Keikai Spreadsheet is a modern & fast ajax web spreadsheet component that brings Excel functionalities into your web application. 
+
+Keikai 5.4.0 will come with more than 30 enhancements. We have replaced the formula parser meaning it is now compatible with a wider range of Excel files and settings. In addition the parsing speed is 100% faster when parsing complicated strings. 
+Filtering performance has also been optimized, trimming the filtering time down from 15 seconds to 1 second against a large sheet containing tens of thousands of rows and hundreds of columns.
+
+
+Other highlighted features & improvements include: 
+
+* [KEIKAI-294] (https://tracker.zkoss.org/browse/KEIKAI-294) - sparklines can resize according to column width and row height
+* [KEIKAI-301] (https://tracker.zkoss.org/browse/KEIKAI-301) - provide an option to move the selection to a different direction after pressing enter key
+* [KEIKAI-302] (https://tracker.zkoss.org/browse/KEIKAI-302) - show zero values as blank cell
+* [KEIKAI-311] (https://tracker.zkoss.org/browse/KEIKAI-311) - support sparklines color for importing and exporting
+
+
+We hope you find these enhancements and performance boosts useful to your project. 
+
+Sneak peek [**here**](https://mavensync.zkoss.org/eval/io/keikai/keikai-ex/) - specify latest version!
+
+Feel free to provide us with your feedback. If you are new to Keikai feel free to drop us a note at **info@keikai.io**.
+
+Thank you and we look forward to hearing from you again soon. 
+
+
+
+
+
+
+
+[jekyll]:      http://jekyllrb.com
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-help]: https://github.com/jekyll/jekyll-help
