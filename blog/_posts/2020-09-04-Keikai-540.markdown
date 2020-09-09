@@ -7,7 +7,7 @@ categories: "News"
 index-intro: "
 [Announcement] 5.4.0 release
 "
-image: "2020-09-Keikai_release/540_cover.png"
+image: "2020-09-Keikai_release/540cover.png"
 tags: marketing
 author: "Michelle Chen"
 authorImg: "/images/author/michelle.jpg"
