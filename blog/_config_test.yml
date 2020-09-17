@@ -1,8 +1,8 @@
 # Site settings
-name: "Keikai & You"
-title: "Keikai & You"
-email: feedback@keikai.io
-description: "A Keikai tool for Keikai."
+name: "Keikai Blog"
+title: "Keikai Blog"
+email: info@keikai.io
+description: "A collection of spreadsheet examples for turning Excel to web, editing online and building spreadsheet applications using Keikai."
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 # url: "http://localhost:4000" # the base hostname & protocol for your site
 url: "https://test.keikai.io" # the base hostname & protocol for your site

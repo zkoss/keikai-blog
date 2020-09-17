@@ -3,6 +3,7 @@ layout: post
 title:  "Keikai 5.4.0 coming soon"
 date:   2020-09-08
 categories: "News"
+excerpt: "Keikai Spreadsheet is designed for turning excel to web and building spreadsheet applications. Upcoming 5.4.0 contains more than 30 enhancements."
 
 index-intro: "
 [Announcement] 5.4.0 release
