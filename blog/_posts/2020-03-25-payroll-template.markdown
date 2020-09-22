@@ -3,6 +3,7 @@ layout: post
 title:  "Turn manual Excel workflow into automated Web App" 
 date:   2020-03-25
 categories: "Application"
+excerpt: “Automate excel data-filling process with Keikai - take payroll as an example.”
 
 index-intro: "
 This article tells you how to build a datasheet and template apllication in keikai.

@@ -2,7 +2,8 @@
 layout: post
 title:  "Excel UI with Java flexibility: merging spreadsheet data in Keikai" 
 date:   2020-06-10
-categories: "Application"
+categories: "Application" 
+excerpt: “Turn excel to web and improve formula efficiency with Java - take budget template as example.”
 
 index-intro: "
 Extend available excel functionality with customized workflows.

@@ -3,6 +3,7 @@ layout: post
 title:  "Build a Web Application Based on Your Excel Files"
 date:   2020-02-11
 categories: "Application"
+excerpt: “Keikai tutorial - populate data from database to excel-like sheets online.”
 
 index-intro: "A Web Application Based on Your Excel Files<br/>
 <br/>

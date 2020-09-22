@@ -2,7 +2,8 @@
 layout: post
 title:  "Upgrading Your Data Processing Spreadsheet to the Web" 
 date:   2020-04-09
-categories: "Application"
+categories: "Application" 
+excerpt: “Turn data-processing sheets to apps - financial modals, HR, scientific calculations and more. Share sheets easily while keeping your formulas safely.”
 
 index-intro: "
 Transform your Excel calculation sheets into a simple and powerful web workflow without exposing the internal calculations to the end-user.

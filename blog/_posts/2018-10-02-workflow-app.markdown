@@ -3,6 +3,7 @@ layout: post
 title:  "Spreadsheet as a Web App - Workflow Example"
 date:   2019-02-03
 categories: "Application"
+excerpt: "Build an online spreadsheet application from Excel - take Leave Form as an example."
 
 index-intro: "A Keikai Workflow Application<br/>
 <br/>

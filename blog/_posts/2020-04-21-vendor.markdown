@@ -2,7 +2,8 @@
 layout: post
 title:  "Make an Excel data-collecting form live as a Web application" 
 date:   2020-04-24
-categories: "Application"
+categories: "Application" 
+excerpt: “Turn excel data-collection form to a Web app - take vendor form as example.”
 
 index-intro: "
 See how to turn an Excel table into a web workflow.

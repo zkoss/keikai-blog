@@ -3,6 +3,7 @@ layout: post
 title:  "Create a Tailored, Web-based Excel Report Generator" 
 date:   2020-03-19
 categories: "Application"
+excerpt: “An online report generator example that generates custom excel reports by combining different books.”
 
 index-intro: "
 This article tells you how to build a report generator.

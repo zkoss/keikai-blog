@@ -3,6 +3,8 @@ layout: post
 title:  "Automate your Excel-based workflow in Java -- Invoice Builder Example"
 categories: "Application"
 date: 2020-08-05
+excerpt: “Turn excel form to a web app and automate the workflow in Java - take invoice template as example.”
+
 index-intro: "
 A web application, Invoice Builder, turns a manual process into an integrated, automated process leveraging Excel files, Java and, Keikai.
 "

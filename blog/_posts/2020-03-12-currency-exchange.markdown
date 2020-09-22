@@ -3,6 +3,7 @@ layout: post
 title:  "Turn Your Excel File Into a Web Application"
 date:   2020-03-12
 categories: "Application"
+excerpt: “Turn excel to web -- automate your excel by populating data from database to sheets.”
 
 index-intro: "
 This article tells you how to turn a traditional workflow of sending Excel forms into a web application.
