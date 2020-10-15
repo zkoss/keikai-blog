@@ -3,6 +3,7 @@ layout: post
 title:  "[Live Training] Master Keikai Spreadsheet with Examples Part II"
 date:   2020-06-5
 categories: "Training"
+excerpt: “Keikai brings Excel power to your web apps. In training II we will talk about formula protection and user permissions.”
 
 index-intro: "
 Announcement: Keikai online free training session.

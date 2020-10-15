@@ -3,6 +3,7 @@ layout: post
 title:  "Enable User Input in My Spreadsheet-based App"
 date:   2020-07-10
 categories: "UseCase"
+excerpt: “Keikai tips - wiring actions to your spreadsheet. ”
 
 index-intro: "Control spreadsheet from Java!"
 

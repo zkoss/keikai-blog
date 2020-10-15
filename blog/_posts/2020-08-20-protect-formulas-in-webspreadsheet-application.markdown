@@ -3,6 +3,7 @@ layout: post
 title:  "Protect Formulas in a Web Spreadsheet Application"
 date:   2020-08-20
 categories: "UseCase"
+excerpt: “Keikai protects your formula while turning your Excel model to a secured and easy-to-share Web application.”
 
 index-intro: "Protect your secret formulas while sharing your analysis spreadsheet online."
 

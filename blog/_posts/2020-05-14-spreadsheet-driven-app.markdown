@@ -3,6 +3,7 @@ layout: post
 title:  "Build Spreadsheet-driven Web Apps "
 date:   2020-05-14
 categories: "UseCase"
+excerpt: “Benefits building web applications from Excel files. ”
 
 index-intro: "
 This article introduces the benefits of building Web apps from Excel files using Keikai.

@@ -3,6 +3,7 @@ layout: post
 title:  "Automate Excel Sheet Processing with Java"
 date:   2020-08-13
 categories: "UseCase"
+excerpt: “Keikai Spreadsheet - filling data automatically to your Excel templates.”
 
 index-intro: "Avoid manual editing! Fill your data into spreadsheet templates automatically by using Keikai."
 

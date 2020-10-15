@@ -3,6 +3,7 @@ layout: post
 title:  "How I Created an Online Budget Report from Excel Files"
 date:   2020-07-08
 categories: "UseCase"
+excerpt: “Turn excel to web - populate data from database to an Excel template using Keikai. ”
 
 index-intro: "Turn Excel into online budget app!"
 

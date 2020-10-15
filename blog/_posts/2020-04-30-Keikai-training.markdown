@@ -3,6 +3,7 @@ layout: post
 title:  "[Live Training] Master Keikai Spreadsheet with Examples"
 date:   2020-04-30
 categories: "Training"
+excerpt: “Keikai brings Excel power to your web apps. In training I we will talk about custom reporting and building web apps from Excel.”
 
 index-intro: "
 Announcement: Keikai online free training session.
