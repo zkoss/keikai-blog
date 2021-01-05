@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "Keikai 5.6.0 coming soon"
+date:   2021-01-05
+categories: "News"
+excerpt: "Keikai Spreadsheet is designed for turning excel to web and building spreadsheet applications. Upcoming 5.6.0 contains more than 30 enhancements."
+
+index-intro: "
+[Announcement] 5.6.0 release
+"
+image: "2021-01-Keikai_release/560cover.png"
+tags: marketing
+author: "Michelle Chen"
+authorImg: "/images/author/michelle.jpg"
+authorDesc: "Marketing, Keikai."
+
+
+imgDir: "2021-01-Keikai_release"
+javadoc: "http://keikai.io/javadoc/latest/"
+---
+<!--
+images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_OEb made with draw.io
+goal： Keikai can help you build a spreadsheet-based app
+-->
+
+![]({{ site.baseurl }}/images/{{page.imgDir}}/560.png)
+
+Dear all, 
+
+Keikai Spreadsheet is a modern & fast ajax web spreadsheet component that brings Excel functionalities into your web application. 
+
+Keikai 5.6.0 will come with more than 30 enhancements. We have enhanced our import compatibility and provided an easier way to trace formula precedents and dependents for both end-users and app developers. Developers can implement precedent and dependent trace features for the users while users can then identify data sources and check values easily.
+
+
+Other highlighted features & improvements include: 
+
+* [KEIKAI-393] (https://tracker.zkoss.org/browse/KEIKAI-393) - provide a public API to get precedents and dependents of a formula
+* [KEIKAI-396] (https://tracker.zkoss.org/browse/KEIKAI-396) - provide a developer-friendly way to access a cell's precedents and dependents
+* [KEIKAI-397] (https://tracker.zkoss.org/browse/KEIKAI-397) - highlight the dependents / precedents of a cell
+* [KEIKAI-371] (https://tracker.zkoss.org/browse/KEIKAI-371) - fix the issue: page up and page down don't work as expected
+* [KEIKAI-377] (https://tracker.zkoss.org/browse/KEIKAI-377) - can render a sheet for ErrorEval.CIRCULAR_REF_ERROR
+* [KEIKAI-388] (https://tracker.zkoss.org/browse/KEIKAI-388) - fix the issue: can't parse 2 double quotes in a formula
+* [KEIKAI-389] (https://tracker.zkoss.org/browse/KEIKAI-389) - fix the issue: 2 double quotes cause an ArrayIndexOutOfBoundsException in a specific formula length
+
+
+We hope you find these enhancements useful to your project and highly recommend trying it out before official release.
+
+Sneak peek [**here**](https://mavensync.zkoss.org/eval/io/keikai/keikai-ex/) - specify latest version!
+
+Feel free to provide us with your feedback. If you are new to Keikai feel free to drop us a note at **info@keikai.io**.
+
+Thank you and we look forward to hearing from you again soon. 
+
+
+
+
+
+
+
+[jekyll]:      http://jekyllrb.com
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-help]: https://github.com/jekyll/jekyll-help
