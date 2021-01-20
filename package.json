@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/keikai/keikai-blog#readme",
   "devDependencies": {
-    "less": "^3.0.1",
+    "less": "^4.1.0",
     "less-plugin-clean-css": "^1.5.1"
   }
 }
