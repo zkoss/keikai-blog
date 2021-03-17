@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "Keikai 5.6.1 now available"
+date:   2021-03-17
+categories: "News"
+excerpt: "Keikai Spreadsheet is designed for turning excel to web and building spreadsheet applications. Upcoming 5.6.0 contains more than 30 enhancements."
+
+index-intro: "
+[Announcement] 5.6.1 release
+"
+image: "2021-03-Keikai_release/561cover.png"
+tags: marketing
+author: "Michelle Chen"
+authorImg: "/images/author/michelle.jpg"
+authorDesc: "Marketing, Keikai."
+
+
+imgDir: "2021-03-Keikai_release"
+javadoc: "http://keikai.io/javadoc/latest/"
+---
+<!--
+images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_OEb made with draw.io
+goal： Keikai can help you build a spreadsheet-based app
+-->
+
+![]({{ site.baseurl }}/images/{{page.imgDir}}/561.png)
+
+Dear all, 
+
+Keikai Spreadsheet is a modern & fast ajax web spreadsheet component that brings Excel functionalities into your web application. 
+
+Keikai 5.6.1 is an updated release with 7 bug fixes, covering improvements on importing, conditional formatting and formulas.
+
+
+Other highlighted features & improvements include: 
+
+* [KEIKAI-424] (https://tracker.zkoss.org/browse/KEIKAI-424) - import column arrays failed
+* [KEIKAI-432] (https://tracker.zkoss.org/browse/KEIKAI-432) - name index overflow during importing
+
+
+We hope you find these enhancements useful to your project.
+
+For a full list of changes, check out the release note [**here**](https://keikai.io/releasenotes)!
+
+
+
+Feel free to provide us with your feedback. If you are new to Keikai feel free to drop us a note at **info@keikai.io**.
+
+Thank you and we look forward to hearing from you again soon. 
+
+
+
+
+
+
+
+[jekyll]:      http://jekyllrb.com
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-help]: https://github.com/jekyll/jekyll-help
