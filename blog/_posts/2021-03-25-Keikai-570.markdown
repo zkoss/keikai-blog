@@ -1,0 +1,60 @@
+---
+layout: post
+title:  "Keikai 5.7.0 now available"
+date:   2021-03-25
+categories: "News"
+excerpt: "Keikai Spreadsheet is designed for turning excel to web and building spreadsheet applications. 5.7.0 contains more than 20 enhancements."
+
+index-intro: "
+[Announcement] 5.7.0 release
+"
+image: "2021-03-Keikai_release/570.png"
+tags: marketing
+author: "Michelle Chen"
+authorImg: "/images/author/michelle.jpg"
+authorDesc: "Marketing, Keikai."
+
+
+imgDir: "2021-03-Keikai_release"
+javadoc: "http://keikai.io/javadoc/latest/"
+---
+<!--
+images come from https://drive.google.com/open?id=17EEz_BuTVsTSeAA3a8AakyMspVSd_OEb made with draw.io
+goal： Keikai can help you build a spreadsheet-based app
+-->
+
+![]({{ site.baseurl }}/images/{{page.imgDir}}/570.png)
+
+Dear all, 
+
+Keikai Spreadsheet is a modern & fast ajax web spreadsheet component that brings Excel functionalities into your web application. 
+
+Keikai 5.7.0 is an updated release with more than 20 enhancements. Highlighted features include supporting column width autofit and enhanced conditional formatting features like reference a cell from another sheet and support showing mixed-group iconSets.
+
+
+Other highlighted features & improvements include: 
+
+* [KEIKAI-395] (https://tracker.zkoss.org/browse/KEIKAI-395) - conditional formatting can reference a cell from another sheet
+* [KEIKAI-416] (https://tracker.zkoss.org/browse/KEIKAI-416) - support column width autofit
+* [KEIKAI-448] (https://tracker.zkoss.org/browse/KEIKAI-448) - support showing mixed-group iconSets in conditional formatting
+
+
+We hope you find these enhancements useful to your project.
+
+For a full list of changes, check out the release note [**here**](https://keikai.io/releasenotes)!
+
+
+
+Feel free to provide us with your feedback. If you are new to Keikai feel free to drop us a note at **info@keikai.io**.
+
+Thank you and we look forward to hearing from you again soon. 
+
+
+
+
+
+
+
+[jekyll]:      http://jekyllrb.com
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-help]: https://github.com/jekyll/jekyll-help
