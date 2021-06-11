@@ -8,7 +8,7 @@ excerpt: “Our story - how we started from ZK Spreadsheet and arrived at Keikai
 index-intro: "Keikai - けいかい 【軽快】 - Nimble, and Mighty. <br/>
 <br/>
 
-Hi, I am Henri, founder of Keikai. 
+Hi, I am Henri, founder of Keikai.  
 
 
 It has been more than 40 years since the first spreadsheet was invented. As time goes by, spreadsheet has been invented, reinvented, dropped, picked up and put online. Even on our mobile devices.
